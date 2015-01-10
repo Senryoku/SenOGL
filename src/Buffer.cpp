@@ -2,7 +2,7 @@
 
 #include <cassert>
 
-Buffer::Buffer(Type type, GLuint handle) : 
+Buffer::Buffer(Target type, GLuint handle) : 
 	OpenGLObject(handle),
 	_type(type)
 {
@@ -25,7 +25,7 @@ void Buffer::bind() const
     glBindBuffer(to_underlying(_type), getName());
 }
 
-void Buffer::bind(Type t) const
+void Buffer::bind(Target t) const
 {
 	assert(isValid());
     glBindBuffer(to_underlying(t), getName());
@@ -33,8 +33,8 @@ void Buffer::bind(Type t) const
 
 void Buffer::bind(GLuint bindingPoint, GLintptr offset, GLsizeiptr size) const
 {
-	assert(_type == Type::AtomicCounter || _type == Type::TransformFeedback || 
-		   _type == Type::Uniform || _type == Type::ShaderStorage);
+	assert(_type == Target::AtomicCounter || _type == Target::TransformFeedback || 
+		   _type == Target::Uniform || _type == Target::ShaderStorage);
 	// Default values for offset and size: use entire buffer.
 	if(offset == 0 && size == 0)
 	{
@@ -44,7 +44,7 @@ void Buffer::bind(GLuint bindingPoint, GLintptr offset, GLsizeiptr size) const
 	}
 }
 	
-void Buffer::bind(Type target, GLuint bindingPoint, GLintptr offset, GLsizeiptr size) const
+void Buffer::bind(Target target, GLuint bindingPoint, GLintptr offset, GLsizeiptr size) const
 {
 	assert(target == AtomicCounter || target == TransformFeedback || target == Uniform || target == ShaderStorage);
 	// Default values for offset and size: use entire buffer.
@@ -68,7 +68,7 @@ void Buffer::init()
 	glGenBuffers(1, &_handle);
 }
 
-void Buffer::init(Type t)
+void Buffer::init(Target t)
 {
 	setType(t);
 	init();
@@ -95,11 +95,11 @@ void Buffer::subData(size_t offset, size_t size, const void* data) const
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // IndexedBuffer
 
-IndexedBuffer::IndexedBuffer(Type type) : 
+IndexedBuffer::IndexedBuffer(Target type) : 
 	Buffer(type)
 {
-	assert(_type == Type::AtomicCounter || _type == Type::TransformFeedback || 
-		   _type == Type::Uniform || _type == Type::ShaderStorage);
+	assert(_type == Target::AtomicCounter || _type == Target::TransformFeedback || 
+		   _type == Target::Uniform || _type == Target::ShaderStorage);
 }
 	
 void IndexedBuffer::bind(GLuint bindingPoint)
@@ -113,6 +113,6 @@ void IndexedBuffer::bind(GLuint bindingPoint)
 // UniformBuffer
 
 UniformBuffer::UniformBuffer() : 
-	IndexedBuffer(Type::Uniform)
+	IndexedBuffer(Target::Uniform)
 {
 }

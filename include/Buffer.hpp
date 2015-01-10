@@ -16,7 +16,7 @@ public:
 	/**
 	 * Bind targets
 	**/
-	enum class Type : GLenum
+	enum class Target : GLenum
 	{
 		VertexAttributes = GL_ARRAY_BUFFER,  						///< Vertex attributes (VBO)
 		AtomicCounter = GL_ATOMIC_COUNTER_BUFFER, 					///< Atomic counter storage
@@ -76,18 +76,18 @@ public:
 	/**
 	 * Default Constructor
 	 * Avoid using this is favor of the 'typed' constructor when possible.
-	 * @see Buffer(Type type, GLuint handle = 0)
+	 * @see Buffer(Target type, GLuint handle = 0)
 	**/
 	Buffer() =default;
 	
 	/**
 	 * Constructor specifying a buffer type
-	 * @param type Type
+	 * @param type Target
 	 * @param handle Raw OpenGL name (Used to manage a existing object, call init() to generate a new one).
-	 * @see Buffer::Type
+	 * @see Buffer::Target
 	 * @see init()
 	**/
-	Buffer(Type type, GLuint handle = 0);
+	Buffer(Target type, GLuint handle = 0);
 	
 	/**
 	 * Copy constructor
@@ -121,9 +121,9 @@ public:
 	
 	/**
 	 * Generates a new buffer of type t.
-	 * @param t Type of the new buffer
+	 * @param t Target of the new buffer
 	**/
-	void init(Type t);
+	void init(Target t);
 	
 	/**
 	 * Destroy managed buffer.
@@ -140,7 +140,7 @@ public:
 	 * Binds the buffer to arbitrary target (type)
 	 * @see unbind()
 	**/
-	void bind(Type t) const;
+	void bind(Target t) const;
 	
 	/**
 	 * Bind this buffer to the specified binding point in the OpenGL context.
@@ -160,7 +160,7 @@ public:
 	 * @param size Amount of data in machine unit to bind (optional, default: 0, means the entire buffer)
 	 * @see bind(GLuint, GLintptr, GLsizeiptr)
 	**/
-	void bind(Type target, GLuint bindingPoint, GLintptr offset = 0, GLsizeiptr size = 0) const;
+	void bind(Target target, GLuint bindingPoint, GLintptr offset = 0, GLsizeiptr size = 0) const;
 	
 	/**
 	 * Unbinds the buffer.
@@ -184,16 +184,16 @@ public:
 	void subData(size_t offset, size_t size, const void* data) const;
 	
 	/**
-	 * @return Type of the buffer
+	 * @return Target of the buffer
 	**/
-	inline Type getType() const { return _type; }
+	inline Target getType() const { return _type; }
 	
 	/**
 	 * If the type wasn't specified at creation, this should be called before any init()
 	 * @param t New type of the buffer
 	 * @see init()
 	**/
-	inline void setType(Type t) { _type = t; }
+	inline void setType(Target t) { _type = t; }
 	
 	/**
 	 * glCopyBufferSubData
@@ -203,7 +203,7 @@ public:
 	 * @param dstOffset Source offset (in basic machine unit) 
 	 * @param size Data size to copy (in basic machine unit)
 	**/
-	inline static void copySubData(Type srcType, Type dstType, GLuint srcOffset, GLuint dstOffset, GLuint size);
+	inline static void copySubData(Target srcType, Target dstType, GLuint srcOffset, GLuint dstOffset, GLuint size);
 	
 	
 	/**
@@ -217,7 +217,7 @@ public:
 	inline static void copySubData(const Buffer& src, const Buffer& dst, GLuint srcOffset, GLuint dstOffset, GLuint size);
 	
 protected:
-	Type	_type = Type::VertexAttributes;	///< Type of the Buffer.
+	Target	_type = Target::VertexAttributes;	///< Target of the Buffer.
 };
 
 /**
@@ -229,7 +229,7 @@ protected:
 class IndexedBuffer : public Buffer
 {
 public:
-	IndexedBuffer(Type type);
+	IndexedBuffer(Target type);
 	
 	/**
 	 * Bind this buffer to the specified binding point in the OpenGL context.
@@ -270,16 +270,16 @@ public:
 	UniformBuffer();
 };
 
-inline void Buffer::copySubData(Type srcType, Type dstType, GLuint srcOffset, GLuint dstOffset, GLuint size)
+inline void Buffer::copySubData(Target srcType, Target dstType, GLuint srcOffset, GLuint dstOffset, GLuint size)
 {
 	glCopyBufferSubData(to_underlying(srcType), to_underlying(dstType), srcOffset, dstOffset, size);
 }
 
 inline void Buffer::copySubData(const Buffer& src, const Buffer& dst, GLuint srcOffset, GLuint dstOffset, GLuint size)
 {
-	src.bind(Type::CopyRead);
-	dst.bind(Type::CopyWrite);
-	copySubData(Type::CopyRead, Type::CopyWrite, srcOffset, dstOffset, size);
+	src.bind(Target::CopyRead);
+	dst.bind(Target::CopyWrite);
+	copySubData(Target::CopyRead, Target::CopyWrite, srcOffset, dstOffset, size);
 	
 	// OpenGL 4.5 named version, crash =/
 	//glCopyNamedBufferSubData(src.getName(), dst.getName(), srcOffset, dstOffset, size);

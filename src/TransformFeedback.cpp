@@ -20,5 +20,5 @@ void TransformFeedback::cleanup()
 void TransformFeedback::bindBuffer(GLuint index, const Buffer& buffer, GLintptr offset, GLsizeiptr size)
 {
 	bind();
-	buffer.bind(Buffer::Type::TransformFeedback, index, offset, size);
+	buffer.bind(Buffer::Target::TransformFeedback, index, offset, size);
 }
