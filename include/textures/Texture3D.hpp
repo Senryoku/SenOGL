@@ -17,7 +17,7 @@ class Texture3D : public Texture
 public:
 	Texture3D() =default;
 	
-	Texture3D(GLenum pixelType) :
+	Texture3D(PixelType pixelType) :
 		Texture(pixelType)
 	{
 	}

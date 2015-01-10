@@ -4,6 +4,7 @@
 
 #include <OpenGLObject.hpp>
 #include <ParameterBinding.hpp>
+#include <Enums.hpp>
 
 /**
  * Describes a texture living on the GPU's memory.
@@ -36,7 +37,7 @@ public:
 		GLuint 				_prevBound = 0;
 	};
 
-	enum Parameter
+	enum class Parameter : GLenum
 	{
 		DepthStencilMode = GL_DEPTH_STENCIL_TEXTURE_MODE,
 		BaseLevel = GL_TEXTURE_BASE_LEVEL,
@@ -58,9 +59,17 @@ public:
 		CompareFunc = GL_TEXTURE_COMPARE_FUNC
 	};
 	
-	Texture(GLenum pixelType = GL_UNSIGNED_BYTE);
+	enum class PixelType : GLenum
+	{
+		UnsignedByte = GL_UNSIGNED_BYTE,
+		UnsignedShort565 = GL_UNSIGNED_SHORT_5_6_5,
+		UnsignedShort4444 = GL_UNSIGNED_SHORT_4_4_4_4,
+		UnsignedShort5551 = GL_UNSIGNED_SHORT_5_5_5_1
+	};
 	
-	Texture(GLenum pixelType, GLuint handle);
+	Texture(PixelType pixelType = PixelType::UnsignedByte);
+	
+	Texture(PixelType pixelType, GLuint handle);
 	
 	Texture(const Texture&) =default;
 	Texture(Texture&&) =default;
@@ -101,11 +110,20 @@ public:
 		glActiveTexture(GL_TEXTURE0 + unit);
 	}
 	
+	/**
+	 * @param unit Texture unit
+	 * @return Currently bound texture at unit.
+	**/
 	virtual GLuint getBound(unsigned int unit = 0) const =0;
 	
+	/**
+	 * Saves the texture as a png at path.
+	 * @param path Path of the created file.
+	**/
 	virtual void dump(const std::string& path) const;
+	
 protected:
-	GLenum	_pixelType = GL_UNSIGNED_BYTE;
+	PixelType	_pixelType = PixelType::UnsignedByte;
 	
 	void cleanup();
 	

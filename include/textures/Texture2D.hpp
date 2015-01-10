@@ -17,7 +17,7 @@ class Texture2D : public Texture
 public:
 	Texture2D() =default;
 	
-	Texture2D(GLenum pixelType) :
+	Texture2D(PixelType pixelType) :
 		Texture(pixelType)
 	{
 	}

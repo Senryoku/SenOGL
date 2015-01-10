@@ -23,19 +23,19 @@ void Texture3D::create(const void* data, size_t width, size_t height, size_t dep
 				 static_cast<GLsizei>(depth),
 				 0,
 				 format,
-				 _pixelType,
+				 to_underlying(_pixelType),
 				 data
 				); 
 
 	// Default Parameters
 	if(generateMipmaps)
-		set(MinFilter, GL_LINEAR_MIPMAP_LINEAR);
+		set(Parameter::MinFilter, GL_LINEAR_MIPMAP_LINEAR);
 	else
-		set(MinFilter, GL_LINEAR);
-	set(MagFilter, GL_LINEAR);
-	set(WrapS, GL_CLAMP_TO_BORDER);
-	set(WrapT, GL_CLAMP_TO_BORDER);
-	set(WrapR, GL_CLAMP_TO_BORDER);
+		set(Parameter::MinFilter, GL_LINEAR);
+	set(Parameter::MagFilter, GL_LINEAR);
+	set(Parameter::WrapS, GL_CLAMP_TO_BORDER);
+	set(Parameter::WrapT, GL_CLAMP_TO_BORDER);
+	set(Parameter::WrapR, GL_CLAMP_TO_BORDER);
 	
 	// Mmh ?
 	GLfloat maxAniso = 0.0f;

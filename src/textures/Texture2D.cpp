@@ -33,18 +33,18 @@ void Texture2D::create(const void* data, size_t width, size_t height, GLint inte
 				 static_cast<GLsizei>(height),
 				 0,
 				 format,
-				 _pixelType,
+				 to_underlying(_pixelType),
 				 data
 			); 
 
 	// Default Parameters
 	if(generateMipmaps)
-		set(MinFilter, GL_LINEAR_MIPMAP_LINEAR);
+		set(Parameter::MinFilter, GL_LINEAR_MIPMAP_LINEAR);
 	else
-		set(MinFilter, GL_LINEAR);
-	set(MagFilter, GL_LINEAR);
-	set(WrapS, GL_REPEAT);
-	set(WrapT, GL_REPEAT);
+		set(Parameter::MinFilter, GL_LINEAR);
+	set(Parameter::MagFilter, GL_LINEAR);
+	set(Parameter::WrapS, GL_REPEAT);
+	set(Parameter::WrapT, GL_REPEAT);
 	
 	// Mmh ?
 	GLfloat maxAniso = 0.0f;
