@@ -183,8 +183,9 @@ inline void TransformFeedback::drawStreamInstanced(Primitive primitiveType, GLui
 
 inline void TransformFeedback::begin(Primitive primitiveType)
 {
-	assert(primitiveType == Points || primitiveType == Lines || primitiveType == Triangles);
-	glBeginTransformFeedback(glenum(primitiveType));
+	assert(primitiveType == Primitive::Points || primitiveType == Primitive::Lines || 
+		   primitiveType == Primitive::Triangles);
+	glBeginTransformFeedback(to_underlying(primitiveType));
 }
 
 inline void TransformFeedback::end()
@@ -204,22 +205,22 @@ inline void TransformFeedback::resume()
 
 inline void TransformFeedback::draw(Primitive primitiveType, GLuint transformFeedbackObject)
 {
-	glDrawTransformFeedback(glenum(primitiveType), transformFeedbackObject);
+	glDrawTransformFeedback(to_underlying(primitiveType), transformFeedbackObject);
 }
 
 inline void TransformFeedback::drawInstanced(Primitive primitiveType, GLuint transformFeedbackObject, GLuint instanceCount)
 {
-	glDrawTransformFeedbackInstanced(glenum(primitiveType), transformFeedbackObject, instanceCount);
+	glDrawTransformFeedbackInstanced(to_underlying(primitiveType), transformFeedbackObject, instanceCount);
 }
 
 inline void TransformFeedback::drawStream(Primitive primitiveType, GLuint transformFeedbackObject, GLuint stream)
 {
-	glDrawTransformFeedbackStream(glenum(primitiveType), transformFeedbackObject, stream);
+	glDrawTransformFeedbackStream(to_underlying(primitiveType), transformFeedbackObject, stream);
 }
 
 inline void TransformFeedback::drawStreamInstanced(Primitive primitiveType, GLuint transformFeedbackObject, GLuint stream, GLuint instanceCount)
 {
-	glDrawTransformFeedbackStreamInstanced(glenum(primitiveType), transformFeedbackObject, stream, instanceCount);
+	glDrawTransformFeedbackStreamInstanced(to_underlying(primitiveType), transformFeedbackObject, stream, instanceCount);
 }
 
 inline void TransformFeedback::enableRasterization()

@@ -79,7 +79,7 @@ template<typename TexType, unsigned int ColorCount>
 void Framebuffer<TexType, ColorCount>::bind(FramebufferTarget target) const
 {
 	glBindFramebuffer(static_cast<GLenum>(target), _handle);
-	if(target == Read)
+	if(target == FramebufferTarget::Read)
 	{
 		glReadBuffer(GL_COLOR_ATTACHMENT0); ///< @todo Do Better.
 	} else {
@@ -98,5 +98,12 @@ void Framebuffer<TexType, ColorCount>::clear() const
 template<typename TexType, unsigned int ColorCount> 
 void Framebuffer<TexType, ColorCount>::clear(BufferBit target) const
 {
-	glClear(static_cast<GLbitfield>(target));
+	glClear(to_underlying(target));
 }
+
+// Static
+template<typename TexType, unsigned int ColorCount> 
+inline void Framebuffer<TexType, ColorCount>::unbind(FramebufferTarget target)
+{
+	glBindFramebuffer(to_underlying(target), 0);
+};

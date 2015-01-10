@@ -21,7 +21,7 @@ public:
 	void init(); 
 	
 	/**
-	 * Binds the VOA.
+	 * Binds the VAO.
 	**/
 	void bind() const;
 

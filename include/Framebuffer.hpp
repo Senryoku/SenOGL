@@ -1,13 +1,14 @@
 #pragma once
 
+#include <Enums.hpp>
 #include <Texture2D.hpp>
 
 /**
  * Describes the targets a framebuffer can be bound to.
 **/
-enum FramebufferTarget
+enum class FramebufferTarget : GLenum
 {
-	Both = GL_FRAMEBUFFER,		///< Draw & Read target
+	All = GL_FRAMEBUFFER,		///< Draw & Read target
 	Draw = GL_DRAW_FRAMEBUFFER,	///< Draw target
 	Read = GL_READ_FRAMEBUFFER	///< Read target
 };
@@ -15,7 +16,7 @@ enum FramebufferTarget
 /**
  * Masks identifying framebuffers' buffers.
 **/
-enum BufferBit
+enum class BufferBit : GLbitfield
 {
 	Color = GL_COLOR_BUFFER_BIT,		///< Color Buffer
 	Depth = GL_DEPTH_BUFFER_BIT,		///< Depth Buffer
@@ -64,9 +65,9 @@ public:
 	
 	/**
 	 * Bind this framebuffer
-	 * @param target GL_FRAMEBUFFER, GL_DRAW_FRAMEBUFFER or GL_READ_FRAMEBUFFER
+	 * @param target (FramebufferTarget::)Draw, Read or All
 	**/
-	void bind(FramebufferTarget target = FramebufferTarget::Both) const;
+	void bind(FramebufferTarget target = FramebufferTarget::All) const;
 	
 	/**
 	 * Clear the framebuffer.
@@ -119,11 +120,11 @@ public:
 	inline size_t getHeight() const { return _height; }
 
 	/**
-	 * Unbind any currently bound to target FBO.
+	 * Unbind any FBO currently bound to target.
 	 * (Restore default framebuffer)
 	 * @param target Target
 	**/
-	static inline void unbind(GLenum target = GL_FRAMEBUFFER) { glBindFramebuffer(target, 0); };
+	static inline void unbind(FramebufferTarget target = FramebufferTarget::All);
 private:
 	size_t	_width = 512;	///< Width of the framebuffer.
 	size_t	_height = 512;	///< Height of the framebuffer.

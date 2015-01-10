@@ -1,6 +1,7 @@
 #pragma once
 
 #include <OpenGLObject.hpp>
+#include <Enums.hpp>
 
 /** @file
  * Wrappers arround OpenGL buffer objects.
@@ -15,7 +16,7 @@ public:
 	/**
 	 * Bind targets
 	**/
-	enum Type
+	enum class Type : GLenum
 	{
 		VertexAttributes = GL_ARRAY_BUFFER,  						///< Vertex attributes (VBO)
 		AtomicCounter = GL_ATOMIC_COUNTER_BUFFER, 					///< Atomic counter storage
@@ -45,7 +46,7 @@ public:
 	 * COPY: The user will be neither writing nor reading the data.
 	 *
 	**/
-	enum Usage
+	enum class Usage : GLenum
 	{
 		StaticDraw = GL_STATIC_DRAW,	///< GL_STATIC_DRAW
 		StaticRead = GL_STATIC_READ,	///< GL_STATIC_READ
@@ -61,7 +62,7 @@ public:
 	/**
 	 * Usage hint for immutable buffers
 	**/
-	enum StorageUsage
+	enum class StorageUsage : GLbitfield
 	{
 		Unspecified = 0,
 		DynamicStorageBit = GL_DYNAMIC_STORAGE_BIT,	///< The contents of the data store may be updated after creation through calls to glBufferSubData. If this bit is not set, the buffer content may not be directly updated by the client. The data argument may be used to specify the initial content of the buffer's data store regardless of the presence of the GL_DYNAMIC_STORAGE_BIT​. Regardless of the presence of this bit, buffers may always be updated with server-side calls such as glCopyBufferSubData​ and glClearBufferSubData​.
@@ -136,6 +137,12 @@ public:
 	void bind() const;
 	
 	/**
+	 * Binds the buffer to arbitrary target (type)
+	 * @see unbind()
+	**/
+	void bind(Type t) const;
+	
+	/**
 	 * Bind this buffer to the specified binding point in the OpenGL context.
 	 * Buffer type must be AtomicCounter, TransformFeedback, Uniform or ShaderStorage.
 	 * @param bindingPoint Binding Point
@@ -188,8 +195,29 @@ public:
 	**/
 	inline void setType(Type t) { _type = t; }
 	
+	/**
+	 * glCopyBufferSubData
+	 * @param srcType Source buffer type
+	 * @param dstType Destination buffer type
+	 * @param srcOffset Source offset (in basic machine unit)
+	 * @param dstOffset Source offset (in basic machine unit) 
+	 * @param size Data size to copy (in basic machine unit)
+	**/
+	inline static void copySubData(Type srcType, Type dstType, GLuint srcOffset, GLuint dstOffset, GLuint size);
+	
+	
+	/**
+	 * glCopyNamedBufferSubData
+	 * @param src Source buffer
+	 * @param dst Destination buffer
+	 * @param srcOffset Source offset (in basic machine unit)
+	 * @param dstOffset Source offset (in basic machine unit) 
+	 * @param size Data size to copy (in basic machine unit)
+	**/
+	inline static void copySubData(const Buffer& src, const Buffer& dst, GLuint srcOffset, GLuint dstOffset, GLuint size);
+	
 protected:
-	Type	_type = VertexAttributes;	///< Type of the Buffer.
+	Type	_type = Type::VertexAttributes;	///< Type of the Buffer.
 };
 
 /**
@@ -212,6 +240,8 @@ public:
 	 * @see isBound()
 	**/
 	void bind(GLuint bindingPoint);
+	
+	using Buffer::bind;
 	
 	/**
 	 * @return True if this buffer is bound to a binding point (by a call to bindBase)
@@ -239,3 +269,18 @@ class UniformBuffer : public IndexedBuffer
 public:
 	UniformBuffer();
 };
+
+inline void Buffer::copySubData(Type srcType, Type dstType, GLuint srcOffset, GLuint dstOffset, GLuint size)
+{
+	glCopyBufferSubData(to_underlying(srcType), to_underlying(dstType), srcOffset, dstOffset, size);
+}
+
+inline void Buffer::copySubData(const Buffer& src, const Buffer& dst, GLuint srcOffset, GLuint dstOffset, GLuint size)
+{
+	src.bind(Type::CopyRead);
+	dst.bind(Type::CopyWrite);
+	copySubData(Type::CopyRead, Type::CopyWrite, srcOffset, dstOffset, size);
+	
+	// OpenGL 4.5 named version, crash =/
+	//glCopyNamedBufferSubData(src.getName(), dst.getName(), srcOffset, dstOffset, size);
+}

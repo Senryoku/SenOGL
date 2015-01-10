@@ -1,16 +1,18 @@
 #pragma once
 
+#include <type_traits>
+
 #define GLEW_STATIC
 #include <GL/glew.h>
 
 /** @file
- * Set of more strongly typed (than GLEnum) enums.
+ * Set of strongly typed enums wrapping GLenum and tools to use them.
 **/
 
 /**
  * OpenGL avalaible Primitives
 **/
-enum Primitive
+enum class Primitive : GLenum
 {
 	Points = GL_POINTS, 									///< Points
 	LineStrip = GL_LINE_STRIP, 								///< LineStrip
@@ -27,11 +29,11 @@ enum Primitive
 };
 
 /**
- * Convenient cast to GLenum
- * @param e Value to cast to GLenum
+ * Convenient cast to the underlying type of an enum
+ * @param e Value to cast
 **/
-template<typename Enum>
-inline GLenum glenum(Enum e)
+template <typename E>
+typename std::underlying_type<E>::type to_underlying(E e)
 {
-	return static_cast<GLenum>(e);
+    return static_cast<typename std::underlying_type<E>::type>(e);
 }
