@@ -6,7 +6,7 @@
 #include <stb_image.hpp>
 #include <stb_image_write.hpp>
 
-CubeMap::CubeMap(GLenum pixelType) :
+CubeMap::CubeMap(PixelType pixelType) :
 	Texture(pixelType)
 {
 }
@@ -59,18 +59,18 @@ void CubeMap::create(const std::array<void*, 6>& data, size_t width, size_t heig
 					 static_cast<GLsizei>(height),
 					 0,
 					 format,
-					 _pixelType,
+					 to_underlying(_pixelType),
 					 data[i]);
 	
 	if(generateMipmaps)
-		set(MinFilter, GL_LINEAR_MIPMAP_LINEAR);
+		set(Parameter::MinFilter, GL_LINEAR_MIPMAP_LINEAR);
 	else
-		set(MinFilter, GL_LINEAR);
-	set(MagFilter, GL_LINEAR);
-	set(MagFilter, GL_LINEAR);
-	set(WrapS, GL_CLAMP_TO_EDGE);
-	set(WrapT, GL_CLAMP_TO_EDGE);
-	set(WrapR, GL_CLAMP_TO_EDGE);
+		set(Parameter::MinFilter, GL_LINEAR);
+	set(Parameter::MagFilter, GL_LINEAR);
+	set(Parameter::MagFilter, GL_LINEAR);
+	set(Parameter::WrapS, GL_CLAMP_TO_EDGE);
+	set(Parameter::WrapT, GL_CLAMP_TO_EDGE);
+	set(Parameter::WrapR, GL_CLAMP_TO_EDGE);
 	
 	GLfloat maxAniso = 0.0f;
 	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
@@ -101,13 +101,14 @@ void CubeMap::dump(const std::string& path) const
 	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP, 0, GL_TEXTURE_WIDTH, &width);
 	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP, 0, GL_TEXTURE_HEIGHT, &height);
 	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP, 0, GL_TEXTURE_INTERNAL_FORMAT, &format);
-	if(_pixelType == GL_UNSIGNED_BYTE) {
+	if(_pixelType == PixelType::UnsignedByte)
+	{
 		GLubyte* data = nullptr;
 		data = new GLubyte[getCompCount(format) * width * height];
 	
 		for(int i = 0; i < 6; i++)
 		{
-			glGetTexImage(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, _pixelType, data);
+			glGetTexImage(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, to_underlying(_pixelType), data);
 			std::ostringstream oss;
 			oss << path << i << ".png";
 			stbi_write_png(oss.str().c_str(), width, height, getCompCount(format), data, 0);

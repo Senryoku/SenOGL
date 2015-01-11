@@ -9,7 +9,7 @@ class CubeMap : public Texture
 {
 public:
 	CubeMap() =default;
-	CubeMap(GLenum pixelType);
+	CubeMap(PixelType pixelType);
 	
 	/**
 	 * Order : XPOS, XNEG, YPOS, YNEG, ZPOS, ZNEG
