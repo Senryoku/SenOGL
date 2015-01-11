@@ -5,7 +5,7 @@ Please let me know if this is usefull to you!
 
 ## Usage
 
-* Compilation
+### Compilation
 
 [Set GLM_INCLUDE_DIR to the path of your local copy of GLM, default is ../glm (Using cmake-gui for example)]
 
@@ -15,7 +15,8 @@ make
 ```
 This will compile the library to lib/libSenOGL.a.
 
-* Build a program using SenOGL
+### Build a program using SenOGL
+
 If you are using CMake:
 ```
 find_package(SenOGL REQUIRED)
