@@ -46,7 +46,8 @@ void Buffer::bind(GLuint bindingPoint, GLintptr offset, GLsizeiptr size) const
 	
 void Buffer::bind(Target target, GLuint bindingPoint, GLintptr offset, GLsizeiptr size) const
 {
-	assert(target == AtomicCounter || target == TransformFeedback || target == Uniform || target == ShaderStorage);
+	assert(target == Target::AtomicCounter || target == Target::TransformFeedback || 
+		   target == Target::Uniform || target == Target::ShaderStorage);
 	// Default values for offset and size: use entire buffer.
 	if(offset == 0 && size == 0)
 	{
