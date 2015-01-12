@@ -40,6 +40,23 @@ public:
 	using color_type = TexType;
 
 	/**
+	 * Texture/Renderbuffer attachments.
+	 */
+	enum class Attachment : GLenum
+	{
+		Color = GL_COLOR_ATTACHMENT0,	///< Color Attachment 0
+		Color1 = GL_COLOR_ATTACHMENT1,	///< Color Attachment 1
+		Color2 = GL_COLOR_ATTACHMENT2,	///< Color Attachment 2
+		Color3 = GL_COLOR_ATTACHMENT3,	///< Color Attachment 3
+		Color4 = GL_COLOR_ATTACHMENT4,	///< Color Attachment 4
+		Color5 = GL_COLOR_ATTACHMENT5,	///< Color Attachment 5
+		Color6 = GL_COLOR_ATTACHMENT6,	///< Color Attachment 6
+		Color7 = GL_COLOR_ATTACHMENT7,	///< Color Attachment 7
+		Depth = GL_DEPTH_ATTACHMENT,	///< Depth Attachment
+		Stencil = GL_STENCIL_ATTACHMENT	///< Stencil Attachment
+	};
+	
+	/**
 	 * Default constructor.
 	 * @param size Resolution of the framebuffer (internal textures).
 	**/
@@ -95,23 +112,23 @@ public:
 	 * @param i Index of the color buffer.
 	 * @return Texture attachment to ith color buffer.
 	**/
-	inline TexType& getColor(unsigned int i = 0) { return _color[i]; }
+	inline TexType& getColor(unsigned int i = 0) { assert(i < ColorCount); return _color[i]; }
 	
 	/**
 	 * @return Texture of the Depth buffer.
 	**/
-	inline TexType& getDepth() { return _depth; }
+	inline DepthType& getDepth() { assert(UseDepth); return _depth; }
 	
 	/**
 	 * @param i Index of the color buffer.
 	 * @return Texture attachment to ith color buffer.
 	**/
-	inline const TexType& getColor(unsigned int i = 0) const { return _color[i]; }
+	inline const TexType& getColor(unsigned int i = 0) const { assert(i < ColorCount); return _color[i]; }
 	
 	/**
 	 * @return Texture of the Depth buffer.
 	**/
-	inline const DepthType& getDepth() const { return _depth; }
+	inline const DepthType& getDepth() const { assert(UseDepth); return _depth; }
 	
 	/**
 	 * @return Width of the framebuffer.
@@ -123,9 +140,9 @@ public:
 	**/
 	inline size_t getHeight() const { return _height; }
 
-	inline void attach(const Texture& tex, GLenum attachment) const;
+	inline void attach(const Texture& tex, Attachment attachment) const;
 	
-	inline void attach(const Renderbuffer& buf, GLenum attachment) const;
+	inline void attach(const Renderbuffer& buf, Attachment attachment) const;
 	
 	/**
 	 * Unbind any FBO currently bound to target.
@@ -140,6 +157,12 @@ private:
 	std::array<TexType, ColorCount>	_color;	///< Textures/Buffers attached to the color buffers.
 	
 	DepthType						_depth;	///< Texture/Buffer attached to the depth buffer
+	
+	/**
+	 * @param i Color index
+	 * @return ith Color Attachment
+	 */
+	static inline Attachment attachmentColor(unsigned int i);
 };
 
 #include <Framebuffer.tcc>

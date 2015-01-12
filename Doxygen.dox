@@ -1,0 +1,52 @@
+/**
+@mainpage SenOGL - OpenGL Wrapper
+
+Little personal library to ease the use of OpenGL.
+Please let me know if this is usefull to you!
+
+## Usage
+
+### Compilation
+
+[Set GLM_INCLUDE_DIR to the path of your local copy of GLM, default is ../glm (Using cmake-gui for example)]
+
+@code
+cmake . 
+make
+@endcode
+This will compile the library to lib/libSenOGL.a.
+
+### Build a program using SenOGL
+
+If you are using CMake:
+@code
+find_package(SenOGL REQUIRED)
+include_directories(${SenOGL_INCLUDE_DIRS})
+link_directories(${SenOGL_LIBRARY_DIRS})
+target_link_libraries(${SenOGL_LIBRARY})
+@endcode
+Otherwise, add the include directory of SenOGL (assuming gcc as a compiler)
+@code
+-I "path/to/SenOGL/include"
+@endcode
+and link against libSenOGL
+@code
+-L "path/to/SenOGL/lib" -lSenOGL
+@endcode
+or
+@code
+-l"path/to/SenOGL/lib/libSenOGL.a"
+@endcode
+## Examples
+
+Some samples can be found at https://github.com/Senryoku/OpenGL_ToolBox
+
+## Used Libraries
+
+- GLEW (http://glew.sourceforge.net/) Included
+- stb_image, stb_image_write (https://github.com/nothings/stb) Included (Quite old version)
+- GLM (http://glm.g-truc.net/)
+
+Thanks to the dev' behind these!
+
+*/

@@ -39,17 +39,17 @@ void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::init()
 		cleanup();
 
 	glGenFramebuffers(1, &_handle);
-	glBindFramebuffer(GL_FRAMEBUFFER, _handle);
+	bind();
 		
 	if(ColorCount > 0)
 	{
 		GLenum DrawBuffers[ColorCount];
 		for(size_t i = 0; i < ColorCount; ++i)
 		{
-			DrawBuffers[i] = GL_COLOR_ATTACHMENT0 + i;
+			DrawBuffers[i] = to_underlying(Attachment::Color) + i;
 			if(!_color[i])
 				_color[i].create(_width, _height, GL_RGBA);
-			attach(_color[i], GL_COLOR_ATTACHMENT0 + i);
+			attach(_color[i], attachmentColor(i));
 		}
 		
 		glDrawBuffers(ColorCount, DrawBuffers);
@@ -61,7 +61,7 @@ void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::init()
 	{
 		if(!_depth)
 			_depth.create(_width, _height, GL_DEPTH_COMPONENT);
-		attach(_depth, GL_DEPTH_ATTACHMENT);
+		attach(_depth, Attachment::Depth);
 	}
 	
 	if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
@@ -70,7 +70,7 @@ void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::init()
 		cleanup();
 	}
 	
-	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	unbind();
 }
 
 template<typename TexType, unsigned int ColorCount, typename DepthType, bool UseDepth>
@@ -79,7 +79,7 @@ void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::bind(FramebufferTarg
 	glBindFramebuffer(static_cast<GLenum>(target), _handle);
 	if(target == FramebufferTarget::Read)
 	{
-		glReadBuffer(GL_COLOR_ATTACHMENT0); ///< @todo Do Better.
+		glReadBuffer(to_underlying(Attachment::Color)); ///< @todo Do Better.
 	} else {
 		glViewport(0, 0, _width, _height);
 	}
@@ -90,25 +90,29 @@ void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::clear() const
 {
 	GLbitfield target = (ColorCount > 0) ? GL_COLOR_BUFFER_BIT : 0;
 	if(UseDepth) target |= GL_DEPTH_BUFFER_BIT;
+	bind();
 	glClear(target);
 }
 	
 template<typename TexType, unsigned int ColorCount, typename DepthType, bool UseDepth>
 void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::clear(BufferBit target) const
 {
+	bind();
 	glClear(to_underlying(target));
 }
 
 template<typename TexType, unsigned int ColorCount, typename DepthType, bool UseDepth>
-inline void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::attach(const Texture& tex, GLenum attachment) const
+inline void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::attach(const Texture& tex, Attachment attachment) const
 {
-	glFramebufferTexture(GL_FRAMEBUFFER, attachment, tex.getName(), 0);
+	bind();
+	glFramebufferTexture(GL_FRAMEBUFFER, to_underlying(attachment), tex.getName(), 0);
 }
 	
 template<typename TexType, unsigned int ColorCount, typename DepthType, bool UseDepth>
-inline void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::attach(const Renderbuffer& buf, GLenum attachment) const
+inline void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::attach(const Renderbuffer& buf, Attachment attachment) const
 {
-	glFramebufferRenderbuffer(GL_FRAMEBUFFER, attachment, GL_RENDERBUFFER, buf.getName());
+	bind();
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, to_underlying(attachment), GL_RENDERBUFFER, buf.getName());
 }
 	
 // Static
@@ -118,3 +122,10 @@ inline void Framebuffer<TexType, ColorCount, DepthType, UseDepth>::unbind(Frameb
 {
 	glBindFramebuffer(to_underlying(target), 0);
 };
+
+template<typename TexType, unsigned int ColorCount, typename DepthType, bool UseDepth>
+inline typename Framebuffer<TexType, ColorCount, DepthType, UseDepth>::Attachment 
+	Framebuffer<TexType, ColorCount, DepthType, UseDepth>::attachmentColor(unsigned int i)
+{
+	return static_cast<Attachment>(GL_COLOR_ATTACHMENT0 + i);
+}
