@@ -77,6 +77,10 @@ public:
 	Texture& operator=(Texture&&) =default;
 		
 	virtual ~Texture();
+	
+	virtual void init() override;
+	
+	virtual void cleanup() override;
 
 	virtual void bind(unsigned int unit = 0) const {}
 	
@@ -124,8 +128,6 @@ public:
 	
 protected:
 	PixelType	_pixelType = PixelType::UnsignedByte;
-	
-	void cleanup();
 	
 	virtual GLenum getType() const =0;
 	

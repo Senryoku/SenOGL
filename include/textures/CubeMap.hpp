@@ -17,6 +17,8 @@ public:
 	void load(const std::array<std::string, 6>& paths, 
 			  bool generateMipmaps = true);
 	
+	void create(size_t width, size_t height, GLenum internalFormat);
+	
 	void create(void* data,
 				size_t width, 
 				size_t height,

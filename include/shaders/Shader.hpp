@@ -26,6 +26,10 @@ public:
 	 */
 	virtual ~Shader();
 	
+	virtual void init() override;
+	
+	virtual void cleanup() override;
+	
 	/**
 	 * Loads the source for this shader from the file at path.
 	 * @param path Path to the file containing the source for the shader.
@@ -53,11 +57,6 @@ public:
 protected:
 	std::string			_srcPath = "";		///< Path to the last file read by loadFromFile
 	bool				_compiled = false;	///< Says if the shader have already been successfully compiled.
-	
-	/**
-	 * Initialize corresponding OpenGLObject
-	**/
-	void init();
 	
 	/**
 	 * @return Type of the managed shader.

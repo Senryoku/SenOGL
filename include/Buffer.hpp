@@ -117,7 +117,7 @@ public:
 	/**
 	 * Generates a new buffer name to manage.
 	**/
-	void init();
+	virtual void init() override;
 	
 	/**
 	 * Generates a new buffer of type t.
@@ -128,7 +128,7 @@ public:
 	/**
 	 * Destroy managed buffer.
 	**/
-	void cleanup();
+	virtual void cleanup() override;
 	
 	/**
 	 * Binds the buffer to its assigned target (type)

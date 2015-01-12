@@ -18,7 +18,12 @@ public:
 	/**
 	 * Initialization of the OpenGL object
 	**/
-	void init(); 
+	virtual void init() override; 
+	
+	/**
+	 * Destroys the OpenGLObject.
+	**/ 
+	virtual void cleanup() override;
 	
 	/**
 	 * Binds the VAO.
@@ -34,10 +39,5 @@ public:
 	 * glVertexAttribPointer
 	**/
 	void attribute(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer) const;
-	
-	/**
-	 * Destroys the OpenGLObject.
-	**/ 
-	void cleanup();
 private:
 };

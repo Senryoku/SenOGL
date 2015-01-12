@@ -1,7 +1,9 @@
 #pragma once
 
 #include <Enums.hpp>
+#include <Texture.hpp>
 #include <Texture2D.hpp>
+#include <Renderbuffer.hpp>
 
 /**
  * Describes the targets a framebuffer can be bound to.
@@ -28,25 +30,27 @@ enum class BufferBit : GLbitfield
  * Framebuffer Object (FBO)
  * @param TexType Type of the textures attached to the framebuffer.
  * @param ColorCount Number of Color buffers (attachments).
+ * @todo More initialization options!
 **/
-template<typename TexType = Texture2D, unsigned int ColorCount = 1>
+template<typename TexType = Texture2D, unsigned int ColorCount = 1, typename DepthType = Renderbuffer, bool UseDepth = true>
 class Framebuffer : public OpenGLObject
 {
 public:
+	using depth_type = DepthType;
+	using color_type = TexType;
+
 	/**
 	 * Default constructor.
 	 * @param size Resolution of the framebuffer (internal textures).
-	 * @param useDepth Specify if this framebuffer as a Depth Buffer.
 	**/
-	Framebuffer(size_t size = 512, bool useDepth = true);
+	Framebuffer(size_t size = 512);
 	
 	/**
 	 * Constructor for a rectangular framebuffer.
 	 * @param width X Resolution of the framebuffer (internal textures).
 	 * @param height Y Resolution of the framebuffer (internal textures).
-	 * @param useDepth Specify if this framebuffer as a Depth Buffer.
 	**/
-	Framebuffer(size_t width, size_t height, bool useDepth = true);
+	Framebuffer(size_t width, size_t height);
 	
 	/**
 	 * Destructor
@@ -56,12 +60,12 @@ public:
 	/**
 	 * Initialize the OpenGLObject
 	**/
-	void init();
+	virtual void init() override;
 	
 	/**
 	 * Destroys OpenGL object.
 	**/
-	void cleanup();
+	virtual void cleanup() override;
 	
 	/**
 	 * Bind this framebuffer
@@ -107,7 +111,7 @@ public:
 	/**
 	 * @return Texture of the Depth buffer.
 	**/
-	inline const TexType& getDepth() const { return _depth; }
+	inline const DepthType& getDepth() const { return _depth; }
 	
 	/**
 	 * @return Width of the framebuffer.
@@ -119,6 +123,10 @@ public:
 	**/
 	inline size_t getHeight() const { return _height; }
 
+	inline void attach(const Texture& tex, GLenum attachment) const;
+	
+	inline void attach(const Renderbuffer& buf, GLenum attachment) const;
+	
 	/**
 	 * Unbind any FBO currently bound to target.
 	 * (Restore default framebuffer)
@@ -129,10 +137,9 @@ private:
 	size_t	_width = 512;	///< Width of the framebuffer.
 	size_t	_height = 512;	///< Height of the framebuffer.
 	
-	std::array<TexType, ColorCount>	_color;	///< Textures attached to the color buffers.
+	std::array<TexType, ColorCount>	_color;	///< Textures/Buffers attached to the color buffers.
 	
-	bool 		_useDepth = true;	///< Does it have a Depth Buffer ?
-	TexType		_depth;				///< Texture attached to the Depth Buffer
+	DepthType						_depth;	///< Texture/Buffer attached to the depth buffer
 };
 
 #include <Framebuffer.tcc>

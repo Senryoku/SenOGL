@@ -23,6 +23,12 @@ public:
 	}
 
 	void load(const std::string& Path);
+	
+	/**
+	 * Create an uninitialized RGBA texture
+	 */
+	void create(size_t width, size_t height, GLenum internalFormat);
+	
 	void create(const void* data, size_t width, size_t height, int compCount);
 	void create(const void* data, size_t width, size_t height, GLint internalFormat, GLenum format, bool generateMipmaps = true);
 	

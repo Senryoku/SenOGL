@@ -13,6 +13,11 @@ void Texture2D::load(const std::string& Path)
 	stbi_image_free(data);
 }
 
+void Texture2D::create(size_t width, size_t height, GLenum internalFormat)
+{	
+	create(nullptr, width, height, internalFormat, internalFormat, false);
+}
+
 void Texture2D::create(const void* data, size_t width, size_t height, int compCount)
 {	
 	GLenum format = getFormat(compCount);
@@ -21,8 +26,8 @@ void Texture2D::create(const void* data, size_t width, size_t height, int compCo
 
 void Texture2D::create(const void* data, size_t width, size_t height, GLint internalFormat, GLenum format, bool generateMipmaps)
 {
-	cleanup();
-	glGenTextures(1, &_handle);
+	if(_handle == 0)
+		init();
 	
 	bind();
 	

@@ -18,12 +18,12 @@ public:
 	/**
 	 * Generates a new TransformFeedback name to manage.
 	**/
-	void init();
+	virtual void init() override;
 	
 	/**
 	 * Destroy managed TransformFeedback object.
 	**/
-	void cleanup();
+	virtual void cleanup() override;
 	
 	/**
 	 * Binds the TransformFeedback object

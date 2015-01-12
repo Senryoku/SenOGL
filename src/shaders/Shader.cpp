@@ -2,7 +2,7 @@
 
 Shader::~Shader()
 {
-	glDeleteShader(_handle);
+	cleanup();
 }
 
 void Shader::init()
@@ -19,6 +19,10 @@ void Shader::init()
 	_compiled = false;
 }
 
+void Shader::cleanup()
+{
+	glDeleteShader(_handle);
+}
 
 void Shader::loadFromFile(const std::string& path)
 {

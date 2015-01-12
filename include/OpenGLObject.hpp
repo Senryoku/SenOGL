@@ -36,6 +36,16 @@ public:
 	OpenGLObject& operator=(OpenGLObject&&) =default;
 	virtual ~OpenGLObject();
 	
+	/**
+	 * Generates a OpenGL object name to manage.
+	 */
+	virtual void init() =0;
+	
+	/**
+	 * Deletes the managed OpenGL object.
+	 */
+	virtual void cleanup() =0;
+	
 	/** 
 	 * Returns OpenGL name of the object
 	**/

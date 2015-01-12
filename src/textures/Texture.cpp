@@ -1,5 +1,7 @@
 #include <Texture.hpp>
 
+#include <cassert>
+
 #include <stb_image_write.hpp>
 
 Texture::Texture(PixelType pixelType) :
@@ -18,6 +20,12 @@ Texture::Texture(PixelType pixelType, GLuint handle) :
 Texture::~Texture()
 {
 	cleanup();
+}
+
+void Texture::init()
+{
+	glGenTextures(1, &_handle);
+	assert(_handle != 0);
 }
 
 void Texture::cleanup()

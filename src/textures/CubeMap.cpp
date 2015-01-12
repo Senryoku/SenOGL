@@ -26,6 +26,11 @@ void CubeMap::load(const std::array<std::string, 6>& paths, bool generateMipmaps
 		stbi_image_free(data[i]);
 }
 
+void CubeMap::create(size_t width, size_t height, GLenum internalFormat)
+{
+	create(nullptr, width, height, internalFormat, internalFormat, false);
+}
+
 void CubeMap::create(void* data, size_t width, size_t height, int compCount, bool generateMipmaps)
 {
 	create({data, data, data, data, data, data}, width, height, compCount, generateMipmaps);
@@ -44,7 +49,8 @@ void CubeMap::create(void* data, size_t width, size_t height, GLint internalForm
 
 void CubeMap::create(const std::array<void*, 6>& data, size_t width, size_t height, GLint internalFormat, GLenum format, bool generateMipmaps)
 {
-	cleanup();
+	if(_handle == 0)
+		init();
 	
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 	

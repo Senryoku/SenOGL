@@ -10,9 +10,9 @@ void Texture3D::create(const void* data, size_t width, size_t height, size_t dep
 
 void Texture3D::create(const void* data, size_t width, size_t height, size_t depth, GLint internalFormat, GLenum format, bool generateMipmaps)
 {
-	cleanup();
+	if(_handle == 0)
+		init();
 	
-	glGenTextures(1, &_handle);
 	bind();
 	
 	glTexImage3D(GL_TEXTURE_3D, 
