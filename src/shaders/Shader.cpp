@@ -13,7 +13,7 @@ void Shader::init()
 	_handle = glCreateShader(this->getType());
 	if(_handle == 0)
 	{
-		std::cerr << __PRETTY_FUNCTION__ << " : Error glCreateShader(GL_FRAGMENT_SHADER)" << std::endl;
+		std::cerr << __PRETTY_FUNCTION__ << " : Error glCreateShader()" << std::endl;
 	}
 	
 	_compiled = false;
@@ -28,7 +28,7 @@ void Shader::loadFromFile(const std::string& path)
 	std::ifstream Src(path);
 	if(!Src.good())
 	{
-		std::cerr << __FUNCTION__ << " : Error opening shader " << path << std::endl;
+		std::cerr << __PRETTY_FUNCTION__ << " : Error opening shader " << path << std::endl;
 		return;
 	}
 	GLint lengths[1024];
@@ -74,7 +74,7 @@ void Shader::compile()
     glGetShaderiv(_handle, GL_COMPILE_STATUS, &rvalue);
     if (!rvalue)
 	{
-        std::cerr << __FUNCTION__ << " : Error while compiling shader " << _srcPath << std::endl;
+        std::cerr << __PRETTY_FUNCTION__ << " : Error while compiling shader " << _srcPath << std::endl;
         GLchar log[10240];
         GLsizei length;
         glGetShaderInfoLog(_handle, 10239, &length, log);

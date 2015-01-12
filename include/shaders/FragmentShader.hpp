@@ -2,6 +2,9 @@
 
 #include <Shader.hpp>
 
+/**
+ * Fragment Shader
+ */
 class FragmentShader : public Shader
 {
 public:

@@ -2,6 +2,9 @@
 
 #include <Shader.hpp>
 
+/**
+ * Tesselation Control Shader
+ */
 class TesselationControlShader : public Shader
 {
 public:

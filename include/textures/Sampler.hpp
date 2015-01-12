@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include <OpenGLObject.hpp>
+#include <Enums.hpp>
 #include <ParameterBinding.hpp>
 
 /**
@@ -12,7 +13,10 @@
 class Sampler : public OpenGLObject
 {
 public:
-	enum Parameter
+	/**
+	 *  Sampler parameters.
+	 */
+	enum class Parameter : GLenum
 	{
 		MinFilter = GL_TEXTURE_MIN_FILTER,
 		MagFilter = GL_TEXTURE_MAG_FILTER,
@@ -27,14 +31,16 @@ public:
 		CompareFunc = GL_TEXTURE_COMPARE_FUNC
 	};
 
+	/**
+	 *  Default constructor.
+	 */
 	Sampler() =default;
 	
-	Sampler(GLuint handle) : 
-		OpenGLObject(handle)
-	{
-		if(!isSampler(handle))
-			std::cerr << "Error constructing Sampler: Provided OpenGL name isn't a Sampler name." << std::endl;
-	}
+	/**
+	 *  Constructor from an existing sampler name.
+	 *  @param handle OpenGL name for an existing sampler.
+	 */
+	Sampler(GLuint handle);
 	
 	Sampler(const Sampler&) =default;
 	Sampler(Sampler&&) =default;
@@ -43,20 +49,38 @@ public:
 		
 	virtual ~Sampler();
 
+	/**
+	 *  Binds the sampler to the unit texture 'unit'.
+	 *  @param unit Unit Texture
+	 */
 	void bind(unsigned int unit = 0) const;
 	
+	/**
+	 *  Unbinds any currently bound sampler to the unit texture 'unit'.
+	 *  @param unit Unit Texture
+	 */
 	void unbind(unsigned int unit = 0) const;
 	
+	/**
+	 * Set the parameter opt for value for this sampler
+	 * @param opt Sampler parameter.
+	 * @param value New value for opt.
+	 */
 	template<typename T>
 	void set(Parameter opt, T value) const
 	{
-		samplerParameter(_handle, static_cast<GLenum>(opt), value);
+		samplerParameter(_handle, to_underlying(opt), value);
 	}
 	
+	/**
+	 * Set the parameter opt for value for this sampler
+	 * @param opt Sampler parameter.
+	 * @param value New value for opt.
+	 */
 	template<typename T>
 	void setI(Parameter opt, T value) const
 	{
-		samplerParameterI(_handle, static_cast<GLenum>(opt), value);
+		samplerParameterI(_handle, to_underlying(opt), value);
 	}
 	
 	inline virtual bool isValid() const override { return OpenGLObject::isValid() && isSampler(_handle); }

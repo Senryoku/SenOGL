@@ -2,6 +2,9 @@
 
 #include <Shader.hpp>
 
+/**
+ * Vertex Shader
+ */
 class VertexShader : public Shader
 {
 public:
