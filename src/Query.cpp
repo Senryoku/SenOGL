@@ -18,6 +18,7 @@ void Query::cleanup()
 void Query::begin(Target target)
 {
 	assert(target != Target::Timestamp && target != Target::None);
+	if(_handle == 0) init();
 	_target = target;
 	glBeginQuery(to_underlying(target), _handle);
 }
@@ -31,6 +32,7 @@ void Query::end() const
 void Query::begin(Target target, GLuint index)
 {
 	assert(target != Target::Timestamp && target != Target::None);
+	if(_handle == 0) init();
 	_target = target;
 	glBeginQueryIndexed(to_underlying(target), index, _handle);
 }

@@ -12,6 +12,9 @@
 class Query : public OpenGLObject
 {
 public:
+	/**
+	 * Query Target
+	 */
 	enum class Target : GLenum
 	{
 		SamplesPassed = GL_SAMPLES_PASSED,
@@ -24,6 +27,9 @@ public:
 		None
 	};
 	
+	/**
+	 * Query Parameter
+	 */
 	enum class Parameter : GLenum
 	{
 		Result = GL_QUERY_RESULT,
@@ -46,12 +52,24 @@ public:
 	**/ 
 	virtual void cleanup() override;
 	
+	/**
+	 * Begins query.
+	 */
 	void begin(Target target);
 	
+	/**
+	 * Ends query.
+	 */
 	void end() const;
 	
+	/**
+	 * Begins indexed query.
+	 */
 	void begin(Target target, GLuint index);
 	
+	/**
+	 * Ends indexed query.
+	 */
 	void end(GLuint index) const;
 	
 	template<typename T>

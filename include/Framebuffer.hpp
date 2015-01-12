@@ -139,10 +139,6 @@ public:
 	 * @return Height of the framebuffer.
 	**/
 	inline size_t getHeight() const { return _height; }
-
-	inline void attach(const Texture& tex, Attachment attachment) const;
-	
-	inline void attach(const Renderbuffer& buf, Attachment attachment) const;
 	
 	/**
 	 * Unbind any FBO currently bound to target.
@@ -163,6 +159,10 @@ private:
 	 * @return ith Color Attachment
 	 */
 	static inline Attachment attachmentColor(unsigned int i);
+
+	inline void attach(const Texture& tex, Attachment attachment) const;
+	
+	inline void attach(const Renderbuffer& buf, Attachment attachment) const;
 };
 
 #include <Framebuffer.tcc>
