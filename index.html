@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.8"/>
-<title>SenOGL: Main Page</title>
+<title>SenOGL: SenOGL - OpenGL Wrapper</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,13 +77,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">SenOGL Documentation</div>  </div>
+<div class="title">SenOGL - OpenGL Wrapper </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p>Little personal library to ease the use of OpenGL.Please let me know if this is usefull to you!</p>
+<h2>Usage</h2>
+<h3>Compilation</h3>
+<p>[Set GLM_INCLUDE_DIR to the path of your local copy of GLM, default is ../glm (Using cmake-gui for example)]</p>
+<div class="fragment"><div class="line">cmake . </div>
+<div class="line">make</div>
+</div><!-- fragment --><p> This will compile the library to lib/libSenOGL.a.</p>
+<h3>Build a program using SenOGL</h3>
+<p>If you are using CMake: </p><div class="fragment"><div class="line">find_package(SenOGL REQUIRED)</div>
+<div class="line">include_directories(${SenOGL_INCLUDE_DIRS})</div>
+<div class="line">link_directories(${SenOGL_LIBRARY_DIRS})</div>
+<div class="line">target_link_libraries(${SenOGL_LIBRARY})</div>
+</div><!-- fragment --><p> Otherwise, add the include directory of SenOGL (assuming gcc as a compiler) </p><div class="fragment"><div class="line">-I <span class="stringliteral">&quot;path/to/SenOGL/include&quot;</span></div>
+</div><!-- fragment --><p> and link against libSenOGL </p><div class="fragment"><div class="line">-L <span class="stringliteral">&quot;path/to/SenOGL/lib&quot;</span> -lSenOGL</div>
+</div><!-- fragment --><p> or </p><div class="fragment"><div class="line">-l<span class="stringliteral">&quot;path/to/SenOGL/lib/libSenOGL.a&quot;</span></div>
+</div><!-- fragment --> <h2>Examples</h2>
+<p>Some samples can be found at <a href="https://github.com/Senryoku/OpenGL_ToolBox">https://github.com/Senryoku/OpenGL_ToolBox</a></p>
+<h2>Used Libraries</h2>
+<ul>
+<li>GLEW (<a href="http://glew.sourceforge.net/">http://glew.sourceforge.net/</a>) Included</li>
+<li>stb_image, stb_image_write (<a href="https://github.com/nothings/stb">https://github.com/nothings/stb</a>) Included (Quite old version)</li>
+<li>GLM (<a href="http://glm.g-truc.net/">http://glm.g-truc.net/</a>)</li>
+</ul>
+<p>Thanks to the dev' behind these! </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

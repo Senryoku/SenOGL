@@ -73,8 +73,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
       <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
-      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -98,7 +98,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_t.html#index_t"><span>t</span></a></li>
       <li><a href="functions_u.html#index_u"><span>u</span></a></li>
       <li><a href="functions_v.html#index_v"><span>v</span></a></li>
-      <li><a href="functions_w.html#index_w"><span>w</span></a></li>
       <li><a href="functions_x.html#index_x"><span>x</span></a></li>
       <li><a href="functions_y.html#index_y"><span>y</span></a></li>
       <li><a href="functions_z.html#index_z"><span>z</span></a></li>
@@ -111,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,12 +127,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_indexed_buffer.html#a78e60a94214f4f1802cd63e03e58b59a">IndexedBuffer</a>
 </li>
 <li>init()
-: <a class="el" href="class_buffer.html#a3a8944c5d625b3ecddde29f8357aaf9f">Buffer</a>
-, <a class="el" href="class_framebuffer.html#a0b4740594ddbf621bac632752dbaa00c">Framebuffer&lt; TexType, ColorCount &gt;</a>
+: <a class="el" href="class_buffer.html#acd398f28e20976275d3b691b9fcffe32">Buffer</a>
+, <a class="el" href="class_framebuffer.html#a76e2c2955a0cd8cc21df7921a3cb9eb1">Framebuffer&lt; TexType, ColorCount, DepthType, UseDepth &gt;</a>
+, <a class="el" href="class_open_g_l_object.html#a8c23ffcfaac1ca521922ea9f03167f00">OpenGLObject</a>
 , <a class="el" href="class_program.html#a33d5912b81ccf4a0c089894513844580">Program</a>
-, <a class="el" href="class_shader.html#a5af3b80cdbd90bba614ae23276f61a4e">Shader</a>
-, <a class="el" href="class_transform_feedback.html#a3b488120d2958601e2bc88d30b0f3cca">TransformFeedback</a>
-, <a class="el" href="class_vertex_array.html#a8def07de5b1ba81020d0c2470d43531a">VertexArray</a>
+, <a class="el" href="class_program_pipeline.html#a852a611add2ede328d572d20a204d1b1">ProgramPipeline</a>
+, <a class="el" href="class_query.html#af213972cce69ac1dbad93e18e97d480a">Query</a>
+, <a class="el" href="class_renderbuffer.html#aed54ac32e09490324ec4022bc35bc5c7">Renderbuffer</a>
+, <a class="el" href="class_shader.html#a4d0e03bc2808ffd33b52a42b0fa6081e">Shader</a>
+, <a class="el" href="class_texture.html#a622b48e360066e67d905207866706b58">Texture</a>
+, <a class="el" href="class_transform_feedback.html#a03f90dba4601cf6a798adfe3dbf0b699">TransformFeedback</a>
+, <a class="el" href="class_vertex_array.html#a5ca688cf3583ea2f6da7dcf43c8d9bad">VertexArray</a>
+</li>
+<li>isAvailable()
+: <a class="el" href="class_query.html#a2f6eb6d27ed6316ca21d0894021fdc85">Query</a>
 </li>
 <li>isBound()
 : <a class="el" href="class_indexed_buffer.html#af8dba5f712af3e734de479d8e0c355e3">IndexedBuffer</a>
@@ -147,6 +154,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>isValid()
 : <a class="el" href="class_open_g_l_object.html#af8d38ed7e97dad89f3c0056215df23db">OpenGLObject</a>
 , <a class="el" href="class_program.html#aa2603bad44111278d6ad6a4084ef2ddf">Program</a>
+, <a class="el" href="class_renderbuffer.html#a4503264afa4a90ba0d64317573884813">Renderbuffer</a>
 , <a class="el" href="class_sampler.html#ae55bb0c861e70f1b364a7e180e172906">Sampler</a>
 , <a class="el" href="class_shader.html#a80f16436211bc0b247ce07eb1a1a8dae">Shader</a>
 , <a class="el" href="class_texture.html#ae00921272446d218719c6510a6e4feb5">Texture</a>
@@ -155,7 +163,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

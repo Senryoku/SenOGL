@@ -73,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,29 +111,32 @@ Inheritance diagram for Sampler:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac760b900312ef1c25cefc9330c64047f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047f">Parameter</a> { <br />
-&#160;&#160;<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa38d02bb7704768738737de372bf9ee62">MinFilter</a> = GL_TEXTURE_MIN_FILTER, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047facebb42aaa936ce0743aad2eee32908c4">MagFilter</a> = GL_TEXTURE_MAG_FILTER, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa1e8332b78c597e4f1ac3757d0675c58c">MinLoD</a> = GL_TEXTURE_MIN_LOD, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa7f409bb3ad085858f1f66d5fec1efa24">MaxLoD</a> = GL_TEXTURE_MAX_LOD, 
+<tr class="memitem:a3c90a03b0c27fb53c5ffa4eaff6704b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">Parameter</a> : GLenum { <br />
+&#160;&#160;<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a06fec48bb4c30191d9ba31cce44b6385">Parameter::MinFilter</a> = GL_TEXTURE_MIN_FILTER, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a7ca1a34cd1d9872400b22a8ffab2a7af">Parameter::MagFilter</a> = GL_TEXTURE_MAG_FILTER, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7ace6d0d3a80d22730aeb370076c321267">Parameter::MinLoD</a> = GL_TEXTURE_MIN_LOD, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a980fe1b3412f63b4f6e6e18d5c90f64d">Parameter::MaxLoD</a> = GL_TEXTURE_MAX_LOD, 
 <br />
-&#160;&#160;<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa2f9e232a89e8b360e86a4235393b487e">LoDBias</a> = GL_TEXTURE_LOD_BIAS, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa9768c5d158b2b49ce7014e0dbd0b5667">WrapS</a> = GL_TEXTURE_WRAP_S, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa4d11ac0c90d9e4b3c8b0869a849dc88e">WrapT</a> = GL_TEXTURE_WRAP_T, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fab71f27d3058089c42f6dd52291a61ae0">WrapR</a> = GL_TEXTURE_WRAP_R, 
+&#160;&#160;<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7ad2824195dbd7078fa5f55f2a0851499a">Parameter::LoDBias</a> = GL_TEXTURE_LOD_BIAS, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a14b4dc7e8fc98809c37cba25123452a3">Parameter::WrapS</a> = GL_TEXTURE_WRAP_S, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a0502921aaf3bd256f2e65d5303f04699">Parameter::WrapT</a> = GL_TEXTURE_WRAP_T, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7afbe6e187f8aa3b7455233c929639bab7">Parameter::WrapR</a> = GL_TEXTURE_WRAP_R, 
 <br />
-&#160;&#160;<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa1f099fd8a162705840b7694528ad52ca">BorderColor</a> = GL_TEXTURE_BORDER_COLOR, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fac960364cbacf778e62919497973c7cad">CompareMode</a> = GL_TEXTURE_COMPARE_MODE, 
-<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047fa68af6672db3622e1614510491c0bd610">CompareFunc</a> = GL_TEXTURE_COMPARE_FUNC
+&#160;&#160;<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a7bd17539279d7a0357fe1796aee9897a">Parameter::BorderColor</a> = GL_TEXTURE_BORDER_COLOR, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a594fa90f339eb69aea7d8667f62b5fc5">Parameter::CompareMode</a> = GL_TEXTURE_COMPARE_MODE, 
+<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7a8427cf5f259a2f217a70c05192f44ff2">Parameter::CompareFunc</a> = GL_TEXTURE_COMPARE_FUNC
 <br />
  }</td></tr>
-<tr class="separator:ac760b900312ef1c25cefc9330c64047f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a3c90a03b0c27fb53c5ffa4eaff6704b7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_sampler.html" title="Describes a Sampler object. ">Sampler</a> parameters.  <a href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">More...</a><br /></td></tr>
+<tr class="separator:a3c90a03b0c27fb53c5ffa4eaff6704b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aef1f8a2271b1995a5d522b150280339c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#aef1f8a2271b1995a5d522b150280339c">Sampler</a> ()=default</td></tr>
+<tr class="memdesc:aef1f8a2271b1995a5d522b150280339c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <a href="#aef1f8a2271b1995a5d522b150280339c">More...</a><br /></td></tr>
 <tr class="separator:aef1f8a2271b1995a5d522b150280339c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38c6c2d308f867f4481a39005cbf42a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#a38c6c2d308f867f4481a39005cbf42a7">Sampler</a> (GLuint handle)</td></tr>
+<tr class="memdesc:a38c6c2d308f867f4481a39005cbf42a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor from an existing sampler name.  <a href="#a38c6c2d308f867f4481a39005cbf42a7">More...</a><br /></td></tr>
 <tr class="separator:a38c6c2d308f867f4481a39005cbf42a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a967f78116a3e6c0ca963464b32689ebf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#a967f78116a3e6c0ca963464b32689ebf">Sampler</a> (const <a class="el" href="class_sampler.html">Sampler</a> &amp;)=default</td></tr>
 <tr class="separator:a967f78116a3e6c0ca963464b32689ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,17 +146,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af099eab0145805f56279632c0aea00a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5e55093539abdd0d2567db16b773003"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sampler.html">Sampler</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#af5e55093539abdd0d2567db16b773003">operator=</a> (<a class="el" href="class_sampler.html">Sampler</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:af5e55093539abdd0d2567db16b773003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc3e83e6fb46fc0996131f3239754a71"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#afc3e83e6fb46fc0996131f3239754a71">~Sampler</a> ()</td></tr>
-<tr class="separator:afc3e83e6fb46fc0996131f3239754a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbbbd238b78dd3024686c852b69fa64e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#afbbbd238b78dd3024686c852b69fa64e">~Sampler</a> ()</td></tr>
+<tr class="separator:afbbbd238b78dd3024686c852b69fa64e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa676f59534548b3bd67eae25578fcd8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#aa676f59534548b3bd67eae25578fcd8a">bind</a> (unsigned int unit=0) const </td></tr>
+<tr class="memdesc:aa676f59534548b3bd67eae25578fcd8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the sampler to the unit texture 'unit'.  <a href="#aa676f59534548b3bd67eae25578fcd8a">More...</a><br /></td></tr>
 <tr class="separator:aa676f59534548b3bd67eae25578fcd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb256867bc1ea2054141542897b8560c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#aeb256867bc1ea2054141542897b8560c">unbind</a> (unsigned int unit=0) const </td></tr>
+<tr class="memdesc:aeb256867bc1ea2054141542897b8560c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds any currently bound sampler to the unit texture 'unit'.  <a href="#aeb256867bc1ea2054141542897b8560c">More...</a><br /></td></tr>
 <tr class="separator:aeb256867bc1ea2054141542897b8560c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa825161fd3ccdde978bb704c2f10ab9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aaa825161fd3ccdde978bb704c2f10ab9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_sampler.html#aaa825161fd3ccdde978bb704c2f10ab9">set</a> (<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047f">Parameter</a> opt, T value) const </td></tr>
+<tr class="memitem:aaa825161fd3ccdde978bb704c2f10ab9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_sampler.html#aaa825161fd3ccdde978bb704c2f10ab9">set</a> (<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">Parameter</a> opt, T value) const </td></tr>
+<tr class="memdesc:aaa825161fd3ccdde978bb704c2f10ab9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the parameter opt for value for this sampler.  <a href="#aaa825161fd3ccdde978bb704c2f10ab9">More...</a><br /></td></tr>
 <tr class="separator:aaa825161fd3ccdde978bb704c2f10ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af850dbfdea4ab58e5c99a9e754a806e7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af850dbfdea4ab58e5c99a9e754a806e7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_sampler.html#af850dbfdea4ab58e5c99a9e754a806e7">setI</a> (<a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047f">Parameter</a> opt, T value) const </td></tr>
+<tr class="memitem:af850dbfdea4ab58e5c99a9e754a806e7"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_sampler.html#af850dbfdea4ab58e5c99a9e754a806e7">setI</a> (<a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">Parameter</a> opt, T value) const </td></tr>
+<tr class="memdesc:af850dbfdea4ab58e5c99a9e754a806e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the parameter opt for value for this sampler.  <a href="#af850dbfdea4ab58e5c99a9e754a806e7">More...</a><br /></td></tr>
 <tr class="separator:af850dbfdea4ab58e5c99a9e754a806e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae55bb0c861e70f1b364a7e180e172906"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#ae55bb0c861e70f1b364a7e180e172906">isValid</a> () const override</td></tr>
 <tr class="memdesc:ae55bb0c861e70f1b364a7e180e172906"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the object seems valid.  <a href="#ae55bb0c861e70f1b364a7e180e172906">More...</a><br /></td></tr>
@@ -172,8 +179,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a160c6814da19ddd037350c724d1563bc inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac35daf005dd0547b92280351029ec224 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_open_g_l_object.html">OpenGLObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#ac35daf005dd0547b92280351029ec224">operator=</a> (<a class="el" href="class_open_g_l_object.html">OpenGLObject</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:ac35daf005dd0547b92280351029ec224 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4449e749a6656f5a0c10e550289de556 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a4449e749a6656f5a0c10e550289de556">~OpenGLObject</a> ()</td></tr>
-<tr class="separator:a4449e749a6656f5a0c10e550289de556 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51377e627884a1b6ec8716bfb7fd53a0 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a51377e627884a1b6ec8716bfb7fd53a0">~OpenGLObject</a> ()</td></tr>
+<tr class="separator:a51377e627884a1b6ec8716bfb7fd53a0 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c23ffcfaac1ca521922ea9f03167f00 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a8c23ffcfaac1ca521922ea9f03167f00">init</a> ()=0</td></tr>
+<tr class="memdesc:a8c23ffcfaac1ca521922ea9f03167f00 inherit pub_methods_class_open_g_l_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a OpenGL object name to manage.  <a href="#a8c23ffcfaac1ca521922ea9f03167f00">More...</a><br /></td></tr>
+<tr class="separator:a8c23ffcfaac1ca521922ea9f03167f00 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0389e1f2899c1ce0367166d1afc5a986 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a0389e1f2899c1ce0367166d1afc5a986">getName</a> () const </td></tr>
 <tr class="memdesc:a0389e1f2899c1ce0367166d1afc5a986 inherit pub_methods_class_open_g_l_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns OpenGL name of the object.  <a href="#a0389e1f2899c1ce0367166d1afc5a986">More...</a><br /></td></tr>
 <tr class="separator:a0389e1f2899c1ce0367166d1afc5a986 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +197,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a69479583a1ca693a36634ae8ca254d1c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sampler.html#a69479583a1ca693a36634ae8ca254d1c">cleanup</a> ()</td></tr>
+<tr class="memdesc:a69479583a1ca693a36634ae8ca254d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the managed OpenGL object.  <a href="#a69479583a1ca693a36634ae8ca254d1c">More...</a><br /></td></tr>
 <tr class="separator:a69479583a1ca693a36634ae8ca254d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
@@ -203,39 +214,49 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Describes a <a class="el" href="class_sampler.html" title="Describes a Sampler object. ">Sampler</a> object. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Parameter value enums. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Parameter value enums. </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a class="anchor" id="ac760b900312ef1c25cefc9330c64047f"></a>
+<a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047f">Sampler::Parameter</a></td>
+          <td class="memname">enum <a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">Sampler::Parameter</a> : GLenum</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p><a class="el" href="class_sampler.html" title="Describes a Sampler object. ">Sampler</a> parameters. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa38d02bb7704768738737de372bf9ee62"></a>MinFilter&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a06fec48bb4c30191d9ba31cce44b6385"></a>MinFilter&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047facebb42aaa936ce0743aad2eee32908c4"></a>MagFilter&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a7ca1a34cd1d9872400b22a8ffab2a7af"></a>MagFilter&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa1e8332b78c597e4f1ac3757d0675c58c"></a>MinLoD&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7ace6d0d3a80d22730aeb370076c321267"></a>MinLoD&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa7f409bb3ad085858f1f66d5fec1efa24"></a>MaxLoD&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a980fe1b3412f63b4f6e6e18d5c90f64d"></a>MaxLoD&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa2f9e232a89e8b360e86a4235393b487e"></a>LoDBias&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7ad2824195dbd7078fa5f55f2a0851499a"></a>LoDBias&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa9768c5d158b2b49ce7014e0dbd0b5667"></a>WrapS&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a14b4dc7e8fc98809c37cba25123452a3"></a>WrapS&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa4d11ac0c90d9e4b3c8b0869a849dc88e"></a>WrapT&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a0502921aaf3bd256f2e65d5303f04699"></a>WrapT&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fab71f27d3058089c42f6dd52291a61ae0"></a>WrapR&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7afbe6e187f8aa3b7455233c929639bab7"></a>WrapR&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa1f099fd8a162705840b7694528ad52ca"></a>BorderColor&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a7bd17539279d7a0357fe1796aee9897a"></a>BorderColor&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fac960364cbacf778e62919497973c7cad"></a>CompareMode&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a594fa90f339eb69aea7d8667f62b5fc5"></a>CompareMode&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><a class="anchor" id="ac760b900312ef1c25cefc9330c64047fa68af6672db3622e1614510491c0bd610"></a>CompareFunc&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><a class="anchor" id="a3c90a03b0c27fb53c5ffa4eaff6704b7a8427cf5f259a2f217a70c05192f44ff2"></a>CompareFunc&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
@@ -263,14 +284,13 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Default constructor. </p>
+
 </div>
 </div>
 <a class="anchor" id="a38c6c2d308f867f4481a39005cbf42a7"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Sampler::Sampler </td>
@@ -280,12 +300,15 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Constructor from an existing sampler name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>OpenGL name for an existing sampler. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -337,7 +360,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afc3e83e6fb46fc0996131f3239754a71"></a>
+<a class="anchor" id="afbbbd238b78dd3024686c852b69fa64e"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -345,7 +368,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual Sampler::~Sampler </td>
+          <td class="memname">Sampler::~Sampler </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -375,6 +398,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Binds the sampler to the unit texture 'unit'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unit</td><td>Unit <a class="el" href="class_texture.html" title="Describes a texture living on the GPU&#39;s memory. ">Texture</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a69479583a1ca693a36634ae8ca254d1c"></a>
@@ -393,10 +424,14 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Deletes the managed OpenGL object. </p>
+
+<p>Implements <a class="el" href="class_open_g_l_object.html#a71a1753ce86ca50692ef28c292f17e5e">OpenGLObject</a>.</p>
 
 </div>
 </div>
@@ -512,7 +547,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void Sampler::set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047f">Parameter</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">Parameter</a>&#160;</td>
           <td class="paramname"><em>opt</em>, </td>
         </tr>
         <tr>
@@ -534,6 +569,15 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Set the parameter opt for value for this sampler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">opt</td><td><a class="el" href="class_sampler.html" title="Describes a Sampler object. ">Sampler</a> parameter. </td></tr>
+    <tr><td class="paramname">value</td><td>New value for opt. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="af850dbfdea4ab58e5c99a9e754a806e7"></a>
@@ -548,7 +592,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void Sampler::setI </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_sampler.html#ac760b900312ef1c25cefc9330c64047f">Parameter</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_sampler.html#a3c90a03b0c27fb53c5ffa4eaff6704b7">Parameter</a>&#160;</td>
           <td class="paramname"><em>opt</em>, </td>
         </tr>
         <tr>
@@ -569,6 +613,15 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set the parameter opt for value for this sampler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">opt</td><td><a class="el" href="class_sampler.html" title="Describes a Sampler object. ">Sampler</a> parameter. </td></tr>
+    <tr><td class="paramname">value</td><td>New value for opt. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -586,15 +639,24 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Unbinds any currently bound sampler to the unit texture 'unit'. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unit</td><td>Unit <a class="el" href="class_texture.html" title="Describes a texture living on the GPU&#39;s memory. ">Texture</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/textures/<a class="el" href="_sampler_8hpp_source.html">Sampler.hpp</a></li>
+<li>src/textures/<a class="el" href="_sampler_8cpp.html">Sampler.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

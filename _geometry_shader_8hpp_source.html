@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,24 +94,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_shader_8hpp.html">Shader.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_geometry_shader.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_geometry_shader.html">GeometryShader</a> : <span class="keyword">public</span> <a class="code" href="class_shader.html">Shader</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_geometry_shader.html#ad345b093c267ce2f1148c68ade94eb30">    9</a></span>&#160;    <a class="code" href="class_geometry_shader.html#ad345b093c267ce2f1148c68ade94eb30">GeometryShader</a>() : <a class="code" href="class_shader.html">Shader</a>() {}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">inline</span> <span class="keyword">virtual</span> GLenum getType()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> GL_GEOMETRY_SHADER; }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="ttc" id="class_geometry_shader_html"><div class="ttname"><a href="class_geometry_shader.html">GeometryShader</a></div><div class="ttdef"><b>Definition:</b> GeometryShader.hpp:6</div></div>
-<div class="ttc" id="class_geometry_shader_html_ad345b093c267ce2f1148c68ade94eb30"><div class="ttname"><a href="class_geometry_shader.html#ad345b093c267ce2f1148c68ade94eb30">GeometryShader::GeometryShader</a></div><div class="ttdeci">GeometryShader()</div><div class="ttdef"><b>Definition:</b> GeometryShader.hpp:9</div></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_geometry_shader.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_geometry_shader.html">GeometryShader</a> : <span class="keyword">public</span> <a class="code" href="class_shader.html">Shader</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_geometry_shader.html#a66a923888995907ac17b53ab698fb3fc">GeometryShader</a>() =<span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">inline</span> <span class="keyword">virtual</span> GLenum getType()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> GL_GEOMETRY_SHADER; }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="ttc" id="class_geometry_shader_html"><div class="ttname"><a href="class_geometry_shader.html">GeometryShader</a></div><div class="ttdoc">Geometry Shader. </div><div class="ttdef"><b>Definition:</b> GeometryShader.hpp:8</div></div>
 <div class="ttc" id="_shader_8hpp_html"><div class="ttname"><a href="_shader_8hpp.html">Shader.hpp</a></div></div>
-<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdoc">Base class for all types of shaders. </div><div class="ttdef"><b>Definition:</b> Shader.hpp:15</div></div>
+<div class="ttc" id="class_geometry_shader_html_a66a923888995907ac17b53ab698fb3fc"><div class="ttname"><a href="class_geometry_shader.html#a66a923888995907ac17b53ab698fb3fc">GeometryShader::GeometryShader</a></div><div class="ttdeci">GeometryShader()=default</div></div>
+<div class="ttc" id="class_shader_html"><div class="ttname"><a href="class_shader.html">Shader</a></div><div class="ttdoc">Base class for all types of shaders. </div><div class="ttdef"><b>Definition:</b> Shader.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

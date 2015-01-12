@@ -65,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -81,36 +81,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000001"></a>Class <a class="el" href="class_sampler.html">Sampler</a>  </dt>
+<dt><a class="anchor" id="_todo000001"></a>Class <a class="el" href="class_framebuffer.html">Framebuffer&lt; TexType, ColorCount, DepthType, UseDepth &gt;</a>  </dt>
+<dd>More initialization options!  </dd>
+<dt><a class="anchor" id="_todo000002"></a>Class <a class="el" href="class_query.html">Query</a>  </dt>
+<dd>A lot.  </dd>
+<dt><a class="anchor" id="_todo000004"></a>Class <a class="el" href="class_sampler.html">Sampler</a>  </dt>
 <dd>Parameter value enums.  </dd>
-<dt><a class="anchor" id="_todo000002"></a>Class <a class="el" href="class_texture.html">Texture</a>  </dt>
+<dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="class_shader.html">Shader</a>  </dt>
+<dd>Add a way to set the source without a file.  </dd>
+<dt><a class="anchor" id="_todo000005"></a>Class <a class="el" href="class_texture.html">Texture</a>  </dt>
 <dd><p class="startdd">Store more information about the managed texture (type, format...) in order to provide easier use (image binding for example). </p>
 <p>Use <a class="el" href="class_sampler.html" title="Describes a Sampler object. ">Sampler</a> class ? </p>
 <p class="enddd">Parameter value enums  </p>
 </dd>
-<dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="class_texture2_d.html">Texture2D</a>  </dt>
+<dt><a class="anchor" id="_todo000006"></a>Class <a class="el" href="class_texture2_d.html">Texture2D</a>  </dt>
 <dd><p class="startdd">Add a LOT of options ! </p>
 <p class="enddd">Change default parameters ?  </p>
 </dd>
-<dt><a class="anchor" id="_todo000004"></a>Class <a class="el" href="class_texture3_d.html">Texture3D</a>  </dt>
+<dt><a class="anchor" id="_todo000007"></a>Class <a class="el" href="class_texture3_d.html">Texture3D</a>  </dt>
 <dd><p class="startdd">Add a LOT of options ! </p>
 <p class="enddd">Change default parameters ?  </p>
 </dd>
-<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="class_transform_feedback.html#a52a48fa0a3650c7ad5f5f708a2a99122">TransformFeedback::disableRasterization</a>  ()</dt>
+<dt><a class="anchor" id="_todo000011"></a>Member <a class="el" href="class_transform_feedback.html#a52a48fa0a3650c7ad5f5f708a2a99122">TransformFeedback::disableRasterization</a>  ()</dt>
 <dd>Move this elsewhere ? (If we have a context class one day...) <dl class="section see"><dt>See also</dt><dd>GL_RASTERIZER_DISCARD  </dd></dl>
 </dd>
-<dt><a class="anchor" id="_todo000005"></a>Member <a class="el" href="class_transform_feedback.html#a068dd23422e29a595822d9b02ba80ac6">TransformFeedback::drawStream</a>  (Primitive primitiveType, GLuint transformFeedbackObject, GLuint stream)</dt>
+<dt><a class="anchor" id="_todo000008"></a>Member <a class="el" href="class_transform_feedback.html#a068dd23422e29a595822d9b02ba80ac6">TransformFeedback::drawStream</a>  (Primitive primitiveType, GLuint transformFeedbackObject, GLuint stream)</dt>
 <dd>add overload for <a class="el" href="class_buffer.html" title="OpenGL Buffer Object. ">Buffer</a> (instead of raw stream).  </dd>
-<dt><a class="anchor" id="_todo000006"></a>Member <a class="el" href="class_transform_feedback.html#aa73b58e31e2c52044245c85b4af2092e">TransformFeedback::drawStreamInstanced</a>  (Primitive primitiveType, GLuint transformFeedbackObject, GLuint stream, GLuint instanceCount)</dt>
+<dt><a class="anchor" id="_todo000009"></a>Member <a class="el" href="class_transform_feedback.html#aa73b58e31e2c52044245c85b4af2092e">TransformFeedback::drawStreamInstanced</a>  (Primitive primitiveType, GLuint transformFeedbackObject, GLuint stream, GLuint instanceCount)</dt>
 <dd>add overload for <a class="el" href="class_buffer.html" title="OpenGL Buffer Object. ">Buffer</a> (instead of raw stream).  </dd>
-<dt><a class="anchor" id="_todo000007"></a>Member <a class="el" href="class_transform_feedback.html#a54473019eb4c11ca404c6370a39b987f">TransformFeedback::enableRasterization</a>  ()</dt>
+<dt><a class="anchor" id="_todo000010"></a>Member <a class="el" href="class_transform_feedback.html#a54473019eb4c11ca404c6370a39b987f">TransformFeedback::enableRasterization</a>  ()</dt>
 <dd>Move this elsewhere ? (If we have a context class one day...) <dl class="section see"><dt>See also</dt><dd>GL_RASTERIZER_DISCARD </dd></dl>
 </dd>
 </dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

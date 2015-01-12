@@ -1,6 +1,17 @@
 var searchData=
 [
-  ['wrapr',['WrapR',['../class_sampler.html#ac760b900312ef1c25cefc9330c64047fab71f27d3058089c42f6dd52291a61ae0',1,'Sampler::WrapR()'],['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aafbe6e187f8aa3b7455233c929639bab7',1,'Texture::WrapR()']]],
-  ['wraps',['WrapS',['../class_sampler.html#ac760b900312ef1c25cefc9330c64047fa9768c5d158b2b49ce7014e0dbd0b5667',1,'Sampler::WrapS()'],['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aa14b4dc7e8fc98809c37cba25123452a3',1,'Texture::WrapS()']]],
-  ['wrapt',['WrapT',['../class_sampler.html#ac760b900312ef1c25cefc9330c64047fa4d11ac0c90d9e4b3c8b0869a849dc88e',1,'Sampler::WrapT()'],['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aa0502921aaf3bd256f2e65d5303f04699',1,'Texture::WrapT()']]]
+  ['samplespassed',['SamplesPassed',['../class_query.html#ae30904daf041e6200786982cf59a674aa54b43ab4bcabef00ca9685071f9f7ca9',1,'Query']]],
+  ['shaderimageaccess',['ShaderImageAccess',['../class_compute_shader.html#a7e8cedf2dd4115f52c63913c367f4faba24faf38819ef9ddb4fc2f5862023d07e',1,'ComputeShader']]],
+  ['shaderstorage',['ShaderStorage',['../class_buffer.html#aeecce8b7c12c47eb4860787c980528e0a63d204f04170f5bbf958083589f6572f',1,'Buffer::ShaderStorage()'],['../class_compute_shader.html#a7e8cedf2dd4115f52c63913c367f4faba63d204f04170f5bbf958083589f6572f',1,'ComputeShader::ShaderStorage()']]],
+  ['staticcopy',['StaticCopy',['../class_buffer.html#ae5d5f94fc43a110105fac25e6b5af084ac5a66e746248ebb7fe5f99443172fca7',1,'Buffer']]],
+  ['staticdraw',['StaticDraw',['../class_buffer.html#ae5d5f94fc43a110105fac25e6b5af084ac3ed2ba606af12869974bdab26334e6c',1,'Buffer']]],
+  ['staticread',['StaticRead',['../class_buffer.html#ae5d5f94fc43a110105fac25e6b5af084a3b35249bb273aea8b56c05f2c914a38a',1,'Buffer']]],
+  ['stencil',['Stencil',['../_framebuffer_8hpp.html#ac97a736a019301fe89b93f3ecd294347ad821e7ccd4d4c25a491ba1a9ea248895',1,'Framebuffer.hpp']]],
+  ['streamcopy',['StreamCopy',['../class_buffer.html#ae5d5f94fc43a110105fac25e6b5af084a72d80d051f94e8aa1e3dc1ebfb6cc8cc',1,'Buffer']]],
+  ['streamdraw',['StreamDraw',['../class_buffer.html#ae5d5f94fc43a110105fac25e6b5af084ab831b12d8d415645f1f00e37e0426ca2',1,'Buffer']]],
+  ['streamread',['StreamRead',['../class_buffer.html#ae5d5f94fc43a110105fac25e6b5af084a10953b8796ab666281dc734e99aa5180',1,'Buffer']]],
+  ['swizzlea',['SwizzleA',['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aae89282139ffc2e5f107e927e14cbc749',1,'Texture']]],
+  ['swizzleb',['SwizzleB',['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aadc819120a630f4bd11bdfe4fd0171d0b',1,'Texture']]],
+  ['swizzleg',['SwizzleG',['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aaeaadc1c308419b983eb5a3e7beb52c35',1,'Texture']]],
+  ['swizzler',['SwizzleR',['../class_texture.html#ade325e8d042cd06e2cde76e0d212ba6aad33bdf19ab3639d48069e76052d06d60',1,'Texture']]]
 ];

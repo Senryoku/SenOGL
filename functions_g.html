@@ -73,8 +73,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions.html"><span>All</span></a></li>
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_vars.html"><span>Variables</span></a></li>
+      <li><a href="functions_type.html"><span>Typedefs</span></a></li>
       <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
-      <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
       <li><a href="functions_rela.html"><span>Related&#160;Functions</span></a></li>
     </ul>
   </div>
@@ -98,7 +98,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_t.html#index_t"><span>t</span></a></li>
       <li><a href="functions_u.html#index_u"><span>u</span></a></li>
       <li><a href="functions_v.html#index_v"><span>v</span></a></li>
-      <li><a href="functions_w.html#index_w"><span>w</span></a></li>
       <li><a href="functions_x.html#index_x"><span>x</span></a></li>
       <li><a href="functions_y.html#index_y"><span>y</span></a></li>
       <li><a href="functions_z.html#index_z"><span>z</span></a></li>
@@ -111,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,7 +127,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_texture.html#ab7ecc332314792cda5bf0a2113b00c70">Texture</a>
 </li>
 <li>GeometryShader()
-: <a class="el" href="class_geometry_shader.html#ad345b093c267ce2f1148c68ade94eb30">GeometryShader</a>
+: <a class="el" href="class_geometry_shader.html#a66a923888995907ac17b53ab698fb3fc">GeometryShader</a>
+</li>
+<li>get()
+: <a class="el" href="class_query.html#a00a45536c6345e09be322debae970dd6">Query</a>
 </li>
 <li>getAttribLocation()
 : <a class="el" href="class_program.html#ab15c01d72ae1207b6ef38bf4dbbbaad1">Program</a>
@@ -143,25 +145,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="class_texture.html#a744e824d8cfed06bd2d07ef67a105e54">Texture</a>
 </li>
 <li>getColor()
-: <a class="el" href="class_framebuffer.html#a3941f61d4de2bf7f1ceb3603fa2c1191">Framebuffer&lt; TexType, ColorCount &gt;</a>
+: <a class="el" href="class_framebuffer.html#aec518676021d0fe7ca8552d55ce0bac2">Framebuffer&lt; TexType, ColorCount, DepthType, UseDepth &gt;</a>
 </li>
 <li>getCompCount()
-: <a class="el" href="class_texture.html#a2763eb1cbb46aecf3662289d30f7ae10">Texture</a>
+: <a class="el" href="class_texture.html#afdb7dc492561314c48f8db1c3cc6cc73">Texture</a>
+</li>
+<li>getCounter()
+: <a class="el" href="class_query.html#a4ff2ef39e4006ee29158c002328ce313">Query</a>
 </li>
 <li>getCurrent()
 : <a class="el" href="class_program.html#a9d5a16309141b0cdb1617f38234f1bd7">Program</a>
 </li>
 <li>getDepth()
-: <a class="el" href="class_framebuffer.html#a2ac12da2b06fae7d988e877c98fa7bec">Framebuffer&lt; TexType, ColorCount &gt;</a>
+: <a class="el" href="class_framebuffer.html#abebcd86f6c2579b26395b77729e0f6a5">Framebuffer&lt; TexType, ColorCount, DepthType, UseDepth &gt;</a>
 </li>
 <li>getFormat()
-: <a class="el" href="class_texture.html#a3affb9d353466626e357d9f672032fcf">Texture</a>
+: <a class="el" href="class_texture.html#a6ba29fd9db05f8153365a17585d85260">Texture</a>
 </li>
 <li>getHeight()
-: <a class="el" href="class_framebuffer.html#acbe6a980e02d37607dba747a348bc183">Framebuffer&lt; TexType, ColorCount &gt;</a>
+: <a class="el" href="class_framebuffer.html#a2839f1fb49249935183e5478e83939da">Framebuffer&lt; TexType, ColorCount, DepthType, UseDepth &gt;</a>
 </li>
 <li>getName()
 : <a class="el" href="class_open_g_l_object.html#a0389e1f2899c1ce0367166d1afc5a986">OpenGLObject</a>
+</li>
+<li>getNoWait()
+: <a class="el" href="class_query.html#a67cb10e1fa4d3e068640517c945b45d0">Query</a>
 </li>
 <li>getProgram()
 : <a class="el" href="class_compute_shader.html#ac85566120984e2de497c33e00a29b379">ComputeShader</a>
@@ -181,16 +189,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="class_program.html#a268bdd71fb48cbd2d114149f5b440ee4">Program</a>
 </li>
 <li>getWidth()
-: <a class="el" href="class_framebuffer.html#a17c0b4e4af6e1545cc24e45b0e632b15">Framebuffer&lt; TexType, ColorCount &gt;</a>
+: <a class="el" href="class_framebuffer.html#a582dfcadd36e8457e3b3aa5aeefafeb5">Framebuffer&lt; TexType, ColorCount, DepthType, UseDepth &gt;</a>
 </li>
 <li>getWorkgroupSize()
-: <a class="el" href="class_compute_shader.html#ab860088b7e32ec2724046b97f0e93369">ComputeShader</a>
+: <a class="el" href="class_compute_shader.html#ac4eecc07abcb89dded53cc5c2fda2f42">ComputeShader</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

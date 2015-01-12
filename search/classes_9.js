@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uniformbuffer',['UniformBuffer',['../class_uniform_buffer.html',1,'']]]
+  ['sampler',['Sampler',['../class_sampler.html',1,'']]],
+  ['shader',['Shader',['../class_shader.html',1,'']]]
 ];

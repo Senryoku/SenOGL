@@ -73,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b4eafe934a2452a9cf2f910a6b1b6a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a0b4eafe934a2452a9cf2f910a6b1b6a9">load</a> (const std::array&lt; std::string, 6 &gt; &amp;paths, bool <a class="el" href="class_texture.html#ab7ecc332314792cda5bf0a2113b00c70">generateMipmaps</a>=true)</td></tr>
 <tr class="memdesc:a0b4eafe934a2452a9cf2f910a6b1b6a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Order : XPOS, XNEG, YPOS, YNEG, ZPOS, ZNEG.  <a href="#a0b4eafe934a2452a9cf2f910a6b1b6a9">More...</a><br /></td></tr>
 <tr class="separator:a0b4eafe934a2452a9cf2f910a6b1b6a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7240e0f9ae6674b944f24b05e4ec7553"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a7240e0f9ae6674b944f24b05e4ec7553">create</a> (size_t width, size_t height, GLenum internalFormat)</td></tr>
+<tr class="separator:a7240e0f9ae6674b944f24b05e4ec7553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a331b1a2f2631a4d0bd985931583987"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a3a331b1a2f2631a4d0bd985931583987">create</a> (void *data, size_t width, size_t height, int compCount, bool <a class="el" href="class_texture.html#ab7ecc332314792cda5bf0a2113b00c70">generateMipmaps</a>=true)</td></tr>
 <tr class="separator:a3a331b1a2f2631a4d0bd985931583987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe11f135a4de6a62bdc4132a13906bbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#afe11f135a4de6a62bdc4132a13906bbe">create</a> (const std::array&lt; void *, 6 &gt; &amp;data, size_t width, size_t height, int compCount, bool <a class="el" href="class_texture.html#ab7ecc332314792cda5bf0a2113b00c70">generateMipmaps</a>=true)</td></tr>
@@ -121,15 +123,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7dae4fed621aaa0a64daf6bcbf8652e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e47abbc099cc58b206588295661340"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a12e47abbc099cc58b206588295661340">create</a> (const std::array&lt; void *, 6 &gt; &amp;data, size_t width, size_t height, GLint internalFormat, GLenum format, bool <a class="el" href="class_texture.html#ab7ecc332314792cda5bf0a2113b00c70">generateMipmaps</a>=true)</td></tr>
 <tr class="separator:a12e47abbc099cc58b206588295661340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc23e6849c08ee51cf0a0f39cdc585b1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#abc23e6849c08ee51cf0a0f39cdc585b1">bind</a> (unsigned int unit=0) const override</td></tr>
-<tr class="separator:abc23e6849c08ee51cf0a0f39cdc585b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37580a477b68b69ef75fd32a461b3b64"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a37580a477b68b69ef75fd32a461b3b64">unbind</a> (unsigned int unit=0) const override</td></tr>
-<tr class="separator:a37580a477b68b69ef75fd32a461b3b64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43663f1f3f66839d9424eb4d34266405"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a43663f1f3f66839d9424eb4d34266405">bind</a> (unsigned int unit=0) const override</td></tr>
+<tr class="separator:a43663f1f3f66839d9424eb4d34266405"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb7ed30aacbe1330fd8fa1dee803e895"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#aeb7ed30aacbe1330fd8fa1dee803e895">unbind</a> (unsigned int unit=0) const override</td></tr>
+<tr class="separator:aeb7ed30aacbe1330fd8fa1dee803e895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6171a4aff3d6f03613d3cddc7d2d88e1"><td class="memItemLeft" align="right" valign="top">virtual GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a6171a4aff3d6f03613d3cddc7d2d88e1">getBound</a> (unsigned int unit=0) const override</td></tr>
 <tr class="separator:a6171a4aff3d6f03613d3cddc7d2d88e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5038fa104e5036f1b906ee041609189e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#a5038fa104e5036f1b906ee041609189e">dump</a> (const std::string &amp;path) const override</td></tr>
-<tr class="memdesc:a5038fa104e5036f1b906ee041609189e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the texture as a png at path.  <a href="#a5038fa104e5036f1b906ee041609189e">More...</a><br /></td></tr>
-<tr class="separator:a5038fa104e5036f1b906ee041609189e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44559b0a133ca34caa1d656642df04a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cube_map.html#ab44559b0a133ca34caa1d656642df04a">dump</a> (const std::string &amp;path) const override</td></tr>
+<tr class="memdesc:ab44559b0a133ca34caa1d656642df04a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves the texture as a png at path.  <a href="#ab44559b0a133ca34caa1d656642df04a">More...</a><br /></td></tr>
+<tr class="separator:ab44559b0a133ca34caa1d656642df04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_texture"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_texture')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_texture.html">Texture</a></td></tr>
 <tr class="memitem:a7da549edd8ccb19b41fa1b171dcf6839 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a7da549edd8ccb19b41fa1b171dcf6839">Texture</a> (<a class="el" href="class_texture.html#ab5734b4e72f277621a6a39c49034c09b">PixelType</a> pixelType=<a class="el" href="class_texture.html#ab5734b4e72f277621a6a39c49034c09ba8f0fb883eb5a52838534191513e365a2">PixelType::UnsignedByte</a>)</td></tr>
 <tr class="separator:a7da549edd8ccb19b41fa1b171dcf6839 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,8 +145,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acf93a6e7dd21616a702924ea08faf07d inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a612e1d5344d24e0ee9a0ef4a9e876b97 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html">Texture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a612e1d5344d24e0ee9a0ef4a9e876b97">operator=</a> (<a class="el" href="class_texture.html">Texture</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a612e1d5344d24e0ee9a0ef4a9e876b97 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eaff28a38f061c3ed1a21ef210e7030 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a4eaff28a38f061c3ed1a21ef210e7030">~Texture</a> ()</td></tr>
-<tr class="separator:a4eaff28a38f061c3ed1a21ef210e7030 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09c4bcb7462f64c1d20fa69dba3cee8a inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a09c4bcb7462f64c1d20fa69dba3cee8a">~Texture</a> ()</td></tr>
+<tr class="separator:a09c4bcb7462f64c1d20fa69dba3cee8a inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a622b48e360066e67d905207866706b58 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a622b48e360066e67d905207866706b58">init</a> () override</td></tr>
+<tr class="memdesc:a622b48e360066e67d905207866706b58 inherit pub_methods_class_texture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a OpenGL object name to manage.  <a href="#a622b48e360066e67d905207866706b58">More...</a><br /></td></tr>
+<tr class="separator:a622b48e360066e67d905207866706b58 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89cf123cb4c03656e19b959e0d41f8b8 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a89cf123cb4c03656e19b959e0d41f8b8">cleanup</a> () override</td></tr>
+<tr class="memdesc:a89cf123cb4c03656e19b959e0d41f8b8 inherit pub_methods_class_texture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the managed OpenGL object.  <a href="#a89cf123cb4c03656e19b959e0d41f8b8">More...</a><br /></td></tr>
+<tr class="separator:a89cf123cb4c03656e19b959e0d41f8b8 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae00921272446d218719c6510a6e4feb5 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ae00921272446d218719c6510a6e4feb5">isValid</a> () const override</td></tr>
 <tr class="memdesc:ae00921272446d218719c6510a6e4feb5 inherit pub_methods_class_texture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the object seems valid.  <a href="#ae00921272446d218719c6510a6e4feb5">More...</a><br /></td></tr>
 <tr class="separator:ae00921272446d218719c6510a6e4feb5 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,9 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a30175881a2b3d496f6c4ba6570fb019b inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ecc332314792cda5bf0a2113b00c70 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ab7ecc332314792cda5bf0a2113b00c70">generateMipmaps</a> () const </td></tr>
 <tr class="separator:ab7ecc332314792cda5bf0a2113b00c70 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a6ba35d316b1c5952070d132c0797ca inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a5a6ba35d316b1c5952070d132c0797ca">bindImage</a> (GLuint unit, GLint level, GLboolean layered, GLint layer, GLenum access, GLenum format) const </td></tr>
-<tr class="memdesc:a5a6ba35d316b1c5952070d132c0797ca inherit pub_methods_class_texture"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a5a6ba35d316b1c5952070d132c0797ca">More...</a><br /></td></tr>
-<tr class="separator:a5a6ba35d316b1c5952070d132c0797ca inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07a5a90bcac4d7982989a594122bc118 inherit pub_methods_class_texture"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a07a5a90bcac4d7982989a594122bc118">bindImage</a> (GLuint unit, GLint level, GLboolean layered, GLint layer, GLenum access, GLenum format) const </td></tr>
+<tr class="memdesc:a07a5a90bcac4d7982989a594122bc118 inherit pub_methods_class_texture"><td class="mdescLeft">&#160;</td><td class="mdescRight">TODO.  <a href="#a07a5a90bcac4d7982989a594122bc118">More...</a><br /></td></tr>
+<tr class="separator:a07a5a90bcac4d7982989a594122bc118 inherit pub_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_open_g_l_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_open_g_l_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_open_g_l_object.html">OpenGLObject</a></td></tr>
 <tr class="memitem:a57462537ce4cbcd524cc2aefb0e8edbe inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a57462537ce4cbcd524cc2aefb0e8edbe">OpenGLObject</a> ()</td></tr>
 <tr class="separator:a57462537ce4cbcd524cc2aefb0e8edbe inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,8 +181,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a160c6814da19ddd037350c724d1563bc inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac35daf005dd0547b92280351029ec224 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_open_g_l_object.html">OpenGLObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#ac35daf005dd0547b92280351029ec224">operator=</a> (<a class="el" href="class_open_g_l_object.html">OpenGLObject</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:ac35daf005dd0547b92280351029ec224 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4449e749a6656f5a0c10e550289de556 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a4449e749a6656f5a0c10e550289de556">~OpenGLObject</a> ()</td></tr>
-<tr class="separator:a4449e749a6656f5a0c10e550289de556 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51377e627884a1b6ec8716bfb7fd53a0 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a51377e627884a1b6ec8716bfb7fd53a0">~OpenGLObject</a> ()</td></tr>
+<tr class="separator:a51377e627884a1b6ec8716bfb7fd53a0 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0389e1f2899c1ce0367166d1afc5a986 inherit pub_methods_class_open_g_l_object"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_open_g_l_object.html#a0389e1f2899c1ce0367166d1afc5a986">getName</a> () const </td></tr>
 <tr class="memdesc:a0389e1f2899c1ce0367166d1afc5a986 inherit pub_methods_class_open_g_l_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns OpenGL name of the object.  <a href="#a0389e1f2899c1ce0367166d1afc5a986">More...</a><br /></td></tr>
 <tr class="separator:a0389e1f2899c1ce0367166d1afc5a986 inherit pub_methods_class_open_g_l_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,16 +230,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_class_texture"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_class_texture')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="class_texture.html">Texture</a></td></tr>
 <tr class="memitem:aac311fa45248c08398b06dba14225e2b inherit pub_static_methods_class_texture"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aac311fa45248c08398b06dba14225e2b">activeUnit</a> (unsigned int unit)</td></tr>
 <tr class="separator:aac311fa45248c08398b06dba14225e2b inherit pub_static_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_texture"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_texture')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_texture.html">Texture</a></td></tr>
-<tr class="memitem:ae13a97cde8768d3b61fd9524c21fbfac inherit pro_methods_class_texture"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#ae13a97cde8768d3b61fd9524c21fbfac">cleanup</a> ()</td></tr>
-<tr class="separator:ae13a97cde8768d3b61fd9524c21fbfac inherit pro_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_methods_class_texture"><td colspan="2" onclick="javascript:toggleInherit('pro_static_methods_class_texture')"><img src="closed.png" alt="-"/>&#160;Static Protected Member Functions inherited from <a class="el" href="class_texture.html">Texture</a></td></tr>
 <tr class="memitem:a88692052d9485ae118e8656db7f29fa0 inherit pro_static_methods_class_texture"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a88692052d9485ae118e8656db7f29fa0">isTexture</a> (GLuint name)</td></tr>
 <tr class="separator:a88692052d9485ae118e8656db7f29fa0 inherit pro_static_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3affb9d353466626e357d9f672032fcf inherit pro_static_methods_class_texture"><td class="memItemLeft" align="right" valign="top">static GLenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a3affb9d353466626e357d9f672032fcf">getFormat</a> (GLuint compCount)</td></tr>
-<tr class="separator:a3affb9d353466626e357d9f672032fcf inherit pro_static_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2763eb1cbb46aecf3662289d30f7ae10 inherit pro_static_methods_class_texture"><td class="memItemLeft" align="right" valign="top">static GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a2763eb1cbb46aecf3662289d30f7ae10">getCompCount</a> (GLenum format)</td></tr>
-<tr class="separator:a2763eb1cbb46aecf3662289d30f7ae10 inherit pro_static_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ba29fd9db05f8153365a17585d85260 inherit pro_static_methods_class_texture"><td class="memItemLeft" align="right" valign="top">static GLenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#a6ba29fd9db05f8153365a17585d85260">getFormat</a> (GLuint compCount)</td></tr>
+<tr class="separator:a6ba29fd9db05f8153365a17585d85260 inherit pro_static_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb7dc492561314c48f8db1c3cc6cc73 inherit pro_static_methods_class_texture"><td class="memItemLeft" align="right" valign="top">static GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#afdb7dc492561314c48f8db1c3cc6cc73">getCompCount</a> (GLenum format)</td></tr>
+<tr class="separator:afdb7dc492561314c48f8db1c3cc6cc73 inherit pro_static_methods_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_texture"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_texture')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_texture.html">Texture</a></td></tr>
 <tr class="memitem:aee0a4ddafc8e32596917c355188d74da inherit pro_attribs_class_texture"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_texture.html#ab5734b4e72f277621a6a39c49034c09b">PixelType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_texture.html#aee0a4ddafc8e32596917c355188d74da">_pixelType</a> = <a class="el" href="class_texture.html#ab5734b4e72f277621a6a39c49034c09ba8f0fb883eb5a52838534191513e365a2">PixelType::UnsignedByte</a></td></tr>
 <tr class="separator:aee0a4ddafc8e32596917c355188d74da inherit pro_attribs_class_texture"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -281,7 +286,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="abc23e6849c08ee51cf0a0f39cdc585b1"></a>
+<a class="anchor" id="a43663f1f3f66839d9424eb4d34266405"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -289,7 +294,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void CubeMap::bind </td>
+          <td class="memname">void CubeMap::bind </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>unit</em> = <code>0</code></td><td>)</td>
@@ -304,6 +309,38 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="class_texture.html#abb6cbf763c4097280755445b11822106">Texture</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7240e0f9ae6674b944f24b05e4ec7553"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CubeMap::create </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>internalFormat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -495,7 +532,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5038fa104e5036f1b906ee041609189e"></a>
+<a class="anchor" id="ab44559b0a133ca34caa1d656642df04a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -503,7 +540,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void CubeMap::dump </td>
+          <td class="memname">void CubeMap::dump </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -525,7 +562,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="class_texture.html#a6839f4aa7a0807e4b8ce372fe2c4a0cb">Texture</a>.</p>
+<p>Reimplemented from <a class="el" href="class_texture.html#a7178c94cde38b7c2d7e28fdced59d9c2">Texture</a>.</p>
 
 </div>
 </div>
@@ -590,7 +627,7 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a37580a477b68b69ef75fd32a461b3b64"></a>
+<a class="anchor" id="aeb7ed30aacbe1330fd8fa1dee803e895"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -598,7 +635,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void CubeMap::unbind </td>
+          <td class="memname">void CubeMap::unbind </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>unit</em> = <code>0</code></td><td>)</td>
@@ -616,13 +653,14 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/textures/<a class="el" href="_cube_map_8hpp_source.html">CubeMap.hpp</a></li>
+<li>src/textures/<a class="el" href="_cube_map_8cpp.html">CubeMap.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 12 2015 00:38:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 12 2015 19:23:48 for SenOGL by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
