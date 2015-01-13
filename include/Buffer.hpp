@@ -270,6 +270,15 @@ public:
 	UniformBuffer();
 };
 
+/**
+ * Shader Storage Object (SSO)
+**/
+class ShaderStorage : public IndexedBuffer
+{
+public:
+	ShaderStorage();
+};
+
 inline void Buffer::copySubData(Target srcType, Target dstType, GLuint srcOffset, GLuint dstOffset, GLuint size)
 {
 	glCopyBufferSubData(to_underlying(srcType), to_underlying(dstType), srcOffset, dstOffset, size);

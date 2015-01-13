@@ -158,6 +158,13 @@ public:
 	void bindUniformBlock(const std::string& name, const UniformBuffer& uniformBuffer) const;
 	
 	/**
+	 * Assign a Shader Storage Object (SSO) to an active buffer block.
+	 * @param name Name of a buffer block in one of the program's shaders
+	 * @param sso Uniform Shader Storage Object (SSo) to assign to this uniform block
+	**/
+	void bindShaderStorageBlock(const std::string& name, const ShaderStorage& sso) const;
+	
+	/**
 	 * Unbind any currently bound shader program.
 	**/
 	static void useNone();

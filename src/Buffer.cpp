@@ -117,3 +117,11 @@ UniformBuffer::UniformBuffer() :
 	IndexedBuffer(Target::Uniform)
 {
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// ShaderStorage
+
+ShaderStorage::ShaderStorage() : 
+	IndexedBuffer(Target::ShaderStorage)
+{
+}

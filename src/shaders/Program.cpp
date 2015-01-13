@@ -112,6 +112,13 @@ void Program::bindUniformBlock(const std::string& name, const UniformBuffer& uni
 	assert(uniformBuffer.isBound());
 	bindUniformBlock(getUniformBlockIndex(name), uniformBuffer.getBindingPoint());
 }
+
+void Program::bindShaderStorageBlock(const std::string& name, const ShaderStorage& sso) const
+{
+	assert(isValid());
+	assert(sso.isBound());
+	glShaderStorageBlockBinding(_handle, getResourceIndex(GL_SHADER_STORAGE_BLOCK, name), sso.getBindingPoint());
+}
 	
 void Program::useNone()
 {
