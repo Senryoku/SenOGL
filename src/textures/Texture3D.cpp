@@ -14,8 +14,7 @@ void Texture3D::create(const void* data, size_t width, size_t height, size_t dep
 		init();
 	
 	bind();
-	
-	glTexImage3D(GL_TEXTURE_3D, 
+	glTexImage3D(getType(), 
 				 0,
 				 internalFormat,
 	 			 static_cast<GLsizei>(width),
@@ -40,22 +39,10 @@ void Texture3D::create(const void* data, size_t width, size_t height, size_t dep
 	// Mmh ?
 	GLfloat maxAniso = 0.0f;
 	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
-	glSamplerParameterf(GL_TEXTURE_3D, GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
+	glSamplerParameterf(getType(), GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
 	
 	if(generateMipmaps)
-		glGenerateMipmap(GL_TEXTURE_3D);
+		glGenerateMipmap(getType());
 	
 	unbind();
-}
-
-void Texture3D::bind(unsigned int unit) const
-{
-	activeUnit(unit);
-	glBindTexture(GL_TEXTURE_3D, _handle);
-}
-
-void Texture3D::unbind(unsigned int unit) const
-{
-	activeUnit(unit);
-	glBindTexture(GL_TEXTURE_3D, 0);
 }

@@ -45,10 +45,6 @@ public:
 				GLenum format, 
 				bool generateMipmaps = true);
 	
-	virtual void bind(unsigned int unit = 0) const override;
-	
-	virtual void unbind(unsigned int unit = 0) const override;
-	
 	virtual GLuint getBound(unsigned int unit = 0) const override
 	{
 		activeUnit(unit);

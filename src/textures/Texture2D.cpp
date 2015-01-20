@@ -3,6 +3,11 @@
 #include <iostream>
 #include "stb_image.hpp"
 
+Texture2D::Texture2D(const std::string& path)
+{
+	load(path);
+}
+	
 void Texture2D::load(const std::string& Path)
 {
 	int x, y, n;
@@ -31,7 +36,7 @@ void Texture2D::create(const void* data, size_t width, size_t height, GLint inte
 	
 	bind();
 	
-	glTexImage2D(GL_TEXTURE_2D, 
+	glTexImage2D(getType(), 
 				 0,
 				 internalFormat,
 	 			 static_cast<GLsizei>(width),
@@ -54,22 +59,10 @@ void Texture2D::create(const void* data, size_t width, size_t height, GLint inte
 	// Mmh ?
 	GLfloat maxAniso = 0.0f;
 	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
-	glSamplerParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
+	glSamplerParameterf(getType(), GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
 	
 	if(generateMipmaps)
-		glGenerateMipmap(GL_TEXTURE_2D);
+		glGenerateMipmap(getType());
 	
 	unbind();
-}
-
-void Texture2D::bind(unsigned int unit) const
-{
-	activeUnit(unit);
-	glBindTexture(GL_TEXTURE_2D, _handle);
-}
-
-void Texture2D::unbind(unsigned int unit) const
-{
-	activeUnit(unit);
-	glBindTexture(GL_TEXTURE_2D, 0);
 }

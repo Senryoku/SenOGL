@@ -12,6 +12,7 @@
  * 		 in order to provide easier use (image binding for example).
  * @todo Use Sampler class ?
  * @todo Parameter value enums
+ * @todo DOCUMENTATION
 **/
 class Texture : public OpenGLObject
 {
@@ -81,10 +82,6 @@ public:
 	virtual void init() override;
 	
 	virtual void cleanup() override;
-
-	virtual void bind(unsigned int unit = 0) const {}
-	
-	virtual void unbind(unsigned int unit = 0) const {}
 	
 	inline virtual bool isValid() const override { return OpenGLObject::isValid() && isTexture(_handle); }
 	
@@ -103,6 +100,10 @@ public:
 	}
 	
 	void generateMipmaps() const;
+	
+	virtual void bind(unsigned int unit = 0) const;
+	
+	virtual void unbind(unsigned int unit = 0) const;
 	
 	/**
 	 * TODO

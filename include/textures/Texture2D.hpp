@@ -21,8 +21,10 @@ public:
 		Texture(pixelType)
 	{
 	}
+	
+	Texture2D(const std::string& path);
 
-	void load(const std::string& Path);
+	void load(const std::string& path);
 	
 	/**
 	 * Create an uninitialized RGBA texture
@@ -32,10 +34,6 @@ public:
 	void create(const void* data, size_t width, size_t height, int compCount);
 	void create(const void* data, size_t width, size_t height, GLint internalFormat, GLenum format, bool generateMipmaps = true);
 	
-	virtual void bind(unsigned int unit = 0) const override;
-	
-	virtual void unbind(unsigned int unit = 0) const override;
-	
 	virtual GLuint getBound(unsigned int unit = 0) const override
 	{
 		activeUnit(unit);
@@ -44,5 +42,5 @@ public:
 		return static_cast<GLuint>(r);
 	}
 private:
-	virtual GLenum getType() const override { return GL_TEXTURE_2D; }
+	virtual inline GLenum getType() const override { return GL_TEXTURE_2D; }
 };

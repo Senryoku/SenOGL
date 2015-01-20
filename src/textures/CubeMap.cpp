@@ -83,30 +83,18 @@ void CubeMap::create(const std::array<void*, 6>& data, size_t width, size_t heig
 	glSamplerParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
 	
 	if(generateMipmaps)
-		glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
+		glGenerateMipmap(getType());
 	
 	unbind();
-}
-
-void CubeMap::bind(unsigned int unit) const
-{
-	activeUnit(unit);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, _handle);
-}
-
-void CubeMap::unbind(unsigned int unit) const
-{
-	activeUnit(unit);
-	glBindTexture(GL_TEXTURE_CUBE_MAP, 0);
 }
 
 void CubeMap::dump(const std::string& path) const
 {
 	bind();
 	GLint width, height, format;
-	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP, 0, GL_TEXTURE_WIDTH, &width);
-	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP, 0, GL_TEXTURE_HEIGHT, &height);
-	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP, 0, GL_TEXTURE_INTERNAL_FORMAT, &format);
+	glGetTexLevelParameteriv(getType(), 0, GL_TEXTURE_WIDTH, &width);
+	glGetTexLevelParameteriv(getType(), 0, GL_TEXTURE_HEIGHT, &height);
+	glGetTexLevelParameteriv(getType(), 0, GL_TEXTURE_INTERNAL_FORMAT, &format);
 	if(_pixelType == PixelType::UnsignedByte)
 	{
 		GLubyte* data = nullptr;

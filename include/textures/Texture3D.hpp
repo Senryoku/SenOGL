@@ -25,10 +25,6 @@ public:
 	void create(const void* data, size_t width, size_t height, size_t depth, int compCount);
 	void create(const void* data, size_t width, size_t height, size_t depth, GLint internalFormat, GLenum format, bool generateMipmaps = true);
 	
-	virtual void bind(unsigned int unit = 0) const override;
-	
-	virtual void unbind(unsigned int unit = 0) const override;
-	
 	virtual GLuint getBound(unsigned int unit = 0) const override
 	{
 		activeUnit(unit);

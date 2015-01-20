@@ -90,6 +90,18 @@ GLuint Texture::getCompCount(GLenum format)
 	}
 }
 
+void Texture::bind(unsigned int unit) const
+{
+	activeUnit(unit);
+	glBindTexture(this->getType(), _handle);
+}
+
+void Texture::unbind(unsigned int unit) const
+{
+	activeUnit(unit);
+	glBindTexture(this->getType(), 0);
+}
+
 void Texture::dump(const std::string& path) const
 {
 	bind();
@@ -118,6 +130,7 @@ Texture::Binder::Binder(const Texture& t, unsigned int unit) :
 	_unit(unit),
 	_tex(t)
 {
+	assert(_tex);
 	_prevBound = _tex.getBound(unit);
 	if(_prevBound != _tex.getName())
 		_tex.bind(_unit);
@@ -125,7 +138,7 @@ Texture::Binder::Binder(const Texture& t, unsigned int unit) :
 
 Texture::Binder::~Binder()
 {
-	if(_prevBound != _tex.getName())
+	if(_tex && _prevBound != _tex.getName())
 	{
 		activeUnit(_unit);
 		if(_prevBound != 0)
