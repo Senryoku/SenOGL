@@ -16,45 +16,20 @@ enum class FramebufferTarget : GLenum
 };
 
 /**
- * Masks identifying framebuffers' buffers.
-**/
-enum class BufferBit : GLbitfield
-{
-	Color = GL_COLOR_BUFFER_BIT,		///< Color Buffer
-	Depth = GL_DEPTH_BUFFER_BIT,		///< Depth Buffer
-	Stencil = GL_STENCIL_BUFFER_BIT,	///< Stencil Buffer
-	All = GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT	///< All three buffers
-};
-
-/**
  * Framebuffer Object (FBO)
- * @param TexType Type of the textures attached to the framebuffer.
+ * @param ColorType Type of the textures attached to the framebuffer.
  * @param ColorCount Number of Color buffers (attachments).
  * @todo More initialization options!
+ * @todo Template Parameters are getting out of hand >.< Switch to non-template ? =/
 **/
-template<typename TexType = Texture2D, unsigned int ColorCount = 1, typename DepthType = Renderbuffer, bool UseDepth = true>
+template<typename ColorType = Texture2D, unsigned int ColorCount = 1, 
+		  typename DepthType = Renderbuffer, bool UseDepth = true,
+		  bool UseStencil = false>
 class Framebuffer : public OpenGLObject
 {
 public:
+	using color_type = ColorType;
 	using depth_type = DepthType;
-	using color_type = TexType;
-
-	/**
-	 * Texture/Renderbuffer attachments.
-	 */
-	enum class Attachment : GLenum
-	{
-		Color = GL_COLOR_ATTACHMENT0,	///< Color Attachment 0
-		Color1 = GL_COLOR_ATTACHMENT1,	///< Color Attachment 1
-		Color2 = GL_COLOR_ATTACHMENT2,	///< Color Attachment 2
-		Color3 = GL_COLOR_ATTACHMENT3,	///< Color Attachment 3
-		Color4 = GL_COLOR_ATTACHMENT4,	///< Color Attachment 4
-		Color5 = GL_COLOR_ATTACHMENT5,	///< Color Attachment 5
-		Color6 = GL_COLOR_ATTACHMENT6,	///< Color Attachment 6
-		Color7 = GL_COLOR_ATTACHMENT7,	///< Color Attachment 7
-		Depth = GL_DEPTH_ATTACHMENT,	///< Depth Attachment
-		Stencil = GL_STENCIL_ATTACHMENT	///< Stencil Attachment
-	};
 	
 	/**
 	 * Default constructor.
@@ -110,25 +85,25 @@ public:
 	
 	/**
 	 * @param i Index of the color buffer.
-	 * @return Texture attachment to ith color buffer.
+	 * @return Texture/Renderbuffer attachment to ith color buffer.
 	**/
-	inline TexType& getColor(unsigned int i = 0) { assert(i < ColorCount); return _color[i]; }
+	inline color_type& getColor(unsigned int i = 0);
 	
 	/**
-	 * @return Texture of the Depth buffer.
+	 * @return Texture/Renderbuffer of the Depth buffer.
 	**/
-	inline DepthType& getDepth() { assert(UseDepth); return _depth; }
+	inline depth_type& getDepth();
 	
 	/**
 	 * @param i Index of the color buffer.
 	 * @return Texture attachment to ith color buffer.
 	**/
-	inline const TexType& getColor(unsigned int i = 0) const { assert(i < ColorCount); return _color[i]; }
+	inline const color_type& getColor(unsigned int i = 0) const;
 	
 	/**
 	 * @return Texture of the Depth buffer.
 	**/
-	inline const DepthType& getDepth() const { assert(UseDepth); return _depth; }
+	inline const depth_type& getDepth() const;
 	
 	/**
 	 * @return Width of the framebuffer.
@@ -147,12 +122,12 @@ public:
 	**/
 	static inline void unbind(FramebufferTarget target = FramebufferTarget::All);
 private:
-	size_t	_width = 512;	///< Width of the framebuffer.
+	size_t	_width = 512;		///< Width of the framebuffer.
 	size_t	_height = 512;	///< Height of the framebuffer.
 	
-	std::array<TexType, ColorCount>	_color;	///< Textures/Buffers attached to the color buffers.
+	std::array<color_type, ColorCount>				_color;	///< Textures/Buffers attached to the color buffers.
 	
-	DepthType						_depth;	///< Texture/Buffer attached to the depth buffer
+	std::array<depth_type, UseDepth ? 1 : 0>		_depth;	///< Texture/Buffer attached to the depth buffer
 	
 	/**
 	 * @param i Color index

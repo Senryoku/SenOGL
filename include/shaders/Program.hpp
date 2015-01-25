@@ -33,8 +33,8 @@ public:
 	 *
 	 * Be careful using this (especially for a ComputeShader)
 	 * @param shaderName Shader's OpenGL name.
-	 * @see attachShader(Shader&)
-	 * @see attachShader(ComputeShader&)
+	 * @see attach(Shader&)
+	 * @see attach(ComputeShader&)
 	**/
 	void attachShader(GLuint shaderName);
 	
@@ -43,7 +43,7 @@ public:
 	 * @see attachShader(GLuint)
 	 * @see attachShader(ComputeShader&)
 	**/
-	void attachShader(const Shader& shader);
+	void attach(const Shader& shader);
 	
 	/**
 	 * Attach a compute shader to this Program.
@@ -52,7 +52,7 @@ public:
 	 * @see attachShader(GLuint)
 	 * @see attachShader(Shader&)
 	**/
-	void attachShader(ComputeShader& cshader);
+	void attach(ComputeShader& cshader);
 	
 	/**
 	 * Specifies values to record in transform feedback buffers. This have to be called before linking.
