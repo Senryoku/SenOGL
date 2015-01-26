@@ -29,17 +29,19 @@ void Program::attachShader(GLuint shaderName)
 {
 	if(_handle == 0)
 		init();
+	assert(Shader::isShader(shaderName));
+	if(!Shader::isShader(shaderName)) std::cerr << __PRETTY_FUNCTION__ << ": Tried to attach something that isn't a shader to a program!" << std::endl;
     glAttachShader(_handle, shaderName);
 }
 
-void Program::attachShader(const Shader& shader)
+void Program::attach(const Shader& shader)
 {
 	if(_handle == 0)
 		init();
     glAttachShader(_handle, shader.getName());
 }
 
-void Program::attachShader(ComputeShader& cshader)
+void Program::attach(ComputeShader& cshader)
 {
 	attachShader(static_cast<const Shader&>(cshader));
 	cshader._program = this;

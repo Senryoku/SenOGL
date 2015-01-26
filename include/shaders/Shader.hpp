@@ -54,8 +54,12 @@ public:
 	**/
 	inline bool isValid() const override;
 	
+	/**
+	 * @see glIsShader
+	**/
+	inline static bool isShader(GLuint name) { return glIsShader(name) == GL_TRUE; }
 protected:
-	std::string			_srcPath = "";		///< Path to the last file read by loadFromFile
+	std::string		_srcPath = "";		///< Path to the last file read by loadFromFile
 	bool				_compiled = false;	///< Says if the shader have already been successfully compiled.
 	
 	/**
