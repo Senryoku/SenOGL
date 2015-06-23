@@ -30,7 +30,8 @@ void Program::attachShader(GLuint shaderName)
 	if(_handle == 0)
 		init();
 	assert(Shader::isShader(shaderName));
-	if(!Shader::isShader(shaderName)) std::cerr << __PRETTY_FUNCTION__ << ": Tried to attach something that isn't a shader to a program!" << std::endl;
+	if(!Shader::isShader(shaderName)) 
+		std::cerr << __PRETTY_FUNCTION__ << ": Tried to attach something that isn't a shader to a program!" << std::endl;
     glAttachShader(_handle, shaderName);
 }
 
@@ -38,7 +39,15 @@ void Program::attach(const Shader& shader)
 {
 	if(_handle == 0)
 		init();
-    glAttachShader(_handle, shader.getName());
+	if(!Shader::isShader(shader.getName())) 
+	{
+		std::cerr << __PRETTY_FUNCTION__ << ": Shader ";
+		if(shader.getPath() != "")
+			std::cerr << "(loaded from " << shader.getPath() << ") ";
+		std::cerr << "is invalid and can't be attach to a program." << std::endl;
+	} else {
+		glAttachShader(_handle, shader.getName());
+	}
 }
 
 void Program::attach(ComputeShader& cshader)
@@ -56,7 +65,7 @@ void Program::link()
     glGetProgramiv(_handle, GL_LINK_STATUS, &rvalue);
     if (!rvalue)
 	{
-        std::cerr << __FUNCTION__ << " : Error in linking shader program" << std::endl;
+        std::cerr << __FUNCTION__ << " : Error in linking shader program." << std::endl;
         GLchar log[10240];
         GLsizei length;
         glGetProgramInfoLog(_handle, 10239, &length, log);

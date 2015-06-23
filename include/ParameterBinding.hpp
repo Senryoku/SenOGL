@@ -2,8 +2,7 @@
 
 #include <array>
 
-#define GLEW_STATIC
-#include <GL/glew.h>
+#include <GL/gl3w.h>
 
 /** @file
  * Overloads of texParameter[I] for glTexParameter[I]** and samplerParameter[I] for glSamplerParameter[I]**.

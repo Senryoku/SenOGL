@@ -1,6 +1,6 @@
 #pragma once
-#define GLEW_STATIC
-#include <GL/glew.h>
+
+#include <initializer_list>
 
 #include <Shader.hpp>
 #include <ComputeShader.hpp>
@@ -15,7 +15,19 @@
 class Program : public OpenGLObject
 {
 public:
+	/**
+	 * Default Constructor
+	**/
 	Program();
+	
+	Program(const Program&) =delete;
+	
+	/**
+	 * Construct a program from a list of shaders.
+	**/
+	template<typename ... ShaderTypes>
+	Program(ShaderTypes& ... shaders);
+	
 	virtual ~Program();
 	
 	/**
@@ -170,6 +182,13 @@ public:
 	static void useNone();
 	
 	/**
+	 * Helper
+	 * @see Program(ShaderTypes& ... shaders);
+	**/
+	template<typename S, typename ... ShaderTypes>
+	void attach_chain(S& s, ShaderTypes& ... shaders);
+	
+	/**
 	 * @return Program currently bound.
 	**/
 	inline static GLint getCurrent();
@@ -181,6 +200,8 @@ public:
 	
 private:
 	bool	_linked = false;	///< Link status
+	
+	void attach_chain() const {};
 };
 
 /**
@@ -243,4 +264,23 @@ inline GLint Program::getUniformLocation(GLuint programName, const std::string& 
 {
 	assert(glIsProgram(programName));
 	return glGetUniformLocation(programName, uniformName.c_str());
+}
+
+template<typename ... ShaderTypes>
+Program::Program(ShaderTypes& ... shaders)
+{
+	init();
+	attach_chain(shaders...);
+	link();
+}
+
+template<typename S, typename ... ShaderTypes>
+void Program::attach_chain(S& s, ShaderTypes& ... shaders)
+{
+	if(!s.isValid())
+		s.compile();
+	attach(s);
+	
+	if(sizeof...(shaders) > 0)
+		attach_chain(shaders...);
 }

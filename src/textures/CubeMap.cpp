@@ -77,14 +77,10 @@ void CubeMap::create(const std::array<void*, 6>& data, size_t width, size_t heig
 	set(Parameter::WrapS, GL_CLAMP_TO_EDGE);
 	set(Parameter::WrapT, GL_CLAMP_TO_EDGE);
 	set(Parameter::WrapR, GL_CLAMP_TO_EDGE);
-	
-	GLfloat maxAniso = 0.0f;
-	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
-	glSamplerParameterf(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
-	
+
 	if(generateMipmaps)
 		glGenerateMipmap(getType());
-	
+
 	unbind();
 }
 

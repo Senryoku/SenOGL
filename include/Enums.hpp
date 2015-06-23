@@ -2,8 +2,7 @@
 
 #include <type_traits>
 
-#define GLEW_STATIC
-#include <GL/glew.h>
+#include <GL/gl3w.h>
 
 /** @file
  * Set of strongly typed enums wrapping GLenum and tools to use them.

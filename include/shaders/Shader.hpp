@@ -4,8 +4,6 @@
 #include <fstream>
 #include <string>
 #include <cassert>
-#define GLEW_STATIC
-#include <GL/glew.h>
 
 #include <OpenGLObject.hpp>
 
@@ -20,6 +18,8 @@ public:
 	 * Default constructor.
 	 */
 	Shader() =default;
+	
+	Shader(const Shader&) =delete;
 	
 	/**
 	 *  Destructor.
@@ -38,7 +38,7 @@ public:
 	
 	/**
 	 * Reloads shader from file.
-	 * (Should be used only after a successfull call to loadFromFile).
+	 * (Should be used only after a successful call to loadFromFile).
 	 * @see loadFromFile
 	**/
 	void reload();
@@ -55,9 +55,15 @@ public:
 	inline bool isValid() const override;
 	
 	/**
+	 * @return Path to the source code (if loaded from a file).
+	**/
+	inline const std::string& getPath() const { return _srcPath; }
+	
+	/**
 	 * @see glIsShader
 	**/
 	inline static bool isShader(GLuint name) { return glIsShader(name) == GL_TRUE; }
+	
 protected:
 	std::string		_srcPath = "";		///< Path to the last file read by loadFromFile
 	bool				_compiled = false;	///< Says if the shader have already been successfully compiled.

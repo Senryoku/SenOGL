@@ -35,14 +35,9 @@ void Texture3D::create(const void* data, size_t width, size_t height, size_t dep
 	set(Parameter::WrapS, GL_CLAMP_TO_BORDER);
 	set(Parameter::WrapT, GL_CLAMP_TO_BORDER);
 	set(Parameter::WrapR, GL_CLAMP_TO_BORDER);
-	
-	// Mmh ?
-	GLfloat maxAniso = 0.0f;
-	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
-	glSamplerParameterf(getType(), GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
-	
+
 	if(generateMipmaps)
 		glGenerateMipmap(getType());
-	
+
 	unbind();
 }

@@ -55,14 +55,9 @@ void Texture2D::create(const void* data, size_t width, size_t height, GLint inte
 	set(Parameter::MagFilter, GL_LINEAR);
 	set(Parameter::WrapS, GL_REPEAT);
 	set(Parameter::WrapT, GL_REPEAT);
-	
-	// Mmh ?
-	GLfloat maxAniso = 0.0f;
-	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &maxAniso);
-	glSamplerParameterf(getType(), GL_TEXTURE_MAX_ANISOTROPY_EXT, maxAniso);
-	
+
 	if(generateMipmaps)
 		glGenerateMipmap(getType());
-	
+
 	unbind();
 }

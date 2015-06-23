@@ -1,7 +1,6 @@
 #pragma once
 
-#define GLEW_STATIC
-#include <GL/glew.h>
+#include <GL/gl3w.h>
 
 /**
  * Base class for every OpenGL Object

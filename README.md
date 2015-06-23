@@ -42,7 +42,7 @@ Some samples can be found at https://github.com/Senryoku/OpenGL_ToolBox
 
 ## Used Libraries
 
-* GLEW (http://glew.sourceforge.net/) Included
+* GL3W (https://github.com/skaslev/gl3w)
 * stb_image, stb_image_write (https://github.com/nothings/stb) Included (Quite old version)
 * GLM (http://glm.g-truc.net/)
 
