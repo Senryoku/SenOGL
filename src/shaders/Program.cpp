@@ -130,6 +130,21 @@ void Program::bindShaderStorageBlock(const std::string& name, const ShaderStorag
 	assert(sso.isBound());
 	glShaderStorageBlockBinding(_handle, getResourceIndex(GL_SHADER_STORAGE_BLOCK, name), sso.getBindingPoint());
 }
+
+void Program::setSubroutine(ShaderType shadertype, const std::string& name) const
+{
+	GLuint r = 0;
+	r = getSubroutineIndex(shadertype, name.c_str());
+	if(r == GL_INVALID_INDEX)
+		std::cerr << "Subroutine '" << name << "' not found." << std::endl;
+	else
+		glUniformSubroutinesuiv(to_underlying(shadertype), 1, &r);
+}
+
+GLuint Program::getSubroutineIndex(ShaderType shadertype, const std::string& name) const
+{
+	return glGetSubroutineIndex(_handle, to_underlying(shadertype), name.c_str());
+}
 	
 void Program::useNone()
 {

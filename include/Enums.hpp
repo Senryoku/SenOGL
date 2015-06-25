@@ -83,7 +83,20 @@ enum class Attachment : GLenum
 	Stencil = GL_STENCIL_ATTACHMENT,	///< Stencil Attachment
 	DepthStencil = GL_DEPTH_STENCIL_ATTACHMENT	///< Depth Stencil Attachment
 };
-	
+
+/**
+ * Shader types/stages.
+ */
+enum class ShaderType : GLenum
+{
+	Vertex = GL_VERTEX_SHADER,
+	TessControl = GL_TESS_CONTROL_SHADER,
+	TessEvaluation = GL_TESS_EVALUATION_SHADER,
+	Geometry = GL_GEOMETRY_SHADER,
+	Fragment = GL_FRAGMENT_SHADER,
+	Compute = GL_COMPUTE_SHADER
+};
+
 /**
  * Convenient cast to the underlying type of an enum
  * @param e Value to cast

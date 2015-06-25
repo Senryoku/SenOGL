@@ -177,9 +177,15 @@ public:
 	void bindShaderStorageBlock(const std::string& name, const ShaderStorage& sso) const;
 	
 	/**
-	 * Unbind any currently bound shader program.
+	 * Search for the index of the subroutine 'name' in any shader stage.
 	**/
-	static void useNone();
+	void setSubroutine(ShaderType shadertype, const std::string& name) const;
+	
+	/**
+	 * Search for the index of the subroutine 'name' in the shader stage
+	 * given by 'shadertype'.
+	**/
+	GLuint getSubroutineIndex(ShaderType shadertype, const std::string& name) const;
 	
 	/**
 	 * Helper
@@ -187,6 +193,11 @@ public:
 	**/
 	template<typename S, typename ... ShaderTypes>
 	void attach_chain(S& s, ShaderTypes& ... shaders);
+	
+	/**
+	 * Unbind any currently bound shader program.
+	**/
+	static void useNone();
 	
 	/**
 	 * @return Program currently bound.
@@ -197,6 +208,11 @@ public:
 	 * @return Location of uniform uniformName in specified program.
 	**/
 	inline static GLint getUniformLocation(GLuint programName, const std::string& uniformName);
+	
+	/**
+	 * @return Max Subroutines
+	**/
+	inline static GLint getMaxSubroutines();
 	
 private:
 	bool	_linked = false;	///< Link status
@@ -264,6 +280,13 @@ inline GLint Program::getUniformLocation(GLuint programName, const std::string& 
 {
 	assert(glIsProgram(programName));
 	return glGetUniformLocation(programName, uniformName.c_str());
+}
+	
+inline GLint Program::getMaxSubroutines()
+{
+	GLint n = 0;
+	glGetIntegerv(GL_MAX_SUBROUTINES, &n);
+	return n;
 }
 
 template<typename ... ShaderTypes>
