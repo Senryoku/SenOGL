@@ -35,7 +35,7 @@ public:
 	private:
 		GLuint				_unit = 0;
 		const Texture&		_tex;
-		GLuint 				_prevBound = 0;
+		GLuint 			_prevBound = 0;
 	};
 
 	enum class Parameter : GLenum
@@ -60,12 +60,15 @@ public:
 		CompareFunc = GL_TEXTURE_COMPARE_FUNC
 	};
 	
+	/// @todo Complete.
 	enum class PixelType : GLenum
 	{
 		UnsignedByte = GL_UNSIGNED_BYTE,
 		UnsignedShort565 = GL_UNSIGNED_SHORT_5_6_5,
 		UnsignedShort4444 = GL_UNSIGNED_SHORT_4_4_4_4,
-		UnsignedShort5551 = GL_UNSIGNED_SHORT_5_5_5_1
+		UnsignedShort5551 = GL_UNSIGNED_SHORT_5_5_5_1,
+		HalfFloat = GL_HALF_FLOAT,
+		Float = GL_FLOAT
 	};
 	
 	Texture(PixelType pixelType = PixelType::UnsignedByte);
@@ -98,6 +101,10 @@ public:
 		Binder B(*this);
 		texParameterI(getType(), static_cast<GLenum>(opt), value);
 	}
+	
+	inline PixelType getPixelType() const { return _pixelType; }
+	
+	void setPixelType(PixelType p);
 	
 	void generateMipmaps() const;
 	

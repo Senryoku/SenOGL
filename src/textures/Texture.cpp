@@ -102,6 +102,14 @@ void Texture::unbind(unsigned int unit) const
 	glBindTexture(this->getType(), 0);
 }
 
+void Texture::setPixelType(PixelType p)
+{
+	//assert(!isValid());
+	//if(isValid())
+	//	std::cerr << "Warning: Modifying pixel type of an already valid texture." << std::endl;
+	_pixelType = p;
+}
+
 void Texture::dump(const std::string& path) const
 {
 	bind();

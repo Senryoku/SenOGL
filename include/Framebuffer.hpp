@@ -62,8 +62,9 @@ public:
 	/**
 	 * Bind this framebuffer
 	 * @param target (FramebufferTarget::)Draw, Read or All
+	 * @param readAttach Only used if bound to Read or All: Select which attachment to read
 	**/
-	void bind(FramebufferTarget target = FramebufferTarget::All) const;
+	void bind(FramebufferTarget target = FramebufferTarget::All, Attachment readAttach = Attachment::Color) const;
 	
 	/**
 	 * Clear the framebuffer.

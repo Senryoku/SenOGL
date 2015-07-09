@@ -82,12 +82,12 @@ void Framebuffer<_CT, _CC, _DT, _UD, _US>::init()
 }
 
 template<typename _CT, unsigned int _CC, typename _DT, bool _UD, bool _US>
-void Framebuffer<_CT, _CC, _DT, _UD, _US>::bind(FramebufferTarget target) const
+void Framebuffer<_CT, _CC, _DT, _UD, _US>::bind(FramebufferTarget target, Attachment readAttach) const
 {
 	glBindFramebuffer(to_underlying(target), _handle);
 	if(target == FramebufferTarget::Read)
 	{
-		glReadBuffer(to_underlying(Attachment::Color)); ///< @todo Do Better.
+		glReadBuffer(to_underlying(readAttach));
 	} else {
 		Context::viewport(0, 0, _width, _height);
 	}
