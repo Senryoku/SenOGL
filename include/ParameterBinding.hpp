@@ -12,6 +12,7 @@
 	
 void texParameter(GLenum target, GLenum pname, float param);
 void texParameter(GLenum target, GLenum pname, int param);
+void texParameter(GLenum target, GLenum pname, unsigned int param);
 void texParameter(GLenum target, GLenum pname, const float* param);
 void texParameter(GLenum target, GLenum pname, const int* param);
 

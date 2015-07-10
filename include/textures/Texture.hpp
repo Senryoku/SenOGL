@@ -42,6 +42,7 @@ public:
 	{
 		DepthStencilMode = GL_DEPTH_STENCIL_TEXTURE_MODE,
 		BaseLevel = GL_TEXTURE_BASE_LEVEL,
+		MaxLevel = GL_TEXTURE_MAX_LEVEL,
 		SwizzleR = GL_TEXTURE_SWIZZLE_R, 
 		SwizzleG = GL_TEXTURE_SWIZZLE_G, 
 		SwizzleB = GL_TEXTURE_SWIZZLE_B,

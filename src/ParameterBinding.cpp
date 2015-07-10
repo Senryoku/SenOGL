@@ -12,6 +12,11 @@ void texParameter(GLenum target, GLenum pname, int param)
 	glTexParameteri(target, pname, param);
 }
 
+void texParameter(GLenum target, GLenum pname, unsigned int param)
+{
+	glTexParameteri(target, pname, param);
+}
+
 void texParameter(GLenum target, GLenum pname, const float* param)
 {
 	glTexParameterfv(target, pname, param);
