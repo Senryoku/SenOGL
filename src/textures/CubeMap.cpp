@@ -6,6 +6,8 @@
 #include <stb_image.hpp>
 #include <stb_image_write.hpp>
 
+#include <Context.hpp>
+
 CubeMap::CubeMap(PixelType pixelType) :
 	Texture(pixelType)
 {
@@ -53,10 +55,9 @@ void CubeMap::create(const std::array<void*, 6>& data, size_t width, size_t heig
 		init();
 	
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
-	
-	glGenTextures(1, &_handle);
+
 	bind();
-	
+
 	for(size_t i = 0; i < 6; ++i)
 		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 
 					 0,
@@ -73,7 +74,6 @@ void CubeMap::create(const std::array<void*, 6>& data, size_t width, size_t heig
 	else
 		set(Parameter::MinFilter, GL_LINEAR);
 	set(Parameter::MagFilter, GL_LINEAR);
-	set(Parameter::MagFilter, GL_LINEAR);
 	set(Parameter::WrapS, GL_CLAMP_TO_EDGE);
 	set(Parameter::WrapT, GL_CLAMP_TO_EDGE);
 	set(Parameter::WrapR, GL_CLAMP_TO_EDGE);
@@ -88,9 +88,9 @@ void CubeMap::dump(const std::string& path) const
 {
 	bind();
 	GLint width, height, format;
-	glGetTexLevelParameteriv(getType(), 0, GL_TEXTURE_WIDTH, &width);
-	glGetTexLevelParameteriv(getType(), 0, GL_TEXTURE_HEIGHT, &height);
-	glGetTexLevelParameteriv(getType(), 0, GL_TEXTURE_INTERNAL_FORMAT, &format);
+	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_TEXTURE_WIDTH, &width);
+	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_TEXTURE_HEIGHT, &height);
+	glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP_POSITIVE_X, 0, GL_TEXTURE_INTERNAL_FORMAT, &format);
 	if(_pixelType == PixelType::UnsignedByte)
 	{
 		GLubyte* data = nullptr;
@@ -98,7 +98,11 @@ void CubeMap::dump(const std::string& path) const
 	
 		for(int i = 0; i < 6; i++)
 		{
+			glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_TEXTURE_WIDTH, &width);
+			glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_TEXTURE_HEIGHT, &height);
+			glGetTexLevelParameteriv(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_TEXTURE_INTERNAL_FORMAT, &format);
 			glGetTexImage(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, to_underlying(_pixelType), data);
+			Context::checkError("CubeMap::dump (glGetTexImage)");
 			std::ostringstream oss;
 			oss << path << i << ".png";
 			stbi_write_png(oss.str().c_str(), width, height, getCompCount(format), data, 0);
@@ -106,6 +110,7 @@ void CubeMap::dump(const std::string& path) const
 		
 		delete[] data;
 	} else {
+		std::cerr << "Error dumping cubemap: Unrecognised pixel type." << std::endl;
 	}
 	unbind();
 }

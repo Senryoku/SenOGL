@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include <Enums.hpp>
 
 /**
@@ -42,5 +44,36 @@ namespace Context
 	inline void drawElements(Primitive primitiveType, size_t count, IndexType indexType, void* indices)
 	{
 		glDrawElements(to_underlying(primitiveType), count, to_underlying(indexType), indices);
+	}
+	
+	inline GLenum checkError(const std::string& msg = "")
+	{
+		GLenum r = glGetError();
+		if(r != GL_NO_ERROR)
+		{
+			std::cerr << "An error occured [" << msg << "], glGetError returned ";
+			switch(r)
+			{
+				case GL_INVALID_ENUM:
+					std::cerr << "GL_INVALID_ENUM" << std::endl;
+					break;
+				case GL_INVALID_VALUE:
+					std::cerr << "GL_INVALID_VALUE" << std::endl;
+					break;
+				case GL_INVALID_OPERATION:
+					std::cerr << "GL_INVALID_OPERATION" << std::endl;
+					break;
+				case GL_INVALID_FRAMEBUFFER_OPERATION:
+					std::cerr << "GL_INVALID_FRAMEBUFFER_OPERATION" << std::endl;
+					break;
+				case GL_OUT_OF_MEMORY:
+					std::cerr << "GL_OUT_OF_MEMORY" << std::endl;
+					break;
+				default:
+					std::cerr << "an unknown value." << std::endl;
+					break;
+			}
+		}
+		return r;
 	}
 };

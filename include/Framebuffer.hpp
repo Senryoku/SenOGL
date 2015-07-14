@@ -124,7 +124,7 @@ public:
 	static inline void unbind(FramebufferTarget target = FramebufferTarget::All);
 private:
 	size_t	_width = 512;		///< Width of the framebuffer.
-	size_t	_height = 512;	///< Height of the framebuffer.
+	size_t	_height = 512;		///< Height of the framebuffer.
 	
 	std::array<color_type, ColorCount>				_color;	///< Textures/Buffers attached to the color buffers.
 	

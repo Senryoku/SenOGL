@@ -79,7 +79,7 @@ enum class Attachment : GLenum
 	Color5 = GL_COLOR_ATTACHMENT5,		///< Color Attachment 5
 	Color6 = GL_COLOR_ATTACHMENT6,		///< Color Attachment 6
 	Color7 = GL_COLOR_ATTACHMENT7,		///< Color Attachment 7
-	Depth = GL_DEPTH_ATTACHMENT,		///< Depth Attachment
+	Depth = GL_DEPTH_ATTACHMENT,			///< Depth Attachment
 	Stencil = GL_STENCIL_ATTACHMENT,	///< Stencil Attachment
 	DepthStencil = GL_DEPTH_STENCIL_ATTACHMENT	///< Depth Stencil Attachment
 };
