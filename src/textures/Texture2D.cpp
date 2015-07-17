@@ -36,6 +36,8 @@ void Texture2D::create(const void* data, size_t width, size_t height, GLint inte
 	
 	bind();
 	
+	_size = {width, height};
+	
 	glTexImage2D(getType(), 
 				 0,
 				 internalFormat,

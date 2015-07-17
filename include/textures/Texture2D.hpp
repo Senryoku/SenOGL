@@ -12,6 +12,12 @@
 class Texture2D : public Texture
 {
 public:
+	struct Size
+	{
+		size_t x;
+		size_t y;
+	};
+
 	Texture2D() =default;
 	
 	Texture2D(PixelType pixelType) :
@@ -22,6 +28,8 @@ public:
 	Texture2D(const std::string& path);
 
 	void load(const std::string& path);
+	
+	inline const Size& getSize() const { return _size; }
 	
 	/**
 	 * Create an uninitialized RGBA texture
@@ -39,5 +47,7 @@ public:
 		return static_cast<GLuint>(r);
 	}
 private:
+	Size	_size;
+
 	virtual inline GLenum getType() const override { return GL_TEXTURE_2D; }
 };
