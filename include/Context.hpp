@@ -16,6 +16,8 @@ namespace Context
 	inline void viewport(size_t x, size_t y, size_t w, size_t h);
 	inline void scissor(size_t x, size_t y, size_t w, size_t h);
 	
+	inline void clear(BufferBit bb = BufferBit::All);
+	
 	inline void drawElements(Primitive primitiveType, size_t count, IndexType indexType, void* indices = nullptr);
 	
 	// Inline Implementation
@@ -41,32 +43,37 @@ namespace Context
 		glScissor(x, y, w, h);
 	}
 	
+	inline void clear(BufferBit bb)
+	{
+		glClear(to_underlying(bb));
+	}
+	
 	inline void drawElements(Primitive primitiveType, size_t count, IndexType indexType, void* indices)
 	{
 		glDrawElements(to_underlying(primitiveType), count, to_underlying(indexType), indices);
 	}
 	
-	inline GLenum checkError(const std::string& msg = "")
+	inline Error checkError(const std::string& msg = "")
 	{
-		GLenum r = glGetError();
-		if(r != GL_NO_ERROR)
+		Error r = Error(glGetError());
+		if(r != Error::NoError)
 		{
 			std::cerr << "An error occured [" << msg << "], glGetError returned ";
 			switch(r)
 			{
-				case GL_INVALID_ENUM:
+				case Error::InvalidEnum:
 					std::cerr << "GL_INVALID_ENUM" << std::endl;
 					break;
-				case GL_INVALID_VALUE:
+				case Error::InvalidValue:
 					std::cerr << "GL_INVALID_VALUE" << std::endl;
 					break;
-				case GL_INVALID_OPERATION:
+				case Error::InvalidOperation:
 					std::cerr << "GL_INVALID_OPERATION" << std::endl;
 					break;
-				case GL_INVALID_FRAMEBUFFER_OPERATION:
+				case Error::InvalidFramebufferOperation:
 					std::cerr << "GL_INVALID_FRAMEBUFFER_OPERATION" << std::endl;
 					break;
-				case GL_OUT_OF_MEMORY:
+				case Error::OutOfMemory:
 					std::cerr << "GL_OUT_OF_MEMORY" << std::endl;
 					break;
 				default:
