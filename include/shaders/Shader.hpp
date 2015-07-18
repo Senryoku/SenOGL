@@ -65,13 +65,22 @@ public:
 	inline static bool isShader(GLuint name) { return glIsShader(name) == GL_TRUE; }
 	
 protected:
-	std::string		_srcPath = "";		///< Path to the last file read by loadFromFile
+	std::string		_srcPath = "";			///< Path to the last file read by loadFromFile
 	bool				_compiled = false;	///< Says if the shader have already been successfully compiled.
 	
 	/**
 	 * @return Type of the managed shader.
 	 */
 	virtual GLenum getType() const =0;
+	
+	/**
+	 * Internaly used to load shaders from files.
+	 * @param path Path to the file
+	 * @param cSrc Array of strings to populate with the source.
+	 * @param lengths Array of lengths to populate from the source.
+	 * @param l Current line.
+	**/
+	void processFile(const std::string& path, GLchar** cSrc, GLint* lengths, size_t& l);
 };
 
 inline bool Shader::isValid() const 
