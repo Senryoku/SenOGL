@@ -39,5 +39,10 @@ public:
 	 * glVertexAttribPointer
 	**/
 	void attribute(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer) const;
+	
+	/**
+	 * glVertexAttribPointerI
+	**/
+	void attributeI(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) const;
 private:
 };

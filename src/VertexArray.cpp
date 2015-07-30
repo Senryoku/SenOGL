@@ -1,5 +1,7 @@
 #include <VertexArray.hpp>
 
+#include <cassert>
+
 VertexArray::~VertexArray()
 {
 	cleanup();
@@ -32,4 +34,12 @@ void VertexArray::attribute(GLuint index, GLint size, GLenum type, GLboolean nor
 {
 	glEnableVertexAttribArray(index);
 	glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+}
+
+void VertexArray::attributeI(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) const
+{
+	assert(type == GL_BYTE || type == GL_UNSIGNED_BYTE || type == GL_SHORT ||
+			type == GL_UNSIGNED_SHORT || type == GL_INT || type == GL_UNSIGNED_INT);
+	glEnableVertexAttribArray(index);
+	glVertexAttribIPointer(index, size, type, stride, pointer);
 }

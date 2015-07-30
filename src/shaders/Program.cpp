@@ -131,14 +131,41 @@ void Program::bindShaderStorageBlock(const std::string& name, const ShaderStorag
 	glShaderStorageBlockBinding(_handle, getResourceIndex(GL_SHADER_STORAGE_BLOCK, name), sso.getBindingPoint());
 }
 
-void Program::setSubroutine(ShaderType shadertype, const std::string& name) const
+void Program::setSubroutine(ShaderType shadertype, const std::string& uniformName, const std::string& functionName)
 {
-	GLuint r = 0;
-	r = getSubroutineIndex(shadertype, name.c_str());
+	auto& subroutines = _activeSubroutines[shadertype];
+	if(subroutines.empty())
+	{
+		GLsizei uniformCount;
+		glGetProgramStageiv(_handle, to_underlying(shadertype),
+				 GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS, &uniformCount);
+				 
+		if(uniformCount == 0)
+		{
+			std::cerr << "No subroutines at this stage for this program.(searching for " 
+						<< uniformName << " and " << functionName << ")." << std::endl;
+			return;
+		}
+		
+		subroutines.resize(uniformCount, 0);
+	}
+
+	GLint uniformLocation = glGetSubroutineUniformLocation(_handle, to_underlying(shadertype), uniformName.c_str());
+	if(uniformLocation < 0)
+	{
+		std::cerr << "Uniform " << uniformName << " not found." << std::endl;
+		return;
+	}
+	
+	GLuint r = getSubroutineIndex(shadertype, functionName.c_str());
+
 	if(r == GL_INVALID_INDEX)
-		std::cerr << "Subroutine '" << name << "' not found." << std::endl;
-	else
-		glUniformSubroutinesuiv(to_underlying(shadertype), 1, &r);
+	{
+		std::cerr << "Subroutine '" << functionName << "' not found." << std::endl;
+	} else {
+		subroutines[uniformLocation] = r;
+		glUniformSubroutinesuiv(to_underlying(shadertype), subroutines.size(), subroutines.data());
+	}
 }
 
 GLuint Program::getSubroutineIndex(ShaderType shadertype, const std::string& name) const

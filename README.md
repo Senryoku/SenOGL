@@ -40,10 +40,10 @@ or
 
 Some samples can be found at https://github.com/Senryoku/OpenGL_ToolBox
 
-## Used Libraries
+## Dependencies
 
 * GL3W (https://github.com/skaslev/gl3w)
-* stb_image, stb_image_write (https://github.com/nothings/stb) Included
-* GLM (http://glm.g-truc.net/)
+* stb_image, stb_image_write (https://github.com/nothings/stb) - Included
+* GLM (http://glm.g-truc.net/) - Only used in UniformBinding.[hpp/cpp] for my own convenience, can be easly replaced.
 
 Thanks to the dev' behind these!

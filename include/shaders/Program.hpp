@@ -1,6 +1,7 @@
 #pragma once
 
 #include <initializer_list>
+#include <map>
 
 #include <Shader.hpp>
 #include <ComputeShader.hpp>
@@ -177,9 +178,9 @@ public:
 	void bindShaderStorageBlock(const std::string& name, const ShaderStorage& sso) const;
 	
 	/**
-	 * Search for the index of the subroutine 'name' in any shader stage.
+	 * Select the function to call for 'uniformName'
 	**/
-	void setSubroutine(ShaderType shadertype, const std::string& name) const;
+	void setSubroutine(ShaderType shadertype, const std::string& uniformName, const std::string& functionName);
 	
 	/**
 	 * Search for the index of the subroutine 'name' in the shader stage
@@ -215,8 +216,10 @@ public:
 	inline static GLint getMaxSubroutines();
 	
 private:
-	bool	_linked = false;	///< Link status
-	
+	bool						_linked = false;	///< Link status
+
+	std::map<ShaderType, std::vector<GLuint>>	_activeSubroutines;
+
 	void attach_chain() const {};
 };
 
