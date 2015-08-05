@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 #include <map>
+#include <vector>
 
 #include <Shader.hpp>
 #include <ComputeShader.hpp>
