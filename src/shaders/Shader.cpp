@@ -48,11 +48,12 @@ void Shader::processFile(const std::string& path, GLchar** cSrc, GLint* lengths,
 			ss >> str;
 			if(str == "#pragma")
 			{
+				GLchar* tmp = cSrc[l];
 				bool pass = true;
-				ss >> str;
+				ss >> str; // Extract special instruction
 				if(str == "include")
 				{
-					ss >> str;
+					ss >> str; // Get file path
 					auto pos = path.find_last_of('/');
 					if(pos == std::string::npos)
 						pos = path.find_last_of('\\');
@@ -61,10 +62,12 @@ void Shader::processFile(const std::string& path, GLchar** cSrc, GLint* lengths,
 					processFile(inclPath, cSrc, lengths, l);
 				} else pass = false;
 				
-				if(pass)
+				if(pass) // Already processed: Ignore this line
 				{
-					delete cSrc[l];
-					continue; // Don't pass this line to the compiler.
+					delete[] tmp;
+					continue;
+				} else { // Restore it otherwise.
+					cSrc[l] = tmp;
 				}
 			}
 		} 
@@ -75,7 +78,7 @@ void Shader::processFile(const std::string& path, GLchar** cSrc, GLint* lengths,
 			cSrc[l][lengths[l] - 1] = '\n';
 			cSrc[l][lengths[l]] = '\0';
 			++l;
-		} else delete cSrc[l];
+		} else delete[] cSrc[l];
 	}
 	Src.close();
 }
