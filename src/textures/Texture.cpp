@@ -30,7 +30,8 @@ void Texture::init()
 
 void Texture::cleanup()
 {
-	glDeleteTextures(1, &_handle);
+	if(_handle)
+		glDeleteTextures(1, &_handle);
 }
 
 void Texture::bindImage(GLuint unit, GLint level, GLboolean layered, GLint layer, GLenum access, GLenum format) const

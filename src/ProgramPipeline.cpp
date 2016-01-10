@@ -7,15 +7,17 @@ ProgramPipeline::~ProgramPipeline()
 
 void ProgramPipeline::init()
 {
-	if(_handle != 0)
-		cleanup();
+	cleanup();
 	glGenProgramPipelines(1, &_handle);
 }
 
 void ProgramPipeline::cleanup()
 {
-	glDeleteProgramPipelines(1, &_handle);
-	_handle = 0;
+	if(_handle)
+	{
+		glDeleteProgramPipelines(1, &_handle);
+		_handle = 0;
+	}
 }
 
 void ProgramPipeline::useProgramStages(const Program& program, Stage stageBits) const

@@ -7,14 +7,14 @@ TransformFeedback::~TransformFeedback()
 
 void TransformFeedback::init()
 {
-	if(_handle != 0)
-		cleanup();
+	cleanup();
 	glGenTransformFeedbacks(1, &_handle);
 }
 
 void TransformFeedback::cleanup()
 {
-	glDeleteTransformFeedbacks(1, &_handle);
+	if(_handle)
+		glDeleteTransformFeedbacks(1, &_handle);
 }
 
 void TransformFeedback::bindBuffer(GLuint index, const Buffer& buffer, GLintptr offset, GLsizeiptr size)

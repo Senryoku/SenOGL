@@ -19,5 +19,6 @@ void Sampler::bind(unsigned int unit) const
 
 void Sampler::cleanup()
 {
-	glDeleteSamplers(1, &_handle);
+	if(_handle)
+		glDeleteSamplers(1, &_handle);
 }
