@@ -12,7 +12,8 @@ void Renderbuffer::init()
 
 void Renderbuffer::cleanup()
 {
-	glDeleteRenderbuffers(1, &_handle);
+	if(_handle)
+		glDeleteRenderbuffers(1, &_handle);
 }
 
 void Renderbuffer::bind() const

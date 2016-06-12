@@ -15,8 +15,11 @@ Buffer::~Buffer()
 
 void Buffer::cleanup()
 {
-	glDeleteBuffers(1, &_handle);
-	_handle = 0;
+	if(_handle)
+	{
+		glDeleteBuffers(1, &_handle);
+		_handle = 0;
+	}
 }
 
 void Buffer::bind() const

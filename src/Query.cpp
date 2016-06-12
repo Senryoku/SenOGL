@@ -12,7 +12,8 @@ void Query::init()
 
 void Query::cleanup()
 {
-	glDeleteQueries(1, &_handle);
+	if(_handle)
+		glDeleteQueries(1, &_handle);
 }
 
 void Query::begin(Target target)

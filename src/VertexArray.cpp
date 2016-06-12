@@ -9,14 +9,16 @@ VertexArray::~VertexArray()
 
 void VertexArray::cleanup()
 {
-	glDeleteVertexArrays(1, &_handle);
-	_handle = 0;
+	if(_handle)
+	{
+		glDeleteVertexArrays(1, &_handle);
+		_handle = 0;
+	}
 }
 
 void VertexArray::init()
 {
-	if(_handle != 0)
-		cleanup();
+	cleanup();
 	glGenVertexArrays(1, &_handle);
 }
 

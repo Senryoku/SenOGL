@@ -39,6 +39,14 @@ public:
 	void create(const void* data, size_t width, size_t height, int compCount);
 	void create(const void* data, size_t width, size_t height, GLint internalFormat, GLenum format, bool generateMipmaps = true);
 	
+	inline void update(GLint level,
+							GLint xoffset,
+							GLint yoffset,
+							GLsizei width,
+							GLsizei height,
+							GLenum format,
+							const GLvoid * pixels);
+	
 	virtual GLuint getBound(unsigned int unit = 0) const override
 	{
 		activeUnit(unit);
@@ -51,3 +59,17 @@ private:
 
 	virtual inline GLenum getType() const override { return GL_TEXTURE_2D; }
 };
+
+// Inlined Methods
+
+inline void Texture2D::update(GLint level,
+											GLint xoffset,
+											GLint yoffset,
+											GLsizei width,
+											GLsizei height,
+											GLenum format,
+											const GLvoid * pixels)
+{
+	bind();
+	glTexSubImage2D(getType(), level, xoffset, yoffset, width, height, format, to_underlying(_pixelType), pixels);
+}

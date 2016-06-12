@@ -23,7 +23,8 @@ void Shader::init()
 
 void Shader::cleanup()
 {
-	glDeleteShader(_handle);
+	if(_handle)
+		glDeleteShader(_handle);
 }
 
 void Shader::processFile(const std::string& path, GLchar** cSrc, GLint* lengths, size_t& l)
