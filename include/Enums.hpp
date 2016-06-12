@@ -41,7 +41,9 @@ enum class Capability : GLenum
 	SampleAlphaToCoverage = GL_SAMPLE_ALPHA_TO_COVERAGE,
 	SampleCoverage = GL_SAMPLE_COVERAGE,
 	ScissorTest = GL_SCISSOR_TEST,
-	StencilTest = GL_STENCIL_TEST
+	StencilTest = GL_STENCIL_TEST,
+	DebugOutput = GL_DEBUG_OUTPUT,
+	DebugOutputSync = GL_DEBUG_OUTPUT_SYNCHRONOUS
 };
 
 /**
@@ -116,3 +118,4 @@ typename std::underlying_type<E>::type to_underlying(E e)
 {
     return static_cast<typename std::underlying_type<E>::type>(e);
 }
+
