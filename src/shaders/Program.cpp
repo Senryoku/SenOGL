@@ -1,5 +1,7 @@
 #include "Program.hpp"
 
+#include <Context.hpp>
+
 Program::Program()
 {
 }
@@ -14,7 +16,12 @@ void Program::init()
 	if(_handle != 0)
 		cleanup();
 		
-	_handle = glCreateProgram();
+	Context::safeCheck(
+		[&]() {
+			_handle = glCreateProgram();
+		},
+		"glCreateProgram"
+	);
 	if(_handle == 0)
 		std::cerr << __PRETTY_FUNCTION__ << " : Error glCreateProgram()" << std::endl;
 }
@@ -33,6 +40,7 @@ void Program::attachShader(GLuint shaderName)
 	if(!Shader::isShader(shaderName)) 
 		std::cerr << __PRETTY_FUNCTION__ << ": Tried to attach something that isn't a shader to a program!" << std::endl;
     glAttachShader(_handle, shaderName);
+	Context::checkError("glAttachShader");
 }
 
 void Program::attach(const Shader& shader)
@@ -47,6 +55,7 @@ void Program::attach(const Shader& shader)
 		std::cerr << "is invalid and can't be attach to a program." << std::endl;
 	} else {
 		glAttachShader(_handle, shader.getName());
+		Context::checkError("glAttachShader");
 	}
 }
 
@@ -62,6 +71,7 @@ void Program::link()
 	
 	int rvalue;
     glLinkProgram(_handle);
+	Context::checkError("glLinkProgram");
     glGetProgramiv(_handle, GL_LINK_STATUS, &rvalue);
     if (!rvalue)
 	{

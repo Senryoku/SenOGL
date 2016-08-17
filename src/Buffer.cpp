@@ -2,6 +2,8 @@
 
 #include <cassert>
 
+#include <Context.hpp>
+
 Buffer::Buffer(Target type, GLuint handle) : 
 	OpenGLObject(handle),
 	_type(type)
@@ -69,7 +71,13 @@ void Buffer::init()
 {
 	if(_handle != 0)
 		cleanup();
-	glGenBuffers(1, &_handle);
+	
+	Context::safeCheck(
+		[&]() {
+			glGenBuffers(1, &_handle);
+		},
+		"glGenBuffers"
+	);
 }
 
 void Buffer::init(Target t)

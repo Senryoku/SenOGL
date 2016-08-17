@@ -61,7 +61,7 @@ public:
 	 * Returns true if the object seems valid.
 	 * Can be overloaded for concrete types if there is other attributes to test.
 	**/
-	virtual inline bool isValid() const { return _handle != 0; }
+	virtual bool isValid() const { return _handle != 0; }
 	
 	/**
 	 * Syntactic sugar for isValid().

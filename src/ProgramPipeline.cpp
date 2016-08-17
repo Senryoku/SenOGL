@@ -1,5 +1,7 @@
 #include <ProgramPipeline.hpp>
 
+#include <Context.hpp>
+
 ProgramPipeline::~ProgramPipeline()
 {
 	cleanup();
@@ -8,7 +10,13 @@ ProgramPipeline::~ProgramPipeline()
 void ProgramPipeline::init()
 {
 	cleanup();
-	glGenProgramPipelines(1, &_handle);
+	
+	Context::safeCheck(
+		[&]() {
+			glGenProgramPipelines(1, &_handle);
+		},
+		"glGenProgramPipelines"
+	);
 }
 
 void ProgramPipeline::cleanup()

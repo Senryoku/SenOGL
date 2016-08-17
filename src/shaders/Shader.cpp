@@ -2,6 +2,8 @@
 
 #include <sstream>
 
+#include <Context.hpp>
+
 Shader::~Shader()
 {
 	cleanup();
@@ -12,10 +14,18 @@ void Shader::init()
 	if(_handle != 0)
 		return;
 		
-	_handle = glCreateShader(this->getType());
-	if(_handle == 0)
+	Context::safeCheck(
+		[&]() {
+			_handle = glCreateShader(getType());
+		},
+		"glCreateShader"
+	);
+	if(_handle == 0 || !isShader(_handle))
 	{
-		std::cerr << __PRETTY_FUNCTION__ << " : Error glCreateShader()" << std::endl;
+		std::cerr << __PRETTY_FUNCTION__ << " : Error glCreateShader(), "
+			<< "\n\t_handle : " << _handle
+			<< "\n\tisShader(_handle) : " << isShader(_handle)
+			<< std::endl;
 	}
 	
 	_compiled = false;
@@ -86,7 +96,7 @@ void Shader::processFile(const std::string& path, GLchar** cSrc, GLint* lengths,
 
 void Shader::loadFromFile(const std::string& path)
 {
-	this->init();
+	init();
 
 	GLint lengths[1024];
 	GLchar* cSrc[1024];
@@ -94,8 +104,12 @@ void Shader::loadFromFile(const std::string& path)
 
 	processFile(path, cSrc, lengths, l);
 
-	glShaderSource(_handle, l, (const GLchar**) cSrc, lengths);
-
+	Context::safeCheck(
+		[&]() {
+			glShaderSource(_handle, l, (const GLchar**) cSrc, lengths);
+		},
+		"glShaderSource on \"" + path + "\""
+	);
 	for(size_t i = 0; i < l; ++i)
 		delete cSrc[i];
 		
@@ -103,10 +117,21 @@ void Shader::loadFromFile(const std::string& path)
 	//std::cout << "... Done. " << std::endl;
 }
 	
+void Shader::setSource(const std::string& source)
+{
+	const GLchar* src[1] = {source.c_str()};
+	Context::safeCheck(
+		[&]() {
+			glShaderSource(_handle, 1, src, NULL);
+		},
+		"glShaderSource"
+	);
+}
+
 void Shader::reload()
 {
-	assert(_srcPath != "");
-	if(_srcPath == "")
+	assert(!_srcPath.empty());
+	if(_srcPath.empty())
 		return;
 	loadFromFile(_srcPath);
 }

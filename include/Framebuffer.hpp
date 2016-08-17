@@ -117,11 +117,17 @@ public:
 	inline size_t getHeight() const { return _height; }
 	
 	/**
+	 * @return True if the handle is a valid framebuffer.
+	**/
+	inline bool isValid() const override { return OpenGLObject::isValid() && static_cast<bool>(glIsFramebuffer(_handle)); }
+	
+	/**
 	 * Unbind any FBO currently bound to target.
 	 * (Restore default framebuffer)
 	 * @param target Target
 	**/
 	static inline void unbind(FramebufferTarget target = FramebufferTarget::All);
+	
 private:
 	size_t	_width = 512;		///< Width of the framebuffer.
 	size_t	_height = 512;		///< Height of the framebuffer.

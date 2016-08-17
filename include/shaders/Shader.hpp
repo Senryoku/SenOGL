@@ -37,6 +37,12 @@ public:
 	void loadFromFile(const std::string& path);
 	
 	/**
+	 * Set the source of the shader (replacing any previous loaded source).
+	 * @param source String source.
+	 */
+	void setSource(const std::string& source);
+	
+	/**
 	 * Reloads shader from file.
 	 * (Should be used only after a successful call to loadFromFile).
 	 * @see loadFromFile
@@ -65,8 +71,8 @@ public:
 	inline static bool isShader(GLuint name) { return glIsShader(name) == GL_TRUE; }
 	
 protected:
-	std::string		_srcPath = "";			///< Path to the last file read by loadFromFile
-	bool				_compiled = false;	///< Says if the shader have already been successfully compiled.
+	std::string		_srcPath = "";		///< Path to the last file read by loadFromFile
+	bool			_compiled = false;	///< Says if the shader have already been successfully compiled.
 	
 	/**
 	 * @return Type of the managed shader.

@@ -1,5 +1,7 @@
 #include <TransformFeedback.hpp>
 
+#include <Context.hpp>
+
 TransformFeedback::~TransformFeedback()
 {
 	cleanup();
@@ -8,7 +10,13 @@ TransformFeedback::~TransformFeedback()
 void TransformFeedback::init()
 {
 	cleanup();
-	glGenTransformFeedbacks(1, &_handle);
+	
+	Context::safeCheck(
+		[&]() {
+			glGenTransformFeedbacks(1, &_handle);
+		},
+		"glGenTransformFeedbacks"
+	);
 }
 
 void TransformFeedback::cleanup()

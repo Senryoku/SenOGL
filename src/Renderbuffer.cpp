@@ -1,5 +1,7 @@
 #include <Renderbuffer.hpp>
 
+#include <Context.hpp>
+
 Renderbuffer::~Renderbuffer()
 {
 	cleanup();
@@ -7,7 +9,12 @@ Renderbuffer::~Renderbuffer()
 	
 void Renderbuffer::init()
 {
-	glGenRenderbuffers(1, &_handle);
+	Context::safeCheck(
+		[&]() {
+			glGenRenderbuffers(1, &_handle);
+		},
+		"glGenRenderbuffers"
+	);
 }
 
 void Renderbuffer::cleanup()

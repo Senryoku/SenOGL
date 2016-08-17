@@ -15,16 +15,16 @@ enum class Primitive : GLenum
 {
 	Points = GL_POINTS,											///< Points
 	LineStrip = GL_LINE_STRIP,									///< LineStrip
-	LineLoop = GL_LINE_LOOP,										///< LineLoop
-	Lines = GL_LINES,												///< Lines
-	LineStripAdjacency = GL_LINE_STRIP_ADJACENCY, 			///< LineStripAdjacency
+	LineLoop = GL_LINE_LOOP,									///< LineLoop
+	Lines = GL_LINES,											///< Lines
+	LineStripAdjacency = GL_LINE_STRIP_ADJACENCY, 				///< LineStripAdjacency
 	LinesAdjacency = GL_LINES_ADJACENCY,						///< LinesAdjacency
 	TriangleStrip = GL_TRIANGLE_STRIP,							///< TriangleStrip
 	TriangleFan = GL_TRIANGLE_FAN, 								///< TriangleFan
 	Triangles = GL_TRIANGLES,									///< Triangles
-	TriangleStripAdjacency = GL_TRIANGLE_STRIP_ADJACENCY,	///< TriangleStripAdjacency
+	TriangleStripAdjacency = GL_TRIANGLE_STRIP_ADJACENCY,		///< TriangleStripAdjacency
 	TrianglesAdjacency = GL_TRIANGLES_ADJACENCY,				///< TrianglesAdjacency
-	Patches = GL_PATCHES											///< Patches (Tesselation)
+	Patches = GL_PATCHES										///< Patches (Tesselation)
 };
 
 /**
@@ -34,14 +34,28 @@ enum class Primitive : GLenum
 enum class Capability : GLenum
 {
 	Blend = GL_BLEND,
+	ColorLogicOp = GL_COLOR_LOGIC_OP,
 	CullFace = GL_CULL_FACE,
 	DepthTest = GL_DEPTH_TEST,
+	DepthClamp = GL_DEPTH_CLAMP,
 	Dither = GL_DITHER,
 	PolygonOffsetFill = GL_POLYGON_OFFSET_FILL,
 	SampleAlphaToCoverage = GL_SAMPLE_ALPHA_TO_COVERAGE,
 	SampleCoverage = GL_SAMPLE_COVERAGE,
 	ScissorTest = GL_SCISSOR_TEST,
 	StencilTest = GL_STENCIL_TEST
+};
+
+enum class DepthFunction : GLenum
+{
+	Never = GL_NEVER,
+	Less = GL_LESS,
+	Equal = GL_EQUAL,
+	LEqual = GL_LEQUAL,
+	Greater = GL_GREATER,
+	NotEqual = GL_NOTEQUAL,
+	GEquel = GL_GEQUAL,
+	Always = GL_ALWAYS
 };
 
 /**
@@ -79,7 +93,7 @@ enum class Attachment : GLenum
 	Color5 = GL_COLOR_ATTACHMENT5,		///< Color Attachment 5
 	Color6 = GL_COLOR_ATTACHMENT6,		///< Color Attachment 6
 	Color7 = GL_COLOR_ATTACHMENT7,		///< Color Attachment 7
-	Depth = GL_DEPTH_ATTACHMENT,			///< Depth Attachment
+	Depth = GL_DEPTH_ATTACHMENT,		///< Depth Attachment
 	Stencil = GL_STENCIL_ATTACHMENT,	///< Stencil Attachment
 	DepthStencil = GL_DEPTH_STENCIL_ATTACHMENT	///< Depth Stencil Attachment
 };

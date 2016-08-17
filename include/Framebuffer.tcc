@@ -121,10 +121,20 @@ void Framebuffer<_CT, _CC, _DT, _UD, _US>::init()
 template<typename _CT, unsigned int _CC, typename _DT, bool _UD, bool _US>
 void Framebuffer<_CT, _CC, _DT, _UD, _US>::bind(FramebufferTarget target, Attachment readAttach) const
 {
-	glBindFramebuffer(to_underlying(target), _handle);
+	Context::safeCheck(
+		[&]() {
+			glBindFramebuffer(to_underlying(target), _handle);
+		},
+		"glBindFramebuffer"
+	);
 	if(target == FramebufferTarget::Read)
 	{
-		glReadBuffer(to_underlying(readAttach));
+		Context::safeCheck(
+			[&]() {
+				glReadBuffer(to_underlying(readAttach));
+			},
+			"glReadBuffer"
+		);
 	} else {
 		Context::viewport(0, 0, _width, _height);
 	}

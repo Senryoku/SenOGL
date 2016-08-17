@@ -1,5 +1,7 @@
 #include <Query.hpp>
 
+#include <Context.hpp>
+
 Query::~Query()
 {
 	cleanup();
@@ -7,7 +9,12 @@ Query::~Query()
 
 void Query::init()
 {
-	glGenQueries(1, &_handle);
+	Context::safeCheck(
+		[&]() {
+			glGenQueries(1, &_handle);
+		},
+		"glGenQueries"
+	);
 }
 
 void Query::cleanup()

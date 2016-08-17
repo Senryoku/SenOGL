@@ -1,8 +1,9 @@
 #include <Texture.hpp>
 
 #include <cassert>
-
 #include <stb_image_write.hpp>
+
+#include <Context.hpp>
 
 Texture::Texture(PixelType pixelType) :
 	OpenGLObject(),
@@ -24,7 +25,12 @@ Texture::~Texture()
 
 void Texture::init()
 {
-	glGenTextures(1, &_handle);
+	Context::safeCheck(
+		[&]() {
+			glGenTextures(1, &_handle);
+		},
+		"glGenTextures"
+	);
 	assert(_handle != 0);
 }
 

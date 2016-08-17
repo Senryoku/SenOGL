@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <functional>
 
 #include <Enums.hpp>
 
@@ -48,9 +49,19 @@ namespace Context
 		glClear(to_underlying(bb));
 	}
 	
+	inline void depthFunc(DepthFunction f)
+	{
+		glDepthFunc(to_underlying(f));
+	}
+	
 	inline void drawElements(Primitive primitiveType, size_t count, IndexType indexType, void* indices)
 	{
 		glDrawElements(to_underlying(primitiveType), count, to_underlying(indexType), indices);
+	}
+	
+	inline void clearError()
+	{
+		glGetError();
 	}
 	
 	inline Error checkError(const std::string& msg = "")
@@ -82,5 +93,12 @@ namespace Context
 			}
 		}
 		return r;
+	}
+	
+	inline void safeCheck(std::function<void()> func, const std::string& msg = "")
+	{
+		clearError();
+		func();
+		checkError(msg);
 	}
 };
