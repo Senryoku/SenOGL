@@ -33,10 +33,20 @@ namespace Context
 	inline void blendFunc(Factor src_f, Factor dst_f);
 
 	inline void drawElements(Primitive primitiveType, size_t count, IndexType indexType, void* indices);
-	
+
 	inline void clearError();
 	inline Error checkError(const std::string& msg = "");
 	inline void safeCheck(std::function<void()> func, const std::string& msg = "");
+	
+	void APIENTRY debug_callback(GLenum source,
+		GLenum type,
+		GLuint id,
+		GLenum severity,
+		GLsizei length,
+		const GLchar* message,
+		const void* userParam);
+	
+	inline void enable_debug();
 };
 
 #include <Context.inl>

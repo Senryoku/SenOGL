@@ -84,3 +84,13 @@ inline void Context::safeCheck(std::function<void()> func, const std::string& ms
 	func();
 	checkError(msg);
 }
+
+inline void Context::enable_debug()
+{
+	enable(Capability::DebugOutput);
+	enable(Capability::DebugOutputSync);
+	glDebugMessageCallback(debug_callback, nullptr);
+	glDebugMessageControl(
+	  GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, true
+	);
+}
