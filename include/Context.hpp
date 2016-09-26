@@ -23,8 +23,10 @@ namespace Context
 	inline void drawElements(Primitive primitiveType, size_t count, IndexType indexType, void* indices = nullptr);
 	
 	inline void enable(Capability c);
-	
+	inline void enable(Capability c, size_t idx);
 	inline void disable(Capability c);
+	inline void disable(Capability c, size_t idx);
+	
 	inline void viewport(size_t x, size_t y, size_t w, size_t h);
 	inline void scissor(size_t x, size_t y, size_t w, size_t h);
 	inline void clear(BufferBit bb);

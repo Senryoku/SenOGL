@@ -5,9 +5,19 @@ inline void Context::enable(Capability c)
 	glEnable(to_underlying(c));
 }
 
+inline void Context::enable(Capability c, size_t i)
+{
+	glEnablei(to_underlying(c), static_cast<GLuint>(i));
+}
+
 inline void Context::disable(Capability c)
 {
 	glDisable(to_underlying(c));
+}
+
+inline void Context::disable(Capability c, size_t i)
+{
+	glDisablei(to_underlying(c), static_cast<GLuint>(i));
 }
 
 inline void Context::viewport(size_t x, size_t y, size_t w, size_t h)
