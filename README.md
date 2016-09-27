@@ -7,13 +7,13 @@ Please let me know if this is usefull to you!
 
 ### Compilation
 
-[Set GLM_INCLUDE_DIR to the path of your local copy of GLM, default is ../glm (Using cmake-gui for example)]
-
 ```
-cmake . 
+mkdir build
+cd build
+cmake .. 
 make
 ```
-This will compile the library to lib/libSenOGL.a.
+This will compile the library to libSenOGL.a.
 
 ### Build a program using SenOGL
 
@@ -30,20 +30,19 @@ Otherwise, add the include directory of SenOGL (assuming gcc as a compiler)
 ```
 and link against libSenOGL
 ```
--L "path/to/SenOGL/lib" -lSenOGL
+-L "path/to/SenOGL/" -lSenOGL
 ```
 or
 ```
--l"path/to/SenOGL/lib/libSenOGL.a"
+-l"path/to/SenOGL/libSenOGL.a"
 ```	
 ## Examples
 
-Some samples can be found at https://github.com/Senryoku/OpenGL_ToolBox
+Some samples can be found at https://github.com/Senryoku/
 
 ## Dependencies
 
-* GL3W (https://github.com/skaslev/gl3w)
+* GL3W (https://github.com/skaslev/gl3w) - Included as a submodule
 * stb_image, stb_image_write (https://github.com/nothings/stb) - Included
-* GLM (http://glm.g-truc.net/) - Only used in UniformBinding.[hpp/cpp] for my own convenience, can be easly replaced.
 
 Thanks to the dev' behind these!

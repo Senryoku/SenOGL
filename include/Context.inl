@@ -1,5 +1,5 @@
 // Inline Implementation
-	
+
 inline void Context::enable(Capability c)
 {
 	glEnable(to_underlying(c));

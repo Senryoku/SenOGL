@@ -2,6 +2,11 @@
 
 namespace Context
 {
+
+bool init()
+{
+	return gl3wInit() != -1;
+}
 	
 void APIENTRY debug_callback(GLenum source,
 	GLenum type,

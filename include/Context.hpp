@@ -12,6 +12,8 @@
 **/
 namespace Context
 {
+	bool init(); // Should be called once after the context is created.
+	
 	inline void enable(Capability c);
 	inline void disable(Capability c);
 	
