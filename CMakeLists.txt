@@ -20,7 +20,6 @@ add_definitions(${OpenGL_DEFINITIONS})
 
 #GL3W
 add_subdirectory("external/gl3w")
-include_directories("external/gl3w/include")
 
 # -----------------------------------------------------------------------------------
 
@@ -48,6 +47,9 @@ set(SOURCE_FILES
 	"src/textures/Texture.cpp"
 	"src/textures/Texture2D.cpp"
 	"src/textures/Texture3D.cpp"
+	
+	"external/stb_image/stb_image.cpp"
+	"external/stb_image/stb_image_write.cpp"
 )
 
 set(SenOGL_INCLUDE_DIRECTORIES
