@@ -36,16 +36,12 @@ void VertexArray::attribute(size_t index, size_t size, Type type, bool normalize
 {
 	assert(index < GL_MAX_VERTEX_ATTRIBS);
 	assert(size > 0 && size <= 4);
-	assert(type == Type::Byte   || type == Type::UByte || type == Type::Short ||
-		   type == Type::UShort || type == Type::Fixed || type == Type::Float);
 	glEnableVertexAttribArray(index);
 	glVertexAttribPointer(index, size, to_underlying(type), normalized, stride, pointer);
 }
 
 void VertexArray::attributeI(size_t index, size_t size, Type type, size_t stride, const void* pointer) const
 {
-	assert(type == Type::Byte   || type == Type::UByte || type == Type::Short ||
-		   type == Type::UShort || type == Type::Int   || type == Type::UInt);
 	glEnableVertexAttribArray(index);
 	glVertexAttribIPointer(index, size, to_underlying(type), stride, pointer);
 }
