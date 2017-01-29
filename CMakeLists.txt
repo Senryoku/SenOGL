@@ -20,7 +20,6 @@ add_definitions(${OpenGL_DEFINITIONS})
 
 #GL3W
 add_subdirectory("external/gl3w")
-include_directories("external/gl3w/include")
 
 # -----------------------------------------------------------------------------------
 
