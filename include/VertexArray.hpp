@@ -10,39 +10,31 @@
 class VertexArray : public OpenGLObject
 {
 public:
-	/**
-	 * Destructor
-	**/
 	virtual ~VertexArray();
 	
-	/**
-	 * Initialization of the OpenGL object
-	**/
 	virtual void init() override; 
 	
-	/**
-	 * Destroys the OpenGLObject.
-	**/ 
+	/// Destroys the OpenGLObject. 
 	virtual void cleanup() override;
 	
-	/**
-	 * Binds the VAO.
-	**/
+	/// Binds the VAO.
 	void bind() const;
 
-	/**
-	 * Unbind any VAO currently bound.
-	**/
+	/// Unbind any VAO currently bound.
 	static void unbind();
 	
-	/**
-	 * glVertexAttribPointer
-	**/
-	void attribute(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer) const;
+	/// glVertexAttribPointer
+	void attribute(size_t index, size_t size, Type type, bool normalized, size_t stride, const void* pointer = nullptr) const;
 	
-	/**
-	 * glVertexAttribPointerI
-	**/
-	void attributeI(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) const;
+	/// Helper for setting attributes of a bound VBO (offset instead of a pointer to the first value)
+	inline void attribute(size_t index, size_t size, Type type, bool normalized, size_t stride, size_t offset) const;
+	
+	/// glVertexAttribPointerI
+	void attributeI(size_t index, size_t size, Type type, size_t stride, const void* pointer = nullptr) const;
 private:
 };
+
+void VertexArray::attribute(size_t index, size_t size, Type type, bool normalized, size_t stride, size_t offset) const
+{
+	attribute(index, size, type, normalized, stride, reinterpret_cast<const void*>(offset));
+}
