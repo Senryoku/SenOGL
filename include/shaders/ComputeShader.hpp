@@ -20,20 +20,20 @@ public:
 	 */
 	enum class BarrierBit : GLbitfield
 	{
-		VertexAttribArray = GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT,
+		VertexAttribArray   = GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT,
 		ElementArrayBarrier = GL_ELEMENT_ARRAY_BARRIER_BIT,
-		Uniform = GL_UNIFORM_BARRIER_BIT,
-		TextureFetch = GL_TEXTURE_FETCH_BARRIER_BIT,
-		ShaderImageAccess = GL_SHADER_IMAGE_ACCESS_BARRIER_BIT,
-		Commande = GL_COMMAND_BARRIER_BIT,
-		PixelBuffer = GL_PIXEL_BUFFER_BARRIER_BIT,
-		TextureUpdate = GL_TEXTURE_UPDATE_BARRIER_BIT,
-		BufferUpdate = GL_BUFFER_UPDATE_BARRIER_BIT,
-		Framebuffer = GL_FRAMEBUFFER_BARRIER_BIT,
-		TransformFeedback = GL_TRANSFORM_FEEDBACK_BARRIER_BIT,
-		AtomicCounter = GL_ATOMIC_COUNTER_BARRIER_BIT,
-		ShaderStorage = GL_SHADER_STORAGE_BARRIER_BIT,
-		All = GL_ALL_BARRIER_BITS
+		Uniform             = GL_UNIFORM_BARRIER_BIT,
+		TextureFetch        = GL_TEXTURE_FETCH_BARRIER_BIT,
+		ShaderImageAccess   = GL_SHADER_IMAGE_ACCESS_BARRIER_BIT,
+		Commande            = GL_COMMAND_BARRIER_BIT,
+		PixelBuffer         = GL_PIXEL_BUFFER_BARRIER_BIT,
+		TextureUpdate       = GL_TEXTURE_UPDATE_BARRIER_BIT,
+		BufferUpdate        = GL_BUFFER_UPDATE_BARRIER_BIT,
+		Framebuffer         = GL_FRAMEBUFFER_BARRIER_BIT,
+		TransformFeedback   = GL_TRANSFORM_FEEDBACK_BARRIER_BIT,
+		AtomicCounter       = GL_ATOMIC_COUNTER_BARRIER_BIT,
+		ShaderStorage       = GL_SHADER_STORAGE_BARRIER_BIT,
+		All                 = GL_ALL_BARRIER_BITS
 	};
 
 	/// Structure containing size information about Compute shader workgroups

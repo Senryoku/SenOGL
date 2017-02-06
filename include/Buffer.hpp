@@ -18,20 +18,20 @@ public:
 	**/
 	enum class Target : GLenum
 	{
-		VertexAttributes = GL_ARRAY_BUFFER,  						///< Vertex attributes (VBO)
-		AtomicCounter = GL_ATOMIC_COUNTER_BUFFER, 					///< Atomic counter storage
-		CopyRead = GL_COPY_READ_BUFFER, 							///< Buffer copy source
-		CopyWrite = GL_COPY_WRITE_BUFFER, 							///< Buffer copy destination
-		IndirectDispatch = GL_DISPATCH_INDIRECT_BUFFER, 			///< Indirect compute dispatch commands
-		IndirectDraw = GL_DRAW_INDIRECT_BUFFER, 					///< Indirect command arguments
-		VertexIndices = GL_ELEMENT_ARRAY_BUFFER, 					///< Vertex array indices (IBO)
-		PixelPack = GL_PIXEL_PACK_BUFFER, 							///< Pixel read target
-		PixelUnpack = GL_PIXEL_UNPACK_BUFFER,						///< Texture data source
-		Query = GL_QUERY_BUFFER,									///< Query result buffer
-		ShaderStorage = GL_SHADER_STORAGE_BUFFER, 					///< Read-write storage for shaders
-		Texture = GL_TEXTURE_BUFFER, 								///< Texture data buffer
-		TransformFeedback = GL_TRANSFORM_FEEDBACK_BUFFER, 			///< Transform feedback buffer
-		Uniform = GL_UNIFORM_BUFFER 								///< Uniform block storage (UBO)
+		VertexAttributes  = GL_ARRAY_BUFFER,  				///< Vertex attributes (VBO)
+		AtomicCounter     = GL_ATOMIC_COUNTER_BUFFER, 		///< Atomic counter storage
+		CopyRead          = GL_COPY_READ_BUFFER, 			///< Buffer copy source
+		CopyWrite         = GL_COPY_WRITE_BUFFER, 			///< Buffer copy destination
+		IndirectDispatch  = GL_DISPATCH_INDIRECT_BUFFER, 	///< Indirect compute dispatch commands
+		IndirectDraw      = GL_DRAW_INDIRECT_BUFFER, 		///< Indirect command arguments
+		VertexIndices     = GL_ELEMENT_ARRAY_BUFFER, 		///< Vertex array indices (IBO)
+		PixelPack         = GL_PIXEL_PACK_BUFFER, 			///< Pixel read target
+		PixelUnpack       = GL_PIXEL_UNPACK_BUFFER,			///< Texture data source
+		Query             = GL_QUERY_BUFFER,				///< Query result buffer
+		ShaderStorage     = GL_SHADER_STORAGE_BUFFER, 		///< Read-write storage for shaders
+		Texture           = GL_TEXTURE_BUFFER, 				///< Texture data buffer
+		TransformFeedback = GL_TRANSFORM_FEEDBACK_BUFFER, 	///< Transform feedback buffer
+		Uniform           = GL_UNIFORM_BUFFER 				///< Uniform block storage (UBO)
 	};
 	
 	/**
@@ -48,15 +48,15 @@ public:
 	**/
 	enum class Usage : GLenum
 	{
-		StaticDraw = GL_STATIC_DRAW,	///< GL_STATIC_DRAW
-		StaticRead = GL_STATIC_READ,	///< GL_STATIC_READ
-		StaticCopy = GL_STATIC_COPY,	///< GL_STATIC_COPY
+		StaticDraw  = GL_STATIC_DRAW,	///< GL_STATIC_DRAW
+		StaticRead  = GL_STATIC_READ,	///< GL_STATIC_READ
+		StaticCopy  = GL_STATIC_COPY,	///< GL_STATIC_COPY
 		DynamicDraw = GL_DYNAMIC_DRAW,	///< GL_DYNAMIC_DRAW
 		DynamicRead = GL_DYNAMIC_READ,	///< GL_DYNAMIC_READ
 		DynamicCopy = GL_DYNAMIC_COPY,	///< GL_DYNAMIC_COPY
-		StreamDraw = GL_STREAM_DRAW,	///< GL_STREAM_DRAW
-		StreamRead = GL_STREAM_READ,	///< GL_STREAM_READ
-		StreamCopy = GL_STREAM_COPY		///< GL_STREAM_COPY
+		StreamDraw  = GL_STREAM_DRAW,	///< GL_STREAM_DRAW
+		StreamRead  = GL_STREAM_READ,	///< GL_STREAM_READ
+		StreamCopy  = GL_STREAM_COPY	///< GL_STREAM_COPY
 	};
 	
 	/**
@@ -66,11 +66,11 @@ public:
 	{
 		Unspecified = 0,
 		DynamicStorageBit = GL_DYNAMIC_STORAGE_BIT,	///< The contents of the data store may be updated after creation through calls to glBufferSubData. If this bit is not set, the buffer content may not be directly updated by the client. The data argument may be used to specify the initial content of the buffer's data store regardless of the presence of the GL_DYNAMIC_STORAGE_BIT​. Regardless of the presence of this bit, buffers may always be updated with server-side calls such as glCopyBufferSubData​ and glClearBufferSubData​.
-		MapReadBit = GL_MAP_READ_BIT,				///< The data store may be mapped by the client for read access and a pointer in the client's address space obtained that may be read from.
-		MapWriteBit = GL_MAP_WRITE_BIT,				///< The data store may be mapped by the client for write access and a pointer in the client's address space obtained that may be written through.
-		MapPersistentBit = GL_MAP_PERSISTENT_BIT,	///< The client may request that the server read from or write to the buffer while it is mapped. The client's pointer to the data store remains valid so long as the data store is mapped, even during execution of drawing or dispatch commands.
-		MapCoherentBit = GL_MAP_COHERENT_BIT,		///< Shared access to buffers that are simultaneously mapped for client access and are used by the server will be coherent, so long as that mapping is performed using glMapBufferRange​. That is, data written to the store by either the client or server will be immediately visible to the other with no further action taken by the application. In particular,
-		ClientStorageBit = GL_CLIENT_STORAGE_BIT	///< A hint that the buffer object's data should be stored in client memory. Assuming that such a distinction exists in the driver.
+		MapReadBit        = GL_MAP_READ_BIT,		///< The data store may be mapped by the client for read access and a pointer in the client's address space obtained that may be read from.
+		MapWriteBit       = GL_MAP_WRITE_BIT,		///< The data store may be mapped by the client for write access and a pointer in the client's address space obtained that may be written through.
+		MapPersistentBit  = GL_MAP_PERSISTENT_BIT,	///< The client may request that the server read from or write to the buffer while it is mapped. The client's pointer to the data store remains valid so long as the data store is mapped, even during execution of drawing or dispatch commands.
+		MapCoherentBit    = GL_MAP_COHERENT_BIT,	///< Shared access to buffers that are simultaneously mapped for client access and are used by the server will be coherent, so long as that mapping is performed using glMapBufferRange​. That is, data written to the store by either the client or server will be immediately visible to the other with no further action taken by the application. In particular,
+		ClientStorageBit  = GL_CLIENT_STORAGE_BIT	///< A hint that the buffer object's data should be stored in client memory. Assuming that such a distinction exists in the driver.
 	};
 	
 	/**

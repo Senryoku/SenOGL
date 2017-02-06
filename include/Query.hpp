@@ -17,13 +17,13 @@ public:
 	 */
 	enum class Target : GLenum
 	{
-		SamplesPassed = GL_SAMPLES_PASSED,
-		AnySamplesPassed = GL_ANY_SAMPLES_PASSED,
-		AnySamplesPassedConservative = GL_ANY_SAMPLES_PASSED_CONSERVATIVE,
-		PrimitivesGenerated = GL_PRIMITIVES_GENERATED,
+		SamplesPassed                      = GL_SAMPLES_PASSED,
+		AnySamplesPassed                   = GL_ANY_SAMPLES_PASSED,
+		AnySamplesPassedConservative       = GL_ANY_SAMPLES_PASSED_CONSERVATIVE,
+		PrimitivesGenerated                = GL_PRIMITIVES_GENERATED,
 		TransformFeedbackPrimitivesWritten = GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN,
-		TimeElapsed = GL_TIME_ELAPSED,
-		Timestamp = GL_TIMESTAMP,
+		TimeElapsed                        = GL_TIME_ELAPSED,
+		Timestamp                          = GL_TIMESTAMP,
 		None
 	};
 	
@@ -32,9 +32,9 @@ public:
 	 */
 	enum class Parameter : GLenum
 	{
-		Result = GL_QUERY_RESULT,
+		Result       = GL_QUERY_RESULT,
 		ResultNoWait = GL_QUERY_RESULT_NO_WAIT,
-		Available = GL_QUERY_RESULT_AVAILABLE
+		Available    = GL_QUERY_RESULT_AVAILABLE
 	};
 
 	/**
