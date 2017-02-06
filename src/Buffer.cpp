@@ -78,6 +78,8 @@ void Buffer::init()
 		},
 		"glGenBuffers"
 	);
+	
+	assert(isValid());
 }
 
 void Buffer::init(Target t)
