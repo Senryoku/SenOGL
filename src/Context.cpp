@@ -8,7 +8,7 @@ bool init()
 	return gl3wInit() != -1;
 }
 	
-void APIENTRY debug_callback(GLenum source,
+void APIENTRY debugCallback(GLenum source,
 	GLenum type,
 	GLuint id,
 	GLenum severity,

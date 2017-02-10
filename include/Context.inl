@@ -95,7 +95,7 @@ inline void Context::safeCheck(std::function<void()> func, const std::string& ms
 	checkError(msg);
 }
 
-inline void Context::enable_debug()
+inline void Context::enableDebug()
 {
 	enable(Capability::DebugOutput);
 	enable(Capability::DebugOutputSync);

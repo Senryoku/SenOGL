@@ -42,7 +42,7 @@ namespace Context
 	inline Error checkError(const std::string& msg = "");
 	inline void safeCheck(std::function<void()> func, const std::string& msg = "");
 	
-	void APIENTRY debug_callback(GLenum source,
+	void APIENTRY debugCallback(GLenum source,
 		GLenum type,
 		GLuint id,
 		GLenum severity,
@@ -50,7 +50,7 @@ namespace Context
 		const GLchar* message,
 		const void* userParam);
 	
-	inline void enable_debug();
+	inline void enableDebug();
 };
 
 #include <Context.inl>
