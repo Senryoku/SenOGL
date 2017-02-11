@@ -32,12 +32,12 @@ void setUniform(GLint program, GLuint location, const unsigned int& value)
 {
 	glProgramUniform1ui(program, location, value);
 }
-/*
-void setUniform(GLint program, GLuint location, const size_t& value)
+
+void setUniform(GLint program, GLuint location, const long long unsigned int& value)
 {
-	setUniform(program, location, static_cast<unsigned int>(value));
+	glProgramUniform1ui(program, location, value);
 }
-*/
+
 void setUniform(GLint program, GLuint location, const std::array<unsigned int, 2>& value)
 {
 	glProgramUniform2uiv(program, location, 1, (const GLuint*) value.data());
@@ -82,6 +82,11 @@ void setUniform(GLint program, GLuint location, const std::array<int, 4>* value)
 }
 
 void setUniform(GLint program, GLuint location, const unsigned int* value)
+{
+	glProgramUniform1ui(program, location, *value);
+}
+
+void setUniform(GLint program, GLuint location, const long long unsigned int* value)
 {
 	glProgramUniform1ui(program, location, *value);
 }
@@ -134,6 +139,11 @@ void setUniform(GLuint location, const unsigned int& value)
 	glUniform1ui(location, value);
 }
 
+void setUniform(GLuint location, const long long unsigned int& value)
+{
+	glUniform1ui(location, value);
+}
+
 void setUniform(GLuint location, const std::array<unsigned int, 2>& value)
 {
 	glUniform2uiv(location, 1, (const GLuint*) value.data());
@@ -177,7 +187,12 @@ void setUniform(GLuint location, const std::array<int, 4>*value )
 	glUniform4iv(location, 1, (const GLint*) (*value).data());
 }
 
-void setUniform(GLuint location, const unsigned int*value )
+void setUniform(GLuint location, const unsigned int* value )
+{
+	glUniform1ui(location, *value);
+}
+
+void setUniform(GLuint location, const long long unsigned int* value )
 {
 	glUniform1ui(location, *value);
 }
