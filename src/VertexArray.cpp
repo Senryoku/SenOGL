@@ -32,16 +32,16 @@ void VertexArray::unbind()
 	glBindVertexArray(0);
 }
 
-void VertexArray::attribute(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const GLvoid* pointer) const
+void VertexArray::attribute(size_t index, size_t size, Type type, bool normalized, size_t stride, const void* pointer) const
 {
+	assert(index < GL_MAX_VERTEX_ATTRIBS);
+	assert(size > 0 && size <= 4);
 	glEnableVertexAttribArray(index);
-	glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+	glVertexAttribPointer(index, size, to_underlying(type), normalized, stride, pointer);
 }
 
-void VertexArray::attributeI(GLuint index, GLint size, GLenum type, GLsizei stride, const GLvoid* pointer) const
+void VertexArray::attributeI(size_t index, size_t size, Type type, size_t stride, const void* pointer) const
 {
-	assert(type == GL_BYTE || type == GL_UNSIGNED_BYTE || type == GL_SHORT ||
-			type == GL_UNSIGNED_SHORT || type == GL_INT || type == GL_UNSIGNED_INT);
 	glEnableVertexAttribArray(index);
-	glVertexAttribIPointer(index, size, type, stride, pointer);
+	glVertexAttribIPointer(index, size, to_underlying(type), stride, pointer);
 }

@@ -41,35 +41,35 @@ public:
 	enum class Parameter : GLenum
 	{
 		DepthStencilMode = GL_DEPTH_STENCIL_TEXTURE_MODE,
-		BaseLevel = GL_TEXTURE_BASE_LEVEL,
-		MaxLevel = GL_TEXTURE_MAX_LEVEL,
-		SwizzleR = GL_TEXTURE_SWIZZLE_R, 
-		SwizzleG = GL_TEXTURE_SWIZZLE_G, 
-		SwizzleB = GL_TEXTURE_SWIZZLE_B,
-		SwizzleA = GL_TEXTURE_SWIZZLE_A,
+		BaseLevel        = GL_TEXTURE_BASE_LEVEL,
+		MaxLevel         = GL_TEXTURE_MAX_LEVEL,
+		SwizzleR         = GL_TEXTURE_SWIZZLE_R, 
+		SwizzleG         = GL_TEXTURE_SWIZZLE_G, 
+		SwizzleB         = GL_TEXTURE_SWIZZLE_B,
+		SwizzleA         = GL_TEXTURE_SWIZZLE_A,
 		// Common with Sampler
-		MinFilter = GL_TEXTURE_MIN_FILTER,
-		MagFilter = GL_TEXTURE_MAG_FILTER,
-		MinLoD = GL_TEXTURE_MIN_LOD,
-		MaxLoD = GL_TEXTURE_MAX_LOD,
-		LoDBias = GL_TEXTURE_LOD_BIAS,
-		WrapS = GL_TEXTURE_WRAP_S,
-		WrapT = GL_TEXTURE_WRAP_T,
-		WrapR = GL_TEXTURE_WRAP_R,
-		BorderColor = GL_TEXTURE_BORDER_COLOR,
-		CompareMode = GL_TEXTURE_COMPARE_MODE,
-		CompareFunc = GL_TEXTURE_COMPARE_FUNC
+		MinFilter        = GL_TEXTURE_MIN_FILTER,
+		MagFilter        = GL_TEXTURE_MAG_FILTER,
+		MinLoD           = GL_TEXTURE_MIN_LOD,
+		MaxLoD           = GL_TEXTURE_MAX_LOD,
+		LoDBias          = GL_TEXTURE_LOD_BIAS,
+		WrapS            = GL_TEXTURE_WRAP_S,
+		WrapT            = GL_TEXTURE_WRAP_T,
+		WrapR            = GL_TEXTURE_WRAP_R,
+		BorderColor      = GL_TEXTURE_BORDER_COLOR,
+		CompareMode      = GL_TEXTURE_COMPARE_MODE,
+		CompareFunc      = GL_TEXTURE_COMPARE_FUNC
 	};
 	
 	/// @todo Complete.
 	enum class PixelType : GLenum
 	{
-		UnsignedByte = GL_UNSIGNED_BYTE,
-		UnsignedShort565 = GL_UNSIGNED_SHORT_5_6_5,
+		UnsignedByte      = GL_UNSIGNED_BYTE,
+		UnsignedShort565  = GL_UNSIGNED_SHORT_5_6_5,
 		UnsignedShort4444 = GL_UNSIGNED_SHORT_4_4_4_4,
 		UnsignedShort5551 = GL_UNSIGNED_SHORT_5_5_5_1,
-		HalfFloat = GL_HALF_FLOAT,
-		Float = GL_FLOAT
+		HalfFloat         = GL_HALF_FLOAT,
+		Float             = GL_FLOAT
 	};
 	
 	Texture(PixelType pixelType = PixelType::UnsignedByte);

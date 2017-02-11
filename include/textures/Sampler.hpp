@@ -18,14 +18,14 @@ public:
 	 */
 	enum class Parameter : GLenum
 	{
-		MinFilter = GL_TEXTURE_MIN_FILTER,
-		MagFilter = GL_TEXTURE_MAG_FILTER,
-		MinLoD = GL_TEXTURE_MIN_LOD,
-		MaxLoD = GL_TEXTURE_MAX_LOD,
-		LoDBias = GL_TEXTURE_LOD_BIAS,
-		WrapS = GL_TEXTURE_WRAP_S,
-		WrapT = GL_TEXTURE_WRAP_T,
-		WrapR = GL_TEXTURE_WRAP_R,
+		MinFilter   = GL_TEXTURE_MIN_FILTER,
+		MagFilter   = GL_TEXTURE_MAG_FILTER,
+		MinLoD      = GL_TEXTURE_MIN_LOD,
+		MaxLoD      = GL_TEXTURE_MAX_LOD,
+		LoDBias     = GL_TEXTURE_LOD_BIAS,
+		WrapS       = GL_TEXTURE_WRAP_S,
+		WrapT       = GL_TEXTURE_WRAP_T,
+		WrapR       = GL_TEXTURE_WRAP_R,
 		BorderColor = GL_TEXTURE_BORDER_COLOR,
 		CompareMode = GL_TEXTURE_COMPARE_MODE,
 		CompareFunc = GL_TEXTURE_COMPARE_FUNC
