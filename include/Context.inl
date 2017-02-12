@@ -99,7 +99,7 @@ inline void Context::enableDebug()
 {
 	enable(Capability::DebugOutput);
 	enable(Capability::DebugOutputSync);
-	glDebugMessageCallback(debug_callback, nullptr);
+	glDebugMessageCallback(debugCallback, nullptr);
 	glDebugMessageControl(
 	  GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, true
 	);
