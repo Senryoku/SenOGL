@@ -61,7 +61,7 @@ set(SenOGL_INCLUDE_DIRECTORIES
 	"external/gl3w/include"
 )
 
-list(APPEND CMAKE_CXX_FLAGS "-std=c++17 -Wall")
+list(APPEND CMAKE_CXX_FLAGS " --std=c++17 -Wall")
 
 add_library(SenOGL STATIC ${SOURCE_FILES})
 target_link_libraries(SenOGL gl3w ${OPENGL_LIBRARIES})
