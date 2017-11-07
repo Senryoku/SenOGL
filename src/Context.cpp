@@ -26,4 +26,4 @@ void APIENTRY debugCallback(GLenum source,
 	}
 }
 
-};
+}

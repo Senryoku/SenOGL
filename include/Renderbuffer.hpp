@@ -47,4 +47,4 @@ private:
 bool Renderbuffer::isValid() const
 {
 	return OpenGLObject::isValid() && _initialized;
-};
+}

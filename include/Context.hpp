@@ -51,6 +51,6 @@ namespace Context
 		const void* userParam);
 	
 	inline void enableDebug();
-};
+}
 
 #include <Context.inl>
