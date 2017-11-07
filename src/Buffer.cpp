@@ -96,8 +96,11 @@ void Buffer::data(const void* data, size_t size, Buffer::Usage usage) const
 
 void Buffer::store(const void* data, size_t size, Buffer::StorageUsage flags) const
 {
+	/*
 	bind();
-    glBufferStorage(to_underlying(_type), size, data, to_underlying(flags));
+	glBufferStorage(to_underlying(_type), size, data, to_underlying(flags));
+	*/
+	glNamedBufferData(getName(), size, data, to_underlying(flags));
 }
 
 void Buffer::subData(size_t offset, size_t size, const void* data) const

@@ -90,9 +90,13 @@ inline Error Context::checkError(const std::string& msg)
 
 inline void Context::safeCheck(std::function<void()> func, const std::string& msg)
 {
+	#ifdef NDEBUG
 	clearError();
+	#endif
 	func();
+	#ifdef NDEBUG
 	checkError(msg);
+	#endif
 }
 
 inline void Context::enableDebug()
