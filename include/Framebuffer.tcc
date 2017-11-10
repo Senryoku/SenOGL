@@ -208,7 +208,7 @@ template<typename _CT, unsigned int _CC, typename _DT, bool _UD, bool _US>
 inline void Framebuffer<_CT, _CC, _DT, _UD, _US>::unbind(FramebufferTarget target)
 {
 	glBindFramebuffer(to_underlying(target), 0);
-};
+}
 
 template<typename _CT, unsigned int _CC, typename _DT, bool _UD, bool _US>
 Attachment Framebuffer<_CT, _CC, _DT, _UD, _US>::attachmentColor(unsigned int i)
