@@ -3,9 +3,16 @@
 #include <Program.hpp>
 
 ComputeShader::ComputeShader(bool standalone) :
-	Shader(),
 	_standalone(standalone)
 {
+	if(_standalone)
+		initProgram();
+}
+
+ComputeShader::ComputeShader(const std::string& file, bool standalone) :
+	_standalone(standalone)
+{
+	loadFromFile(file);
 	if(_standalone)
 		initProgram();
 }

@@ -50,10 +50,7 @@ public:
 	**/
 	ComputeShader(bool standalone = true);
 	
-	ComputeShader(const std::string& file, bool standalone = true)
-	{
-		loadFromFile(file);
-	}
+	ComputeShader(const std::string& file, bool standalone = true);
 	
 	/**
 	 * Destructor
